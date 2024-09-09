@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.041117445, g: 0.07249471, b: 0.12565556, a: 1}
+  m_IndirectSpecularColor: {r: 0.041120112, g: 0.07249693, b: 0.1256583, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1580,6 +1580,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.020000001, y: 0.02, z: 0.02}
   m_Center: {x: 0, y: -0.000000011175871, z: 9.313226e-10}
+--- !u!1 &277530068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4764510604297581600, guid: 64bd14ac020b56d4abb677e5791db699, type: 3}
+  m_PrefabInstance: {fileID: 1930300767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &289105259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32edffebf979b21468b26ad7765223ea, type: 3}
@@ -3860,6 +3865,7 @@ GameObject:
   - component: {fileID: 633685065}
   - component: {fileID: 633685064}
   - component: {fileID: 633685072}
+  - component: {fileID: 633685073}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4144,6 +4150,22 @@ MonoBehaviour:
   - {fileID: 783480451}
   activeTime: 5
   cooldownTime: 10
+--- !u!114 &633685073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633685061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79261ab6b3bc1841a01d5f37f078bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 1453506483}
+  - {fileID: 2116345869}
+  - {fileID: 277530068}
 --- !u!1 &645132183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32edffebf979b21468b26ad7765223ea, type: 3}
@@ -8610,6 +8632,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.019999998, y: 0.019999994, z: 0.019999996}
   m_Center: {x: 0, y: 0.000000014901161, z: 0.0000000018626451}
+--- !u!1 &1453506483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4674594513975921832, guid: c05f1db52954eaf429350eb0d9c555a1, type: 3}
+  m_PrefabInstance: {fileID: 1535291147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1458970262
 PrefabInstance:
   m_ObjectHideFlags: 0

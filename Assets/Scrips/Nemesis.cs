@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 public class Nemesis : MonoBehaviour
 {
@@ -13,27 +14,28 @@ public class Nemesis : MonoBehaviour
     public float grado;
     public Rigidbody rb;
     public GameObject target;
-    public NavMeshAgent Agente;
-    public float Speed;
-    public DisparoEne DisparoEne;
+    public NavMeshAgent agente;
+    public float speed;
+    public EnemyShot enemyShot;
     public GameObject balaEnemiga;
     //----Conducta
     public bool hostil;
-    //DIsparo
+    //Disparo
     [SerializeField] private float _fireRate = 2;
-    [SerializeField] float _timer = 0;
+    [SerializeField] private float _timer = 0;
     public GameObject spawnPoint;
 
     private void Start()
     {   
         hostil= false;
-        target = GameObject.Find("Player");
+        target = GameObject.Find("Player"); // TODO refactor this
     }
-    void Update()
+
+    private void Update()
     {
         Comportamiento_Enemigo();        
     }
-    public void agresion()
+    public void Agresion()
     {
         hostil = true;
     }
@@ -59,31 +61,30 @@ public class Nemesis : MonoBehaviour
                     break;
                 case 2:
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, angulo, 0.5f);
-                    transform.Translate(Vector3.forward * 1 * Time.deltaTime);
+                    transform.Translate(Vector3.forward * (1 * Time.deltaTime));
 
                     break;
             }
         }
-        else Perseguir();      
-        
+        else Perseguir();
     }
-    
-    void Perseguir()
+
+    private void Perseguir()
     {
-        if (Vector3.Distance(transform.position, target.transform.position) > 10 || hostil)//mientras el jugador este a mas de 10 metros lo seeguira, sino dispara.
+        if (Vector3.Distance(transform.position, target.transform.position) > 10 || hostil)// mientras el jugador este a mas de 10 metros lo seeguira, sino dispara.
         {
-            Speed = 2;
+            speed = 2;
             var lookPos = target.transform.position - transform.position;
             lookPos.y = 0;
             var rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 2);
-            transform.Translate(Vector3.forward * Speed * 2 * Time.deltaTime);
+            transform.Translate(Vector3.forward * (speed * 2 * Time.deltaTime));
             if (Vector3.Distance(transform.position, target.transform.position) < 5);
         }
-        else shoot();
+        else Shoot();
     }
-    
-    void shoot()
+
+    private void Shoot()
     {
         var lookPos = target.transform.position - transform.position;
         lookPos.y = 0;
@@ -98,8 +99,6 @@ public class Nemesis : MonoBehaviour
             _timer = 0;
 
             Instantiate(balaEnemiga, spawnPoint.transform.position, Quaternion.identity);
-
         }
     }
-
 }

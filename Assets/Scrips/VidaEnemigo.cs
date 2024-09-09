@@ -19,7 +19,7 @@ public class VidaEnemigo : MonoBehaviour
     {
         if (vida==90)
         {
-            nemesis.agresion();
+            nemesis.Agresion();
         }
     }
     

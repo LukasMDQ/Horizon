@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisparoEne : MonoBehaviour
+public class EnemyShot : MonoBehaviour
 {
     public GameObject eRocket;
     public GameObject eBullet;
