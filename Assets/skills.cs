@@ -4,7 +4,7 @@ using UnityEngine.UI;  // Necesario para usar UI como Slider
 
 public class skills : MonoBehaviour
 {
-    
+
     public GameObject[] skillsObject;
 
     
@@ -24,7 +24,6 @@ public class skills : MonoBehaviour
 
     void Start()
     {
-       
         onCooldown = new bool[skillsObject.Length];
         cooldownTimers = new float[skillsObject.Length];
 
