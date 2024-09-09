@@ -1,37 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet_IA2 : MonoBehaviour
 {
-    [SerializeField] float _speed = default; 
+    [SerializeField] private float _speed;
 
-    private Transform player;
-    void Start()
+    private Transform _player;
+
+    private void Start()
     {        
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        _player = GameObject.FindGameObjectWithTag("Player").transform; // TODO refactor this
     }
-    
-    void Update()
+
+    private void Update()
     {
-        if (player != null)
+        if (_player != null)
         {
             // Calcula  distancia entre el objeto y el "Jugador"
-            float distance = Vector3.Distance(transform.position, player.position);
-            // Calcula la dirección hacia el "Player"
-            Vector3 direction = (player.position - transform.position).normalized;
+            float distance = Vector3.Distance(transform.position, _player.position);
+            // Calcula la direcciÃ³n hacia el "Player"
+            Vector3 direction = (_player.position - transform.position).normalized;
 
             // Mueve el objeto hacia el "Jugador"
-            transform.position += direction * _speed * Time.deltaTime;          
+            transform.position += direction * (_speed * Time.deltaTime);          
             
-        }       
-
+        }
     }
-    private void OnTriggerEnter(Collider other)//DAÑO AL JUGADOR
+    
+    private void OnTriggerEnter(Collider other)//DAÃ‘O AL JUGADOR
     {
-        if (other.CompareTag("Player")) destruct();
+        if (other.CompareTag("Player")) Destruct();
     }
-    void destruct()
+
+    private void Destruct()
     {
         //Instantiate(explosion, transform.position, transform.rotation);
         Destroy(gameObject);
