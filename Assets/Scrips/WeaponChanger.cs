@@ -6,29 +6,29 @@ using UnityEngine;
 public class WeaponChanger : MonoBehaviour
 {
     public GameObject[] weapons;
-    private int _selectedWeapon;
+    public int selectedWeapon; //Public para el Animator
 
     private void Start()
     {
         weapons[0].SetActive(true);
-        _selectedWeapon = 0;
+        selectedWeapon = 0;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            _selectedWeapon--;
-            if (_selectedWeapon < 0) _selectedWeapon = weapons.Length - 1;
+            selectedWeapon--;
+            if (selectedWeapon < 0) selectedWeapon = weapons.Length - 1;
             
-            ActivateWeapon(_selectedWeapon);
+            ActivateWeapon(selectedWeapon);
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            _selectedWeapon++;
-            if (_selectedWeapon > weapons.Length - 1) _selectedWeapon = 0;
+            selectedWeapon++;
+            if (selectedWeapon > weapons.Length - 1) selectedWeapon = 0;
             
-            ActivateWeapon(_selectedWeapon);
+            ActivateWeapon(selectedWeapon);
         }
     }
 

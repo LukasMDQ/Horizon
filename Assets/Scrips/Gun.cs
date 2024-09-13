@@ -9,9 +9,9 @@ public class Gun : MonoBehaviour
     [SerializeField] AudioClip _Clip_Fire, _Clip_Impact, _Clip_ObjectInpact;
     [SerializeField] float _range = default;//100
     [SerializeField] Camera _playerCam;
-    public Nemesis nemesis;   
+    public Nemesis nemesis;
+    public WeaponChanger changer;
 
-    
     void Update()
     {
         FireInput();
@@ -21,7 +21,10 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) 
         {           
             Fire();
-            flash();
+            if (changer.selectedWeapon == 0 || changer.selectedWeapon == 1)
+            {
+                flash();
+            }
         }
     } 
     void Fire()
@@ -29,6 +32,7 @@ public class Gun : MonoBehaviour
 
         RaycastHit hit;
         AudioDisparo( _Clip_Fire );
+        
         if (Physics.Raycast(_playerCam.transform.position, _playerCam.transform.forward, out hit, _range))
         {
             if (hit.transform.tag == "Enemy")
