@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 //using JetBrains.Annotations;
 //using Unity.VisualScripting;
 
@@ -10,7 +11,7 @@ public class Stats : MonoBehaviour
     //-------AUDIO
     //-------ANIMATION
     //---------UI-------
-    [SerializeField] TextMeshProUGUI textBullet;    
+    [SerializeField] TextMeshProUGUI textBullet;
     [SerializeField] GameObject _lostMenu;
     //[SerializeField] private GameObject _winMenu, _lostMenu;
     //[SerializeField] public UI ui;
@@ -18,7 +19,7 @@ public class Stats : MonoBehaviour
     //public TextMeshProUGUI textScore, textPoints, textHp;   
     //---------STATS----    
     public int score, points, damage = default;
-    public float curHp, maxHp = default;    
+    public float curHp, maxHp = default;
     public int shieldLvl = default;
     public int bulletCount, maxBulletCount = default;
 
@@ -31,6 +32,9 @@ public class Stats : MonoBehaviour
     public float shieldCooldown = default;
     public float shieldTime = default;
     //-----ATTACK    
+    public Image hpBar;
+    public float hpBarAmount = 100f;
+    //--------HUD
     void Start()
     {
         shieldCooldown = shieldTime;
@@ -53,6 +57,7 @@ public class Stats : MonoBehaviour
         ActiveShield();
         ShieldCooldown();
         Death();
+        UIUpdate();
         textBullet.text = bulletCount.ToString();
     }
 
@@ -110,5 +115,12 @@ public class Stats : MonoBehaviour
         //cooldown.ChangeCurshield(shieldCooldown);
         shieldCooldown += Time.deltaTime;
         if (shieldCooldown >= shieldTime) shieldCooldown = shieldTime;
+    }
+
+    //----------UI-------   
+
+    public void UIUpdate()
+    {
+        hpBar.fillAmount = curHp / 100f;
     }
 }
