@@ -6,6 +6,7 @@ public class skills : MonoBehaviour
 {
 
     public GameObject[] skillsObject;
+    Stats stats;
 
     
     public Slider[] cooldownSliders;
@@ -26,8 +27,9 @@ public class skills : MonoBehaviour
     {
         onCooldown = new bool[skillsObject.Length];
         cooldownTimers = new float[skillsObject.Length];
+        stats = GetComponent<Stats>();
 
-       
+
         foreach (GameObject skill in skillsObject)
         {
             skill.SetActive(false);
@@ -46,10 +48,12 @@ public class skills : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1) && !onCooldown[0])
         {
             ActivateSkill(0);
+            stats.Heal(10);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && !onCooldown[1])
         {
             ActivateSkill(1);
+            stats.Buff(10);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && !onCooldown[2])
         {
