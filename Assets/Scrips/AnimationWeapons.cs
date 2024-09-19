@@ -5,24 +5,15 @@ using UnityEngine;
 
 public class AnimationWeapons : MonoBehaviour
 {
-    public GameObject weaponPistol; //0
-    public GameObject weaponSword; //2
-    public GameObject weaponShotgun; //1
-    public GameObject swordCollider; //1
-    public WeaponChanger changer;
-    public Stats stats;
+    public WeaponChanger changer; // Referencia a cambio de Armas
+    public Stats stats; // Referencia a Stats para cantidad de munición
 
-    Animator animatorPistol; Animator animatorSword; Animator animatorShotgun; Animator animatorSwordCol;
+    // Animators de armas
+    public Animator animatorPistol; 
+    public Animator animatorSword; 
+    public Animator animatorShotgun; 
+    public Animator animatorSwordCol;
 
-    void Start()
-    {
-        animatorPistol = weaponPistol.GetComponent<Animator>();
-        animatorSword = weaponSword.GetComponent<Animator>();
-        animatorShotgun = weaponShotgun.GetComponent<Animator>();
-        animatorSwordCol = swordCollider.GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && changer.selectedWeapon == 0)

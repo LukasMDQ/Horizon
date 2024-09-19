@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
     public Transform spawnPoint;
     public GameObject bullet;
     //public int bulletCount, maxBulletCount = default;
-   //SerializeField] TextMeshProUGUI textBullet;
+    //SerializeField] TextMeshProUGUI textBullet;
     private void Update()
     {
         //textBullet.text = bulletCount.ToString();

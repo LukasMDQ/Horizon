@@ -7870,6 +7870,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5954985460992069298, guid: 5f21da90b3ece5c45989524abef5a01c, type: 3}
   m_PrefabInstance: {fileID: 777626405}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &783092776 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 309772604801080508, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
+  m_PrefabInstance: {fileID: 1981005976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &783480450
 GameObject:
   m_ObjectHideFlags: 0
@@ -16590,6 +16595,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1519598676 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2022710374061747972, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
+  m_PrefabInstance: {fileID: 1981005976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1524521825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21893,6 +21903,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2468189969570265125, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1507bdb83e1a34046ab2d44f7ecb48cb, type: 2}
     - target: {fileID: 2808546618508710595, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -21902,9 +21916,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1236981394}
     - target: {fileID: 3318622273701015868, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
+      propertyPath: animatorSword
+      value: 
+      objectReference: {fileID: 1519598676}
+    - target: {fileID: 3318622273701015868, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
       propertyPath: swordCollider
       value: 
       objectReference: {fileID: 1765361567}
+    - target: {fileID: 3318622273701015868, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
+      propertyPath: animatorPistol
+      value: 
+      objectReference: {fileID: 1981005977}
+    - target: {fileID: 3318622273701015868, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
+      propertyPath: animatorShotgun
+      value: 
+      objectReference: {fileID: 783092776}
+    - target: {fileID: 3318622273701015868, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
+      propertyPath: animatorSwordCol
+      value: 
+      objectReference: {fileID: 1765361573}
     - target: {fileID: 3897693771457933476, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -21989,6 +22019,10 @@ PrefabInstance:
       propertyPath: textBullet
       value: 
       objectReference: {fileID: 536326542}
+    - target: {fileID: 7508148925572584115, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8806239102543970877, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -22002,6 +22036,11 @@ PrefabInstance:
       addedObject: {fileID: 1765361568}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
+--- !u!95 &1981005977 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2468189969570265125, guid: 999b9f3cdd0d0d24eb3eb07090d06d2d, type: 3}
+  m_PrefabInstance: {fileID: 1981005976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1982045380
 PrefabInstance:
   m_ObjectHideFlags: 0
