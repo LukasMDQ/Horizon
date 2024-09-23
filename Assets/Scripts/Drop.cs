@@ -6,13 +6,14 @@ public class Drop : MonoBehaviour
 {
     public int value = default;
     [SerializeField] GameObject _effect;
-    [SerializeField] bool _reload, _heal, _maxHp;           
+    [SerializeField] bool _ammo, _heal, _maxHp, _jewel;           
     private void OnTriggerEnter(Collider other)
     {       
-        if (other.TryGetComponent(out Stats stats))//el efecto del item varia dependiendo del bool
+        if (other.TryGetComponent(out Stats stats) && other.CompareTag("Player"))//el efecto del item varia dependiendo del bool
         {  
-            if(_reload) stats.Reload(value);            
-            if(_heal) stats.Heal(value);
+            if(_ammo) stats.Reload(value);
+            if (_jewel) stats.AddJewel(value);
+            if (_heal) stats.Heal(value);
             if(_maxHp) stats.MaxLifeUp(value);
             Destruction();
         }

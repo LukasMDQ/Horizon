@@ -19,7 +19,7 @@ public class Stats : MonoBehaviour
     //public TextMeshProUGUI textScore, textPoints, textHp;   
     //---------STATS----    
     public int score, points, damage = default;
-    public float curHp, maxHp = default;
+    public float curHp, maxHp, jewels = default;
     public int shieldLvl = default;
     public int bulletCount, maxBulletCount = default;
 
@@ -66,6 +66,11 @@ public class Stats : MonoBehaviour
     {
         curHp += HealPower;
         Debug.Log("Curado");
+    }
+    public void AddJewel(int jewelCount)//AÑADIR GEMA
+    {
+        jewels += jewelCount;
+        Debug.Log("gema añadida al grial");
     }
     public void Buff(int powerUp)//BUFF
     {

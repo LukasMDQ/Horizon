@@ -45,17 +45,17 @@ public class skills : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !onCooldown[0])
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !onCooldown[0]&& stats.jewels >= 1)
         {
             ActivateSkill(0);
             stats.Heal(10);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && !onCooldown[1])
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !onCooldown[1] && stats.jewels >= 2)
         {
             ActivateSkill(1);
             stats.Buff(10);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !onCooldown[2])
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !onCooldown[2] && stats.jewels >= 3)
         {
             ActivateSkill(2);
         }

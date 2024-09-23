@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour
 {
     public float curHp, maxHp = default;
-    [SerializeField] GameObject _destroyEffect;
+    [SerializeField] GameObject _destroyEffect, _drops;
     private AudioSource _spawnSound = default;
     [SerializeField] private AudioClip[] _sounds = default;
 
@@ -38,9 +38,16 @@ public abstract class Entity : MonoBehaviour
         if (_sounds.Length > 0) _spawnSound.PlayOneShot(_sounds[1]); // 1 = deathSound
         if(_destroyEffect != null)
         {
+            RandomDrop();
             Instantiate(_destroyEffect, transform.position, transform.rotation);
         }
         Destroy(gameObject);
+    }
+    void RandomDrop()
+    {
+        int rdn;
+        rdn= Random.Range(0, 101);
+        if(rdn<=50) Instantiate(_drops, transform.position, transform.rotation);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 265766274217486953}
   - component: {fileID: 266638105498670179}
   - component: {fileID: -3421346047663561762}
+  - component: {fileID: -1999026652497650854}
   m_Layer: 0
   m_Name: destroyCeramicParticle
   m_TagString: Untagged
@@ -4707,3 +4708,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1999026652497650854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104829970813648393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30fb67aa31ec674db4a9a34aafdc66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 2
