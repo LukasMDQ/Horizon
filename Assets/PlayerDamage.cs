@@ -34,11 +34,11 @@ public class PlayerDamage : MonoBehaviour
     void SlashSound()
     {
         Instantiate(_slash, transform.position, transform.rotation);
-        Destroy(_slash, 1f);
+        //Destroy(_slash, 1f);
     }
     void AirSlashSound()
     {
         Instantiate(_airslash, transform.position, transform.rotation);
-        Destroy(_airslash, 1f);
+        //Destroy(_airslash, 1f);
     }
 }
