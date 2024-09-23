@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curHp: 50
   maxHp: 50
-  _destroyEffect: {fileID: 0}
+  _destroyEffect: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7, type: 3}
   _sounds:
   - {fileID: 8300000, guid: e2cadc22f1691b74d8fec6b71bc9d80f, type: 3}
   - {fileID: 8300000, guid: a821df33682bbbf4fbdce500daaa11ac, type: 3}
@@ -138,7 +138,7 @@ AudioSource:
   Priority: 78
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -173,7 +173,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
