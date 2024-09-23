@@ -34,6 +34,7 @@ public class Stats : MonoBehaviour
     //-----ATTACK    
     public Image hpBar;
     public float hpBarAmount = 100f;
+    public CanvasGroup HPInfoRed;
     //--------HUD
     void Start()
     {
@@ -127,5 +128,6 @@ public class Stats : MonoBehaviour
     public void UIUpdate()
     {
         hpBar.fillAmount = curHp / 100f;
+        HPInfoRed.alpha = 1 - (curHp / maxHp);
     }
 }

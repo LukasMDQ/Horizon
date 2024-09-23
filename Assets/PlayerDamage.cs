@@ -13,7 +13,6 @@ public class PlayerDamage : MonoBehaviour
         dmg = stats.damage;
     }
 
-    // Update is called once per frame
     void Update()
     {
         dmg = stats.damage;
