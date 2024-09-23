@@ -52,14 +52,17 @@ public abstract class Entity : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        Debug.Log("aja");
+        if (other.CompareTag("WeaponPlayer"))
         {
+            Debug.Log("Hola");
             // Busca el GameObject con el tag "Player"
             GameObject player = GameObject.FindWithTag("Player");
-
+            Debug.Log(player);
             // Si se encuentra el GameObject "Player" y tiene un componente Stats
             if (player != null && player.TryGetComponent(out Stats playerStats))
             {
+                Debug.Log("Holaaaaa");
                 // Aplica el daño usando la referencia de las estadísticas del jugador
                 TakeDamage(playerStats.damage);
             }
