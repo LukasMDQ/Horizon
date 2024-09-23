@@ -3,31 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class cooldown : MonoBehaviour
+public class Cooldown : MonoBehaviour
 {
-    private Slider slider;
-    void Start()
+    [SerializeField] // ReSharper disable once InconsistentNaming
+    private Slider _slider;
+
+    private void Start()
     {
-        slider = GetComponent<Slider>();
+        if (!_slider)
+        {
+            _slider = GetComponent<Slider>();
+        }
+    }
+    
+    //---------------COOLDOWN SHIELD LOGIC--------------//    
+    private void ChangeMaxShield(float maxShield)
+    {
+        _slider.maxValue = maxShield;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ChangeCurrentShield(float currentShield)
     {
-        
+        _slider.value = currentShield;
     }
-    //---------------LOGICA COOLDOWN SHIELD--------------//    
-    public void ChangeMaxShield(float maxshield)
+    
+    public void StartingShield(float currentShield)
     {
-        slider.maxValue = maxshield;
-    }
-    public void ChangeCurshield(float curshield)
-    {
-        slider.value = curshield;
-    }
-    public void Startshield(float curshield)
-    {
-        ChangeMaxShield(curshield);
-        ChangeCurshield(curshield);
+        ChangeMaxShield(currentShield);
+        ChangeCurrentShield(currentShield);
     }
 }
