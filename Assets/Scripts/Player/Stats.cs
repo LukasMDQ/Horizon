@@ -88,7 +88,7 @@ public class Stats : MonoBehaviour
         Debug.Log("VIDA MAXIMA AUMENTADA! ");
     }
 
-    private void Death()//MUERTE
+    public void Death()//MUERTE
     {
         if (curHp <= 0)
         {

@@ -7,32 +7,17 @@ using UnityEngine.UI;
 
 public class Skeleton : MonoBehaviour
 {
-    //herencia
-    /*
-    public STATS stats;
-    public Drop drop;
-    public SpawnEnemy spawnEnemy;*/
-
-    //Stats
-    public int hp1 = 100;
-    public float topHp;
-    public float mExp = 0.02f;
-    public float speed = 0.5f;    
+    //Stats   
+    public float speed = 0.5f;
     //Animations
+    [SerializeField] bool _pasive = true;
     public bool onAttack;
     public bool attack;
     public Animator anim;
-    //Effects
-    public Transform enemyPos;
-    public GameObject deathEffect;
-    public GameObject hitEffect;
-    //audio
-    public AudioSource _audSource;
-    public GameObject hit_Clip;
-    public GameObject death_Clip;
+   
     //Navegation
     public NavMeshAgent navAgent;
-    public Quaternion angulo;
+    public Quaternion angle;
     public float grade;
     public int rutine;
     public float crono;
@@ -41,39 +26,13 @@ public class Skeleton : MonoBehaviour
     //Physics
     public Rigidbody rb;
     //targets
-    public GameObject target;
-    //-----HUD
-    public Image HP;
+    public Transform target;
     private void Start()
     {
-        target = GameObject.Find("Personaje");
-        topHp = hp1;
-        anim = GetComponent<Animator>();
-        target = GameObject.Find("Personaje");      
-        //stats = GameObject.Find("Personaje").GetComponent<STATS>();
-        //spawnEnemy = GameObject.Find("Cross").GetComponent<SpawnEnemy>();
+        target = transform.Find("Player");
+        anim = GetComponent<Animator>();          
+        
     }
-    public void death()
-    {
-        HP.fillAmount = topHp / hp1;//la barra de vida bajara en funcion al daño recibido.
-
-        if (topHp <= 0)
-        {
-            //spawnEnemy.EnemiNum -= 1;
-            //drop.RandomDrop();            
-           // stats.maxEXP += 30f;//Aumenta la experiencia del jugador al morir.
-            Instantiate(death_Clip, enemyPos.position, transform.rotation);//instancia un sonido al morir.
-            Instantiate(deathEffect,enemyPos.position, transform.rotation);//instancia un efecto al morir.
-            Destroy(gameObject, 0.001f);
-        }        
-    }
-      
-    void AudioSound(AudioClip _Clip_Test)//Audio
-    {
-        _audSource.clip = _Clip_Test;
-        _audSource.Play();
-    }
-    //-------------DAÑO RECIBIDO POR EL JUGADOR --------   
     private void Update()
     {
         Enemy_Status();
@@ -83,7 +42,7 @@ public class Skeleton : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target.transform.position) > visionRange)//si el objetivo se encuentra a mas de 10 metros se movera erraticamente.
         {
-            if (topHp <= 90)//si la vida baja al valor establecido seguira al objetivo. 
+           /* if (!_pasive)//si es atacado, perseguira al jugador
             {
                 navAgent.enabled= false;
                 var lookPos = target.transform.position - transform.position;
@@ -103,7 +62,8 @@ public class Skeleton : MonoBehaviour
                     onAttack = true;
                 }
 
-            }//---------------------------------------------------------------------------------------------------------
+            }*/
+           //---------------------------------------------------------------------------------------------------------
             anim.SetBool("run", false);//Movimiento erratico
             crono += 1 * Time.deltaTime;
             if (crono >= 4)
@@ -118,11 +78,11 @@ public class Skeleton : MonoBehaviour
                     break;
                 case 1:
                     grade = Random.Range(0, 360);
-                    angulo = Quaternion.Euler(0, grade, 0);
+                    angle = Quaternion.Euler(0, grade, 0);
                     rutine++;
                     break;
                 case 2:
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, angulo, 0.5f);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, angle, 0.5f);
                     transform.Translate(Vector3.forward * speed * Time.deltaTime);
                     anim.SetBool("walk", true);
                     break;
