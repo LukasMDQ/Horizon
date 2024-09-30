@@ -1,114 +1,133 @@
 using UnityEngine;
 using UnityEngine.AI;
+// ReSharper disable InconsistentNaming
 
 public class EnemyAi2 : MonoBehaviour
 {
-    public Transform[] patrolPoints; // Puntos de patrullaje aleatorio.
-    public Transform player; // Referencia al objeto Player.
-    public float detectionRange = 10f; // Rango de detección del jugador.
-    public float attackRange = 2f; // Rango de ataque cuerpo a cuerpo.
+    [SerializeField] private Transform[] _patrolPoints; // Puntos de patrullaje aleatorio.
+    [SerializeField] private Transform _player; // Referencia al objeto Player.
+    [SerializeField] private float detectionRange = 10f; // Rango de detecciÃ³n del jugador.
+    [SerializeField] private float attackRange = 2f; // Rango de ataque cuerpo a cuerpo.
+    
+    [SerializeField] private NavMeshAgent _agent;
+    [SerializeField] private Animator _animator;
+    private int _currentPatrolIndex;
+    private bool _isChasing;
+    private bool _isAttacking;
+    
+    private static readonly int Walk = Animator.StringToHash("walk");
+    private static readonly int Run = Animator.StringToHash("run");
+    private static readonly int AttackM = Animator.StringToHash("attackM");
 
-    private NavMeshAgent agent;
-    private Animator animator;
-    private int currentPatrolIndex;
-    private bool isChasing = false;
-    private bool isAttacking = false;
-
-    void Start()
+    private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        if (!_agent)
+        {
+            _agent = GetComponent<NavMeshAgent>();
+        }
+
+        if (!_animator)
+        {
+            _animator = GetComponent<Animator>();
+        }
+        
         GotoNextPatrolPoint(); // Iniciar patrullaje
     }
 
-    void Update()
+    private void Update()
     {
-        float distanceToPlayer = Vector3.Distance(player.position, transform.position);
+        float distanceToPlayer = Vector3.Distance(_player.position, transform.position);
 
         if (distanceToPlayer <= attackRange)
         {
-            // Atacar si está en rango
+            // Atacar si estÃ¡ en rango
             AttackPlayer();
         }
         else if (distanceToPlayer <= detectionRange)
         {
-            // Perseguir al jugador si está en rango de detección
+            // Perseguir al jugador si estÃ¡ en rango de detecciÃ³n
             ChasePlayer();
         }
         else
         {
-            // Patrullar si el jugador no está en rango
+            // Patrullar si el jugador no estÃ¡ en rango
             Patrol();
         }
     }
 
-    void GotoNextPatrolPoint()
+    private void GotoNextPatrolPoint()
     {
-        if (patrolPoints.Length == 0) return;
+        if (_patrolPoints.Length == 0) return;
 
-        agent.destination = patrolPoints[currentPatrolIndex].position;
-        currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
-        SetAnimationBooleans(true, false, false); // Activa la animación de caminar (walk).
+        _agent.destination = _patrolPoints[_currentPatrolIndex].position;
+        _currentPatrolIndex = (_currentPatrolIndex + 1) % _patrolPoints.Length;
+        SetAnimationBooleans(true, false, false); // Activa la animaciÃ³n de caminar (walk).
     }
 
-    void Patrol()
+    private void Patrol()
     {
-        if (isChasing || isAttacking)
+        if (_isChasing || _isAttacking)
         {
-            isChasing = false;
-            isAttacking = false;
-            agent.speed = 3.5f; 
-            agent.isStopped = false;
+            _isChasing = false;
+            _isAttacking = false;
+            _agent.speed = 3.5f; 
+            _agent.isStopped = false;
         }
 
         // Si el agente llega al punto de patrullaje, cambia al siguiente
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
         {
             GotoNextPatrolPoint();
         }
     }
 
-    void ChasePlayer()
+    private void ChasePlayer()
     {
-        if (!isChasing)
+        if (!_isChasing)
         {
-            isChasing = true;
-            agent.speed = 6f; // Velocidad de persecución.
-            SetAnimationBooleans(false, true, false); // Activa la animación de correr (run).
+            _isChasing = true;
+            _isAttacking = false;
+            _agent.isStopped = false;
+            _agent.speed = 6f; // Velocidad de persecuciÃ³n.
+            SetAnimationBooleans(false, true, false); // Activa la animaciÃ³n de correr (run).
         }
+        
         // Rotar hacia el jugador
-        Vector3 directionToPlayer = (player.position - transform.position).normalized;
+        var playerPosition = _player.position;
+        
+        Vector3 directionToPlayer = (playerPosition - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(directionToPlayer.x, 0, directionToPlayer.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
 
-        
-        agent.destination = player.position;
+        _agent.destination = playerPosition;
     }
 
-    void AttackPlayer()
+    private void AttackPlayer()
     {
-        if (!isAttacking)
+        if (!_isAttacking)
         {
-            isAttacking = true;
-            agent.isStopped = true; // Detener al enemigo para atacar.
-            SetAnimationBooleans(false, false, true); // Activa la animación de ataque (attackM).
+            _isAttacking = true;
+            _isChasing = false;
+            _agent.isStopped = true; // Detener al enemigo para atacar.
+            SetAnimationBooleans(false, false, true); // Activa la animaciÃ³n de ataque (attackM).
         }
     }
 
-    // Configura los parámetros booleanos del Animator
-    void SetAnimationBooleans(bool walk, bool run, bool attackM)
+    // Configura los parÃ¡metros booleanos del Animator
+    private void SetAnimationBooleans(bool walk, bool run, bool attackM)
     {
-        animator.SetBool("walk", walk);
-        animator.SetBool("run", run);
-        animator.SetBool("attackM", attackM);
+        _animator.SetBool(Walk, walk);
+        _animator.SetBool(Run, run);
+        _animator.SetBool(AttackM, attackM);
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
-        // Dibuja los rangos de detección y ataque para depuración.
+        // Dibuja los rangos de detecciÃ³n y ataque para depuraciÃ³n.
+        var myPosition = transform.position;
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
+        Gizmos.DrawWireSphere(myPosition, detectionRange);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(myPosition, attackRange);
     }
 }

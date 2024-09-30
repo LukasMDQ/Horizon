@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// ReSharper disable InconsistentNaming
 
+// ReSharper disable once CheckNamespace
 public class DmgEnemy : MonoBehaviour
 {
-    [SerializeField] int _damage;
+    [SerializeField] private int _damage;
     [SerializeField] private GameObject _impactEnemy;
-
-    void Update()
-    {
-        
-    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Stats stats) && other.CompareTag("Player"))  //Interactura con el enemigo y se destruye.
@@ -19,9 +17,11 @@ public class DmgEnemy : MonoBehaviour
             SlashHitSound();
         }        
     }
-    void SlashHitSound()
+
+    private void SlashHitSound()
     {
-        Instantiate(_impactEnemy, transform.position, transform.rotation);
+        var myTransform = transform;
+        Instantiate(_impactEnemy, myTransform.position, myTransform.rotation);
         //Destroy(_slash, 1f);
     }
 }

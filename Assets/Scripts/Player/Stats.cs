@@ -3,7 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 //using JetBrains.Annotations;
 //using Unity.VisualScripting;
+// ReSharper disable StringLiteralTypo
+// ReSharper disable CommentTypo
 
+// ReSharper disable once CheckNamespace
 public class Stats : MonoBehaviour
 {
     //-------REFERENCE
@@ -11,8 +14,9 @@ public class Stats : MonoBehaviour
     //-------AUDIO
     //-------ANIMATION
     //---------UI-------
-    [SerializeField] TextMeshProUGUI textBullet;
-    [SerializeField] GameObject _lostMenu;
+    [SerializeField] private TextMeshProUGUI textBullet;
+    // ReSharper disable once InconsistentNaming
+    [SerializeField] private GameObject _lostMenu;
     //[SerializeField] private GameObject _winMenu, _lostMenu;
     //[SerializeField] public UI ui;
     //[SerializeField] public cooldown cooldown;
@@ -25,18 +29,18 @@ public class Stats : MonoBehaviour
 
     public Animator anim;
     private AudioSource _spawnSound = default;
+    // ReSharper disable once InconsistentNaming
     [SerializeField] private AudioClip[] _sounds = default;
     //-----SHIELD
     public GameObject shield;
-    [SerializeField] private GameObject shielUi;
+    [SerializeField] private GameObject shieldUi;
     public float shieldCooldown = default;
     public float shieldTime = default;
     //-----ATTACK    
     public Image hpBar;
     public float hpBarAmount = 100f;
-    public CanvasGroup HPInfoRed;
     //--------HUD
-    void Start()
+    private void Start()
     {
         shieldCooldown = shieldTime;
         anim = GetComponent<Animator>();
@@ -63,9 +67,9 @@ public class Stats : MonoBehaviour
     }
 
     //--------------Alteraciones-----------    
-    public void Heal(int HealPower)//CURAR
+    public void Heal(int healPower)//CURAR
     {
-        curHp += HealPower;
+        curHp += healPower;
         Debug.Log("Curado");
     }
     public void AddJewel(int jewelCount)//AÑADIR GEMA
@@ -78,13 +82,13 @@ public class Stats : MonoBehaviour
         damage += powerUp;
         Debug.Log("Bufeado");
     }
-    public void MaxLifeUp(int HealPower)//AUMENTAR VIDA MAXIMA
+    public void MaxLifeUp(int healPower)//AUMENTAR VIDA MAXIMA
     {
-        maxHp += HealPower;
+        maxHp += healPower;
         Debug.Log("VIDA MAXIMA AUMENTADA! ");
     }
-   
-    void Death()//MUERTE
+
+    private void Death()//MUERTE
     {
         if (curHp <= 0)
         {
@@ -93,7 +97,7 @@ public class Stats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int dmg)//RECIBIR DAÑO
+    public void TakeDamage(int dmg)//RECIBIR DAÃ‘O
     {
         curHp -= dmg;        
        // if (_sounds.Length > 0) _spawnSound.PlayOneShot(_sounds[0]);
@@ -128,6 +132,5 @@ public class Stats : MonoBehaviour
     public void UIUpdate()
     {
         hpBar.fillAmount = curHp / 100f;
-        HPInfoRed.alpha = 1 - (curHp / maxHp);
     }
 }

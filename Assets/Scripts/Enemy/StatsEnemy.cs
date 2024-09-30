@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// ReSharper disable once CheckNamespace
 public class StatsEnemy : Stats
 {   
+    // ReSharper disable once InconsistentNaming
     [SerializeField] private GameObject _deathEffect;
-    void Start()
+
+    private void Start()
     {
         curHp = maxHp;        
     }
-   
-    void Update()
+
+    private void Update()
     {
-        death();
+        Death();
     }
-    void death ()
+
+    private void Death()
     {
         if(curHp <=0)
         {
-            Instantiate(_deathEffect, transform.position, transform.rotation);
+            var myTransform = transform;
+            Instantiate(_deathEffect, myTransform.position, myTransform.rotation);
             Destroy(gameObject);
         }
     }
