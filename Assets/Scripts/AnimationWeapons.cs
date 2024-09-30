@@ -20,7 +20,7 @@ public class AnimationWeapons : MonoBehaviour
         {
             animatorPistol.SetTrigger("PistolShoot");
         }
-        else if (Input.GetMouseButtonDown(0) && changer.selectedWeapon == 2)
+        else if (Input.GetMouseButtonDown(0) && changer.selectedWeapon == 2 && stats.stamina >= 25f)
         {
             animatorSword.SetTrigger("SwordShoot");
             animatorSwordCol.SetTrigger("CollisionTrigger");
