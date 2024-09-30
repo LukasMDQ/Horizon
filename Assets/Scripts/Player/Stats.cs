@@ -102,7 +102,9 @@ public class Stats : MonoBehaviour
         if (curHp <= 0)
         {
             _lostMenu.SetActive(true);
-            Time.timeScale = 0;            
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
