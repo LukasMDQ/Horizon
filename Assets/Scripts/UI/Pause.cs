@@ -44,4 +44,12 @@ public class Pause : MonoBehaviour
         Cursor.visible = false;
         isPaused = false;
     }
+    public void ResumeGameFromMenu()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        isPaused = false;
+    }
 }
