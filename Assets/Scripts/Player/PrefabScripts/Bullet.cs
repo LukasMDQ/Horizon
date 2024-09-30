@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Bullet : MonoBehaviour
 {
@@ -8,13 +9,15 @@ public class Bullet : MonoBehaviour
     public int damage = default;
     [SerializeField] float _lifeTime = default;      
     [SerializeField] private GameObject _inpact;
+   
     private void Start()
     {
+       
         Destroy(gameObject, _lifeTime);
     }
     void Update()
     {
-       transform.Translate(Vector3.forward * _speed * Time.deltaTime);       
+         transform.Translate(Vector3.forward * _speed * Time.deltaTime);       
     }
     private void OnTriggerEnter(Collider other)
     {        
