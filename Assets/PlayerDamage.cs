@@ -39,14 +39,18 @@ public class PlayerDamage : MonoBehaviour
         Instantiate(_slash, transform.position, transform.rotation);
         stats.stamina -= 50f; //Saca Stamina 
 
-        if (stats.stamina >= stats.maxStamina)
+        StopCoroutine(RechargeStamina());
+
+        StartCoroutine(RechargeStamina());
+
+        /*if (stats.stamina >= stats.maxStamina)
         {
             StopCoroutine(RechargeStamina()); //Para la Corutina cuando la stamina se llena
         }
         else
         {
             StartCoroutine(RechargeStamina()); //Inicia la Corutina si es menor a la Stamina Maxima
-        }
+        }*/
         //Destroy(_slash, 1f);
     }
     void AirSlashSound()
@@ -54,14 +58,18 @@ public class PlayerDamage : MonoBehaviour
         Instantiate(_airslash, transform.position, transform.rotation);
         stats.stamina -= 25f; //Saca Stamina 
 
-        if (stats.stamina >= stats.maxStamina)
+        StopCoroutine(RechargeStamina());
+
+        StartCoroutine(RechargeStamina());
+
+        /*if (stats.stamina >= stats.maxStamina)
         {
             StopCoroutine(RechargeStamina()); //Para la Corutina cuando la stamina se llena
         }
         else
         {
             StartCoroutine(RechargeStamina()); //Inicia la Corutina si es menor a la Stamina Maxima
-        }
+        }*/
 
         //Destroy(_airslash, 1f);
     }
