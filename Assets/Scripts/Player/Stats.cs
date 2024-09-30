@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +25,7 @@ public class Stats : MonoBehaviour
     //---------STATS----    
     public int score, points, damage = default;
     public float curHp, maxHp, jewels = default;
+    public float stamina, maxStamina = default;
     public int shieldLvl = default;
     public int bulletCount, maxBulletCount = default;
 
@@ -38,13 +40,18 @@ public class Stats : MonoBehaviour
     public float shieldTime = default;
     //-----ATTACK    
     public Image hpBar;
+    public Image staminaBar;
     public float hpBarAmount = 100f;
+    public float staminaBarAmount = 100f;
+    public float ChargeRate;
+    public CanvasGroup hpVignette;
     //--------HUD
     private void Start()
     {
         shieldCooldown = shieldTime;
         anim = GetComponent<Animator>();
         curHp = maxHp;
+        stamina = maxStamina;
         //ui.StartHpBar(curHp);
         //Shield
         //cooldown.Startshield(shieldCooldown);
@@ -54,6 +61,8 @@ public class Stats : MonoBehaviour
     void Update()
     {
         if (curHp > maxHp) curHp = maxHp;
+        if (stamina > maxStamina) stamina = maxStamina;
+        if (stamina <= 0) stamina = 0;
         //ui.ChangeCurrentHp(curHp);
         //cooldown.ChangeCurshield(shieldCooldown);        
         //textScore.text = score.ToString();
@@ -132,5 +141,7 @@ public class Stats : MonoBehaviour
     public void UIUpdate()
     {
         hpBar.fillAmount = curHp / 100f;
+        hpVignette.alpha = 1 - (curHp / maxHp);
+        staminaBar.fillAmount = stamina / 100f; 
     }
 }

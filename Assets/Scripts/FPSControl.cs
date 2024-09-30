@@ -16,12 +16,12 @@ public class FPSControl : MonoBehaviour
     {
         if (!_rigidbody)   _rigidbody   = GetComponent<Rigidbody>();
         if (!_boxCollider) _boxCollider = GetComponent<BoxCollider>();
+        HideCursor();
     }
 
     private void Update()
     {
         Move();
-        HideCursor();
         MouseLook();
     }
 
@@ -48,10 +48,16 @@ public class FPSControl : MonoBehaviour
         _rigidbody.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
     }
 
-    private void HideCursor()//----------------BLOQUEAR CURSOR
+    public void HideCursor()//----------------BLOQUEAR CURSOR
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void ShowCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void MouseLook()
