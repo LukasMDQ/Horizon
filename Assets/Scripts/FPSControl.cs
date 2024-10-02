@@ -1,27 +1,34 @@
 using System.Collections.Generic;
 using UnityEngine;
+// ReSharper disable InconsistentNaming
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
 
 public class FPSControl : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private Rigidbody _rigidBody;
     [SerializeField] private BoxCollider _boxCollider;
     [SerializeField] private float _speed, _mouseSens, _rotationSpeed, _jumpForce;
     private float _xRotation, _yRotation;
-    public Transform playerBody;    
+    public Transform playerBody;
     [SerializeField] private AudioSource _AudSource;
     [SerializeField] private bool _wantsToJump;
+
+    private float _verticalInput;
+    private float _horizontalInput;
+
     private void Awake()
     {
-        if (!_rigidbody)   _rigidbody   = GetComponent<Rigidbody>();
+        if (!_rigidBody)   _rigidBody   = GetComponent<Rigidbody>();
         if (!_boxCollider) _boxCollider = GetComponent<BoxCollider>();
         HideCursor();
     }
 
     private void Update()
     {
-        Move();
+        _verticalInput   = Input.GetAxis("Vertical");
+        _horizontalInput = Input.GetAxis("Horizontal");
+        
         MouseLook();
     }
 
@@ -33,22 +40,20 @@ public class FPSControl : MonoBehaviour
             Jump();
             _wantsToJump = false;
         }
-    }
-
-    private void Move()
-    {
-        float hor = Input.GetAxis("Horizontal");
-        float ver = Input.GetAxis("Vertical");
-        Vector3 inputPlayer = new Vector3(hor, 0, ver);
-        transform.Translate(inputPlayer * (_speed * Time.deltaTime));        
+        
+        _rigidBody.MoveRotation(Quaternion.Euler(_xRotation, _yRotation, 0));
+        
+        var myTransform = transform;
+        var moveDirection = _verticalInput * myTransform.forward + _horizontalInput * myTransform.right;
+        _rigidBody.MovePosition(myTransform.position + moveDirection.normalized * (Time.fixedDeltaTime * _speed));
     }
 
     private void Jump()//----Salto
     {
-        _rigidbody.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
+        _rigidBody.AddForce(transform.root.up * _jumpForce, ForceMode.Impulse); // Changed it so that even if you are looking at different angles you will always jump up relative to the world
     }
 
-    public void HideCursor()//----------------BLOQUEAR CURSOR
+    private void HideCursor()//----------------BLOQUEAR CURSOR
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -68,7 +73,5 @@ public class FPSControl : MonoBehaviour
         _xRotation -= mouseY;
         _xRotation = Mathf.Clamp(_xRotation, -70, 70);
         _yRotation += mouseX;
-        
-        transform.localRotation = Quaternion.Euler(_xRotation, _yRotation, 0);
     }
 }
