@@ -9412,6 +9412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JEWEL (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2892002909300080059, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
+      propertyPath: caliz
+      value: 
+      objectReference: {fileID: 1502276510}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17780,6 +17784,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.020000001, y: 0.020000001, z: 0.02}
   m_Center: {x: 0, y: 0.00000000547152, z: 0.0000000018626451}
+--- !u!114 &1502276510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6542123699627239081, guid: c45319f68e7af3f4483c753ee3cafb6b, type: 3}
+  m_PrefabInstance: {fileID: 4873310907505067144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 809d2833f61616749a1d1c713ec4a4fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1510550488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22857,6 +22872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JEWEL (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2892002909300080059, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
+      propertyPath: caliz
+      value: 
+      objectReference: {fileID: 1502276510}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26289,6 +26308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JEWEL
       objectReference: {fileID: 0}
+    - target: {fileID: 2892002909300080059, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
+      propertyPath: caliz
+      value: 
+      objectReference: {fileID: 1502276510}
     m_RemovedComponents:
     - {fileID: 0}
     m_RemovedGameObjects: []
