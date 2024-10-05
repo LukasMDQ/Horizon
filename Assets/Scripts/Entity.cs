@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public abstract class Entity : MonoBehaviour
 {
-    public float curHp, maxHp = default;
-    [SerializeField] GameObject _destroyEffect, _drops;
-    private AudioSource _spawnSound = default;
-    [SerializeField] private AudioClip[] _sounds = default;
+    public float curHp, maxHp;
+    [SerializeField] private GameObject _destroyEffect, _drops;
+    private AudioSource _spawnSound;
+    [SerializeField] private AudioClip[] _sounds;
 
     private void Start()
     {
@@ -27,9 +28,9 @@ public abstract class Entity : MonoBehaviour
         }
         
     }
-    public virtual void Heal(int HealPower)//CURAR
+    public virtual void Heal(int healPower)//CURAR
     {
-        curHp += HealPower;
+        curHp += healPower;
         Debug.Log("Curado");
     }
 
@@ -39,15 +40,21 @@ public abstract class Entity : MonoBehaviour
         if(_destroyEffect != null)
         {
             RandomDrop();
-            Instantiate(_destroyEffect, transform.position, transform.rotation);
+            var myTransform = transform;
+            Instantiate(_destroyEffect, myTransform.position, myTransform.rotation);
         }
         Destroy(gameObject);
     }
-    void RandomDrop()
+
+    private void RandomDrop()
     {
-        int rdn;
-        rdn= Random.Range(0, 101);
-        if(rdn<=50) Instantiate(_drops, transform.position, transform.rotation);
+        int rdn = Random.Range(0, 100);
+        
+        if (rdn <= 50)
+        {
+            var myTransform = transform;
+            Instantiate(_drops, myTransform.position, myTransform.rotation);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,7 +70,7 @@ public abstract class Entity : MonoBehaviour
             if (player != null && player.TryGetComponent(out Stats playerStats))
             {
                 Debug.Log("Holaaaaa");
-                // Aplica el daño usando la referencia de las estadísticas del jugador
+                // Aplica el daÃ±o usando la referencia de las estadÃ­sticas del jugador
                 TakeDamage(playerStats.damage);
             }
         }

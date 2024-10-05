@@ -23,21 +23,22 @@ public class Stats : MonoBehaviour
     //[SerializeField] public cooldown cooldown;
     //public TextMeshProUGUI textScore, textPoints, textHp;   
     //---------STATS----    
-    public int score, points, damage = default;
-    public float curHp, maxHp, jewels = default;
-    public float stamina, maxStamina = default;
-    public int shieldLvl = default;
-    public int bulletCount, maxBulletCount = default;
+    public int score, points, damage;
+    public float curHp, maxHp;
+    public int jewels;
+    public float stamina, maxStamina;
+    public int shieldLvl;
+    public int bulletCount, maxBulletCount;
 
     public Animator anim;
-    private AudioSource _spawnSound = default;
+    private AudioSource _spawnSound;
     // ReSharper disable once InconsistentNaming
-    [SerializeField] private AudioClip[] _sounds = default;
+    [SerializeField] private AudioClip[] _sounds;
     //-----SHIELD
     public GameObject shield;
     [SerializeField] private GameObject shieldUi;
-    public float shieldCooldown = default;
-    public float shieldTime = default;
+    public float shieldCooldown;
+    public float shieldTime;
     //-----ATTACK    
     public Image hpBar;
     public Image staminaBar;
@@ -58,7 +59,7 @@ public class Stats : MonoBehaviour
         if (!_spawnSound) _spawnSound = gameObject.GetComponent<AudioSource>();
     }
 
-    void Update()
+    private void Update()
     {
         if (curHp > maxHp) curHp = maxHp;
         if (stamina > maxStamina) stamina = maxStamina;
@@ -81,10 +82,10 @@ public class Stats : MonoBehaviour
         curHp += healPower;
         Debug.Log("Curado");
     }
-    public void AddJewel(int jewelCount)//AÑADIR GEMA
+    public void AddJewel(int jewelCount)//AÃ‘ADIR GEMA
     {
         jewels += jewelCount;
-        Debug.Log("gema añadida al grial");
+        Debug.Log("gema aÃ±adida al grial");
     }
     public void Buff(int powerUp)//BUFF
     {
