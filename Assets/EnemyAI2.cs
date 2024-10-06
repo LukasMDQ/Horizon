@@ -43,7 +43,7 @@ public class EnemyAi2 : MonoBehaviour
             _animator = GetComponent<Animator>();
         }
         
-        GotoNextPatrolPoint(); // Iniciar patrullaje
+        GotoNextPatrolPoint();
     }
 
     private void Update()
@@ -52,22 +52,18 @@ public class EnemyAi2 : MonoBehaviour
 
         if (distanceToPlayer <= attackRange)
         {
-            // Atacar si está en rango
             MeleAttack();
         }
         if (distanceToPlayer <= distAttackRange)
         {
-            // Atacar si está en rango
             DistanceAttack();
         }
         else if (distanceToPlayer <= detectionRange)
         {
-            // Perseguir al jugador si está en rango de detección
             ChasePlayer();
         }
         else
         {
-            // Patrullar si el jugador no está en rango
             Patrol();
         }
     }
@@ -90,7 +86,6 @@ public class EnemyAi2 : MonoBehaviour
             _agent.isStopped = false;
         }
 
-        // Si el agente llega al punto de patrullaje, cambia al siguiente
         if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
         {
             GotoNextPatrolPoint();
@@ -105,7 +100,7 @@ public class EnemyAi2 : MonoBehaviour
             _isChasing = true;
             _isAttacking = false;
             _agent.isStopped = false;
-            _agent.speed = 6f; // Velocidad de persecución.
+            _agent.speed = 6f;
             SetAnimationBooleans(false, true, false, false); // Activa la animación de correr (run).
         }
         
@@ -125,7 +120,7 @@ public class EnemyAi2 : MonoBehaviour
         {
             _isAttacking = true;
             _isChasing = false;
-            _agent.isStopped = true; // Detener al enemigo para atacar.
+            _agent.isStopped = true;
             SetAnimationBooleans(false, false, true, false); // Activa la animación de ataque (attackM).
         }
     }
@@ -135,7 +130,7 @@ public class EnemyAi2 : MonoBehaviour
         {
             _isAttacking = true;
             _isChasing = false;
-            _agent.isStopped = true; // Detener al enemigo para atacar.
+            _agent.isStopped = true;
             StartCoroutine(AutoFire());           
             SetAnimationBooleans(false, false, false, true); // Activar la animación de ataque (attackD).
         }
@@ -144,8 +139,9 @@ public class EnemyAi2 : MonoBehaviour
     {
         while (true)
         {            
-            Instantiate(_eBullet, _spawnPoint.position, _spawnPoint.rotation);
+            GameObject bullet = Instantiate(_eBullet, _spawnPoint.position, _spawnPoint.rotation);
 
+            Destroy(bullet, 3f);
             // Espera el tiempo antes de instanciar otro objeto
             yield return new WaitForSeconds(_fireCooldown);
         }
