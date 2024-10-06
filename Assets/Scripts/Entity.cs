@@ -6,9 +6,9 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour
 {
     public float curHp, maxHp;
-    [SerializeField] private GameObject _destroyEffect, _drops;
-    private AudioSource _spawnSound;
-    [SerializeField] private AudioClip[] _sounds;
+    public GameObject _destroyEffect, _drops;
+    public AudioSource _spawnSound;
+    public AudioClip[] _sounds;
 
     private void Start()
     {
@@ -17,7 +17,6 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
-        Debug.Log("Entre");
         curHp -= damage;      
         if (curHp <= 0)
         {

@@ -8,24 +8,31 @@ public class ExplosiveBarrel : Entity
     GameObject _explodeEffect;
 
     [SerializeField]
-    private float range;
+    private float explosionRange;
 
     void Drop()
     {
         Instantiate(_drops, transform.position, transform.rotation);
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, explosionRange);
+    }
+
     void Explode()
     {
         Instantiate(_explodeEffect, transform.position, transform.rotation);
 
-        Collider[] entities = Physics.OverlapSphere(transform.position, range); 
+        Collider[] objectsToExplode = Physics.OverlapSphere(transform.position, explosionRange); 
 
-        foreach (Collider entity in entities)
+        foreach (Collider objectToExplode in objectsToExplode)
         {
-            if(entity.GetComponent<Entity>() != null)
+            Entity entity = objectToExplode.GetComponent<Entity>();
+            if (entity != null && entity != this)
             {
-               entity.GetComponent<Entity>().Death();
+                objectToExplode.GetComponent<Entity>().Death();
             }
         }
     }
@@ -33,18 +40,19 @@ public class ExplosiveBarrel : Entity
     {
         int randomChance = Random.Range(0, 101);
 
-        if (randomChance <= 50) 
-        {
-            Explode(); 
-        }
-        else if (randomChance > 50 && randomChance <= 80) 
-        {
-            Drop(); 
-        }
-        else 
-        {
-            Instantiate(_destroyEffect, transform.position, transform.rotation);
-        }
+        //if (randomChance <= 50) 
+        //{
+        //    Explode(); 
+        //}
+        //else if (randomChance > 50 && randomChance <= 80) 
+        //{
+        //    Drop(); 
+        //}
+        //else 
+        //{
+        //    Instantiate(_destroyEffect, transform.position, transform.rotation);
+        //}
+        Explode();
     }
 
     public override void Death()
@@ -53,7 +61,7 @@ public class ExplosiveBarrel : Entity
         if (_destroyEffect != null)
         {
             RandomEffectOnDestroy();           
-        }
+        } 
         Destroy(gameObject);
     }
 
