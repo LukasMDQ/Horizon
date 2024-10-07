@@ -13,7 +13,16 @@ public abstract class Entity : MonoBehaviour
     private void Start()
     {
         if (!_spawnSound) _spawnSound = gameObject.GetComponent<AudioSource>();
+
+        curHp = maxHp;
+
+        MyStart();
     }
+
+    /// <summary>
+    /// Use this instead of Start() to not overrite it
+    /// </summary>
+    protected abstract void MyStart();
 
     public virtual void TakeDamage(float damage)
     {
@@ -21,15 +30,20 @@ public abstract class Entity : MonoBehaviour
         if (curHp <= 0)
         {
             Death();
-        } else
+        }
+        else
         {
             if (_sounds.Length > 0) _spawnSound.PlayOneShot(_sounds[0]); // 0 = dmgSound
-        }
-        
+        }        
     }
+
     public virtual void Heal(int healPower)//CURAR
     {
         curHp += healPower;
+        
+        if (curHp > maxHp)
+            curHp = maxHp;
+
         Debug.Log("Curado");
     }
 

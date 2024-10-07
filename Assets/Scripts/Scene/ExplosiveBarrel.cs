@@ -40,18 +40,18 @@ public class ExplosiveBarrel : Entity
     {
         int randomChance = Random.Range(0, 101);
 
-        //if (randomChance <= 50) 
-        //{
-        //    Explode(); 
-        //}
-        //else if (randomChance > 50 && randomChance <= 80) 
-        //{
-        //    Drop(); 
-        //}
-        //else 
-        //{
-        //    Instantiate(_destroyEffect, transform.position, transform.rotation);
-        //}
+        if (randomChance <= 50)
+        {
+            Explode();
+        }
+        else if (randomChance > 50 && randomChance <= 80)
+        {
+            Drop();
+        }
+        else
+        {
+            Instantiate(_destroyEffect, transform.position, transform.rotation);
+        }
         Explode();
     }
 
@@ -65,4 +65,8 @@ public class ExplosiveBarrel : Entity
         Destroy(gameObject);
     }
 
+    protected override void MyStart()
+    {
+        
+    }
 }
