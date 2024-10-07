@@ -29,9 +29,7 @@ public class Skeleton : MonoBehaviour
     public Transform target;
     private void Start()
     {
-        target = transform.Find("Player");
-        anim = GetComponent<Animator>();          
-        
+        anim = GetComponent<Animator>(); 
     }
     private void Update()
     {
@@ -42,7 +40,7 @@ public class Skeleton : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target.transform.position) > visionRange)//si el objetivo se encuentra a mas de 10 metros se movera erraticamente.
         {
-           /* if (!_pasive)//si es atacado, perseguira al jugador
+            if (!_pasive)//si es atacado, perseguira al jugador
             {
                 navAgent.enabled= false;
                 var lookPos = target.transform.position - transform.position;
@@ -62,7 +60,7 @@ public class Skeleton : MonoBehaviour
                     onAttack = true;
                 }
 
-            }*/
+            }
            //---------------------------------------------------------------------------------------------------------
             anim.SetBool("run", false);//Movimiento erratico
             crono += 1 * Time.deltaTime;
@@ -90,7 +88,7 @@ public class Skeleton : MonoBehaviour
         }
             else//ve al objetivo y lo persigue.-------------------------------------------------------------------------
             {
-             //si esta mas de un metro y no esta atacando lo perseguira .
+                    //si esta mas de un metro y no esta atacando lo perseguira .
            
                 var lookPos = target.transform.position - transform.position;
                 lookPos.y = 0;
