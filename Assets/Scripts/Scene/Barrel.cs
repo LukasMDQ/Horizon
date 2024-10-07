@@ -5,5 +5,8 @@ using UnityEngine;
 
 public class Barrel : Entity
 {
-    
+    protected override void MyStart()
+    {
+        
+    }
 }

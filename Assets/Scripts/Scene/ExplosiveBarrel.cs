@@ -65,4 +65,8 @@ public class ExplosiveBarrel : Entity
         Destroy(gameObject);
     }
 
+    protected override void MyStart()
+    {
+        
+    }
 }

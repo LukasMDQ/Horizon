@@ -17,11 +17,14 @@ public class FPSControl : MonoBehaviour
     private float _verticalInput;
     private float _horizontalInput;
 
+    public static Transform playerTransform;
+
     private void Awake()
     {
         if (!_rigidBody)   _rigidBody   = GetComponent<Rigidbody>();
         if (!_boxCollider) _boxCollider = GetComponent<BoxCollider>();
         HideCursor();
+        playerTransform = transform;
     }
 
     private void Update()
