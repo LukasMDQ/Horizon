@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2183677449042513382, guid: 5f21da90b3ece5c45989524abef5a01c, type: 3}
+      propertyPath: m_Intensity
+      value: 9.37
+      objectReference: {fileID: 0}
     - target: {fileID: 2738582778865580161, guid: 5f21da90b3ece5c45989524abef5a01c, type: 3}
       propertyPath: m_Name
       value: Spotlight_Torch (10)
@@ -6431,9 +6435,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.5250547, g: 0.8273221, b: 0.8773585, a: 1}
-  m_Intensity: 3.45
-  m_Range: 2.7057953
+  m_Color: {r: 0.32651234, g: 0.88136506, b: 0.9245283, a: 1}
+  m_Intensity: 4.62
+  m_Range: 4.11
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -7144,7 +7148,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.10850834, g: 0.10741992, b: 0.1509434, a: 1}
+  m_Color: {r: 0.07447972, g: 0.066452764, b: 0.122641504, a: 1}
   m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
