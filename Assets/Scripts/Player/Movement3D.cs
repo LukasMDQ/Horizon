@@ -67,7 +67,12 @@ public class Movement3D : MonoBehaviour
         //_rigidbody.MovePosition(transform.position + (_speed * _direction * Time.fixedDeltaTime));
         //_rigidbody.AddForce(_speed * _direction, _forceMode);
 
-        _rigidBody.velocity = _direction * _speed;
+        //_rigidBody.velocity = _direction * _speed;
+        // Mantener la componente de velocidad vertical causada por la gravedad
+        Vector3 currentVelocity = _rigidBody.velocity;
+
+        // Solo modificamos las componentes x y z para el movimiento horizontal
+        _rigidBody.velocity = new Vector3(_direction.x * _speed, currentVelocity.y, _direction.z * _speed);
     }
     private void MouseLook()
     {
