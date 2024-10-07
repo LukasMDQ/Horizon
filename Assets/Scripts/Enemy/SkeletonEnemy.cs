@@ -31,7 +31,7 @@ public abstract class SkeletonEnemy : Entity
     /// </summary>
     protected override void MyStart()
     {
-        _player   = FPSControl.playerTransform;
+        _player   = Movement3D.playerTransform;
         _agent    = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
 

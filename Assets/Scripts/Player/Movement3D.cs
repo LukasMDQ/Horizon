@@ -14,6 +14,7 @@ public class Movement3D : MonoBehaviour
     public float mouseSens;
     float _xRotation, _yRotation;
     Vector3 _direction;
+    public static Transform playerTransform;
 
     [SerializeField]
     float _speed;
@@ -31,6 +32,7 @@ public class Movement3D : MonoBehaviour
         HideCursor();       
         _rigidBody = GetComponent<Rigidbody>();
         _boxCollider = GetComponent<BoxCollider>();
+        playerTransform = transform;
     }
 
     // Start is called before the first frame update

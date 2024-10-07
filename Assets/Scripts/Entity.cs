@@ -9,6 +9,7 @@ public abstract class Entity : MonoBehaviour
     public GameObject _destroyEffect, _drops;
     public AudioSource _spawnSound;
     public AudioClip[] _sounds;
+    public bool drop= false;
 
     private void Start()
     {
@@ -61,13 +62,16 @@ public abstract class Entity : MonoBehaviour
 
     private void RandomDrop()
     {
-        int rdn = Random.Range(0, 100);
-        
-        if (rdn <= 50)
+        if (drop)
         {
-            var myTransform = transform;
-            Instantiate(_drops, myTransform.position, myTransform.rotation);
-        }
+            int rdn = Random.Range(0, 100);
+
+            if (rdn <= 50)
+            {
+                var myTransform = transform;
+                Instantiate(_drops, myTransform.position, myTransform.rotation);
+            }
+        }        
     }
 
     private void OnTriggerEnter(Collider other)
