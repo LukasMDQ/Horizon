@@ -16,6 +16,7 @@ public class Movement3D : MonoBehaviour
     Vector3 _direction;
     public static Transform playerTransform;
 
+    
     [SerializeField]
     float _speed;
     float _sprintSpeed;
@@ -74,6 +75,7 @@ public class Movement3D : MonoBehaviour
         // Solo modificamos las componentes x y z para el movimiento horizontal
         _rigidBody.velocity = new Vector3(_direction.x * _speed, currentVelocity.y, _direction.z * _speed);
     }
+
     private void MouseLook()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
@@ -100,5 +102,9 @@ public class Movement3D : MonoBehaviour
             // Volvemos la variable al valor inicial
             _speed = _walkSpeed;
         }        
+    }
+    public void Slow (float slowValue)//REDUCE VELOCIDAD
+    {
+        _speed -= slowValue;
     }
 }

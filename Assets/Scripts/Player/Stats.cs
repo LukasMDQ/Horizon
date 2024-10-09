@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class Stats : MonoBehaviour
 {
     //-------REFERENCE
+  
     //-------TEXT    
     //-------AUDIO
     //-------ANIMATION
@@ -109,11 +110,10 @@ public class Stats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int dmg)//RECIBIR DAÑO
+    public void TakeDamage(float dmg)//RECIBIR DAÑO
     {
         curHp -= dmg;        
        // if (_sounds.Length > 0) _spawnSound.PlayOneShot(_sounds[0]);
-
     }
     public void Reload(int ammoValue)//RECARGAR
     {
