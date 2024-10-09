@@ -12,7 +12,7 @@ public class SkeletonDistance : SkeletonEnemy
     protected override void MyStart()
     {
         base.MyStart();
-        attackRange = 6;
+       // attackRange = 6;
     }
 
     protected override void Attack()
