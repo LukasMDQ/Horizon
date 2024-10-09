@@ -34,6 +34,12 @@ public class ExplosiveBarrel : Entity
             {
                 objectToExplode.GetComponent<Entity>().Death();
             }
+
+            Stats player = objectToExplode.GetComponent<Stats>();
+            if (player != null && player != this)
+            {
+                objectToExplode.GetComponent<Stats>().TakeDamage(50);
+            }
         }
     }
     void RandomEffectOnDestroy()

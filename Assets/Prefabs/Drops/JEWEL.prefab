@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 597456025629664243}
   - component: {fileID: 2892002909300080059}
+  - component: {fileID: 8698717796875285427}
   m_Layer: 0
   m_Name: JEWEL
   m_TagString: Joya
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654655649947452902}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.49642566, z: -0, w: 0.8680793}
+  m_LocalRotation: {x: 0, y: 0.49642864, z: 0, w: 0.8680775}
   m_LocalPosition: {x: -16.098, y: -0.60575, z: 39.114}
   m_LocalScale: {x: 2.3999047, y: 2.3999047, z: 2.3999047}
   m_ConstrainProportionsScale: 0
@@ -34,7 +35,7 @@ Transform:
   - {fileID: 3243681273884137938}
   - {fileID: 137040376761602686}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 59.492004, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 59.528, z: 0}
 --- !u!114 &2892002909300080059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,6 +54,28 @@ MonoBehaviour:
   _heal: 0
   _maxHp: 0
   _jewel: 1
+  chalice: {fileID: 0}
+--- !u!65 &8698717796875285427
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654655649947452902}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27541044, y: 0.29875132, z: 0.12747407}
+  m_Center: {x: 0.0060165944, y: 0.9530445, z: -0.0070894468}
 --- !u!1 &2854754609891022885
 GameObject:
   m_ObjectHideFlags: 0
