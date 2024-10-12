@@ -24,7 +24,7 @@ public class Stats : MonoBehaviour
     //[SerializeField] public cooldown cooldown;
     //public TextMeshProUGUI textScore, textPoints, textHp;   
     //---------STATS----    
-    public int score, points, damage;
+    public int damage;
     public float curHp, maxHp;
     public int jewels;
     public float stamina, maxStamina;
@@ -124,7 +124,6 @@ public class Stats : MonoBehaviour
     //----------Escudo-------       
     public void ActiveShield()//ACTIVAR ESCUDOS
     {
-
         if (Input.GetKey(KeyCode.Q) && shieldCooldown == shieldTime && shieldLvl >= 1 && !shield.activeSelf)
         {
             _spawnSound.PlayOneShot(_sounds[2]);

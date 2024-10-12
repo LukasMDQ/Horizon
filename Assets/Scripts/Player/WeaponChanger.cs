@@ -2,43 +2,43 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Weapons;
 
+// ReSharper disable once CheckNamespace
 public class WeaponChanger : MonoBehaviour
 {
-    public GameObject[] weapons;
+    public Weapon[] weapons;
     public int selectedWeapon; //Public para el Animator
 
     private void Start()
     {
-        weapons[0].SetActive(true);
+        ActivateWeapon(0);
         selectedWeapon = 0;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            selectedWeapon--;
-            if (selectedWeapon < 0) selectedWeapon = weapons.Length - 1;
-            
-            ActivateWeapon(selectedWeapon);
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            selectedWeapon++;
-            if (selectedWeapon > weapons.Length - 1) selectedWeapon = 0;
-            
-            ActivateWeapon(selectedWeapon);
-        }
     }
 
     private void ActivateWeapon(int index)
     {
         foreach (var weapon in weapons)
         {
-            weapon.SetActive(false);
+            weapon.gameObject.SetActive(false);
         }
         
-        weapons[index].SetActive(true);
+        weapons[index].gameObject.SetActive(true);
+    }
+
+    public void CycleWeaponForward()
+    {
+        selectedWeapon++;
+        if (selectedWeapon > weapons.Length - 1) selectedWeapon = 0;
+            
+        ActivateWeapon(selectedWeapon);
+    }
+
+    public void CycleWeaponBackward()
+    {
+        selectedWeapon--;
+        if (selectedWeapon < 0) selectedWeapon = weapons.Length - 1;
+            
+        ActivateWeapon(selectedWeapon);
     }
 }

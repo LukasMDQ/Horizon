@@ -9,11 +9,11 @@ public class SkeletonDistance : SkeletonEnemy
     [SerializeField] private Transform _spawnPoint;
     private bool _isInCooldown;
 
-    protected override void MyStart()
+    /*protected override void MyStart()
     {
         base.MyStart();
        // attackRange = 6;
-    }
+    }*/
 
     protected override void Attack()
     {
