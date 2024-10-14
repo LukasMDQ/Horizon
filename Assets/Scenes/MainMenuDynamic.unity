@@ -14,22 +14,22 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_FogDensity: 0.002
+  m_LinearFogStart: -6.7
+  m_LinearFogEnd: 150
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.89
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: cf5ec68e93634204da92086cb316cfde, type: 2}
-  m_HaloStrength: 0.5
-  m_FlareStrength: 1
-  m_FlareFadeSpeed: 3
+  m_HaloStrength: 0.102
+  m_FlareStrength: 0.646
+  m_FlareFadeSpeed: 3.3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: c7e7f433f90e0614e829aa07b846917b, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1009,10 +1009,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100d3dc8d0a01144595bfff9fca2d292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _FlashEffect: {fileID: 2845052124015843148, guid: 8997beb6a6707334a87d318ffdec4e81, type: 3}
-  _instancePoint: {fileID: 1639478762}
-  spawnPoint: {fileID: 1639478763}
-  bullet: {fileID: 4649820365336439104, guid: 503f2ce69d56dbf498370146ddb5d09c, type: 3}
+  damage: 0
+  animationWeapons: {fileID: 0}
+  _flashEffect: {fileID: 0}
+  _spawnPoint: {fileID: 0}
+  _bullet: {fileID: 0}
+  audioSource: {fileID: 0}
+  noAmmoClip: {fileID: 0}
+  reloadClip: {fileID: 0}
+  maxAmmo: 0
+  ammoUI: {fileID: 0}
 --- !u!95 &532255478
 Animator:
   serializedVersion: 5
