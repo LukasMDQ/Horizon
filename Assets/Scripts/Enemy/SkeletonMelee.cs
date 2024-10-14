@@ -17,7 +17,7 @@ public class SkeletonMelee : SkeletonEnemy
             _isAttacking = true;
             _isChasing = false;
             _agent.isStopped = true;
-            SetAnimationBooleans(false, false, true, false); // Activa la animación de ataque (attackM).
+            SetAnimationBooleans(false, false, true, false, false); // Activa la animación de ataque (attackM).
         }
     }
 }
