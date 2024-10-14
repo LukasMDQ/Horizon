@@ -12,11 +12,11 @@ public class InputController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            weaponChanger.CycleWeaponBackward();
+            StartCoroutine(weaponChanger.CycleWeaponBackward());
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            weaponChanger.CycleWeaponForward();
+            StartCoroutine(weaponChanger.CycleWeaponForward());
         }
 
         if (Input.GetKeyDown(KeyCode.R))

@@ -16,7 +16,7 @@ public class Stats : MonoBehaviour
     //-------AUDIO
     //-------ANIMATION
     //---------UI-------
-    [SerializeField] private TextMeshProUGUI textBullet;
+    [SerializeField] private TextMeshProUGUI textBullet; // TODO delete this later
     // ReSharper disable once InconsistentNaming
     [SerializeField] private GameObject _lostMenu;
     //[SerializeField] private GameObject _winMenu, _lostMenu;
@@ -74,7 +74,7 @@ public class Stats : MonoBehaviour
         ShieldCooldown();
         Death();
         UIUpdate();
-        textBullet.text = bulletCount.ToString();
+        //textBullet.text = bulletCount.ToString(); // We'll be updating ammo amount from weapon scripts
     }
 
     //--------------Alteraciones-----------    
@@ -115,11 +115,12 @@ public class Stats : MonoBehaviour
         curHp -= dmg;        
        // if (_sounds.Length > 0) _spawnSound.PlayOneShot(_sounds[0]);
     }
-    public void Reload(int ammoValue)//RECARGAR
+    public void Reload(int ammoValue)//RECARGAR // TODO eliminate this
     {
-        if (bulletCount < maxBulletCount)
+        /*if (bulletCount < maxBulletCount)
             bulletCount += ammoValue;
-        Debug.Log("RECARGA");
+        Debug.Log("RECARGA");*/
+        Debug.LogWarning("Refactoring this, for more info check Weapons scripts");
     }
     //----------Escudo-------       
     public void ActiveShield()//ACTIVAR ESCUDOS

@@ -4914,7 +4914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &768244458162975772
 Transform:
   m_ObjectHideFlags: 0
@@ -5014,10 +5014,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100d3dc8d0a01144595bfff9fca2d292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _FlashEffect: {fileID: 2845052124015843148, guid: 8997beb6a6707334a87d318ffdec4e81, type: 3}
-  _instancePoint: {fileID: 8188667111270098512}
-  spawnPoint: {fileID: 6051568547623893218}
-  bullet: {fileID: 4649820365336439104, guid: 503f2ce69d56dbf498370146ddb5d09c, type: 3}
+  damage: 0
+  animationWeapons: {fileID: 5848559327964224254}
+  _flashEffect: {fileID: 2845052124015843148, guid: 8997beb6a6707334a87d318ffdec4e81, type: 3}
+  _spawnPoint: {fileID: 6051568547623893218}
+  _bullet: {fileID: 4649820365336439104, guid: 503f2ce69d56dbf498370146ddb5d09c, type: 3}
+  audioSource: {fileID: 3142952773737546562}
+  noAmmoClip: {fileID: 8300000, guid: e7632c6401c09437e83de45d33c5858e, type: 3}
+  reloadClip: {fileID: 8300000, guid: 2dc35d77cfe164a2eab57d08500740e2, type: 3}
+  maxAmmo: 5
 --- !u!1 &522784869259005953
 GameObject:
   m_ObjectHideFlags: 0
@@ -24779,6 +24784,7 @@ GameObject:
   - component: {fileID: 4764878560534434816}
   - component: {fileID: 3108340913729549681}
   - component: {fileID: 7188275570111750879}
+  - component: {fileID: 773152519503175636}
   m_Layer: 0
   m_Name: Pirate_Sword
   m_TagString: Untagged
@@ -24873,6 +24879,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &773152519503175636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3220100803582191329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d12abf49c5c6ef488d634551b73e685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  animationWeapons: {fileID: 5848559327964224254}
 --- !u!1 &3802531305079072259
 GameObject:
   m_ObjectHideFlags: 0
@@ -35359,11 +35379,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82d08d3445a02f48a5d2213968ae6b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 1116539007658768321}
-  bullet: {fileID: 4649820365336439104, guid: c994d23682bf9404c9c2e8b7d2909e34, type: 3}
-  _FlashEffect: {fileID: 2845052124015843148, guid: 29e84efebe20d2041a1faf661a1be12d, type: 3}
-  _instancePoint: {fileID: 7655476773677153295}
-  stats: {fileID: 528229664989663828}
+  damage: 0
+  animationWeapons: {fileID: 5848559327964224254}
+  _flashEffect: {fileID: 2845052124015843148, guid: 29e84efebe20d2041a1faf661a1be12d, type: 3}
+  _spawnPoint: {fileID: 1116539007658768321}
+  _bullet: {fileID: 4649820365336439104, guid: c994d23682bf9404c9c2e8b7d2909e34, type: 3}
+  audioSource: {fileID: 3142952773737546562}
+  noAmmoClip: {fileID: 8300000, guid: e7632c6401c09437e83de45d33c5858e, type: 3}
+  reloadClip: {fileID: 8300000, guid: cef0fa03af5b747f0abe82cde0b2bccc, type: 3}
+  maxAmmo: 2
+  maxAmmoInBag: 8
 --- !u!1 &5748001422986877546
 GameObject:
   m_ObjectHideFlags: 0
@@ -35488,9 +35513,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skills: {fileID: 4561673578613942473}
   stats: {fileID: 528229664989663828}
-  jewel1: {fileID: 4024761336289371510}
-  jewel2: {fileID: 1680912097229792606}
-  jewel3: {fileID: 4088050418711964871}
+  jewel1: {fileID: 0}
+  jewel2: {fileID: 0}
+  jewel3: {fileID: 0}
 --- !u!1 &5792867000195254272
 GameObject:
   m_ObjectHideFlags: 0
@@ -35503,7 +35528,6 @@ GameObject:
   - component: {fileID: 7740288606185588639}
   - component: {fileID: 1539105802436844318}
   - component: {fileID: 7382475130495452530}
-  - component: {fileID: 5587822772672173581}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -35608,26 +35632,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2.1391833, z: 1.2694112}
   m_Center: {x: 1.6053263e-10, y: -0.5695918, z: 0.08470488}
---- !u!114 &5587822772672173581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5792867000195254272}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0350b210968f12446b0b584d658cb845, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armas:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 5596382129624706500}
-  - {fileID: 0}
-  fPSControl: {fileID: 0}
 --- !u!1 &5957666993421394004
 GameObject:
   m_ObjectHideFlags: 0
@@ -55167,13 +55171,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7655476773677153295}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.035076555, y: 0.025906987, z: 0.0063400576, w: 0.9990287}
-  m_LocalPosition: {x: -0.07401002, y: 0.56900394, z: 2.6960306}
+  m_LocalRotation: {x: 0.03504494, y: 0.026008273, z: 0.0034444209, w: 0.9990413}
+  m_LocalPosition: {x: -0.02800172, y: 0.56699693, z: 2.6859593}
   m_LocalScale: {x: 0.28406, y: 0.28406, z: 0.28406}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 992252214335649026}
-  m_LocalEulerAnglesHint: {x: 4, y: 3, z: 0.832}
+  m_LocalEulerAnglesHint: {x: 4.005, y: 3, z: 0.5}
 --- !u!33 &6533892337779838487
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -69940,7 +69944,7 @@ Transform:
   m_GameObject: {fileID: 8188667111270098512}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1035987, y: 0.10431175, z: -0.014318202, w: 0.98903054}
-  m_LocalPosition: {x: -0.020999635, y: 0.05400035, z: 0.34499612}
+  m_LocalPosition: {x: -0.0032, y: 0.0566, z: 0.3359}
   m_LocalScale: {x: 0.045404, y: 0.045404, z: 0.045404}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74905,6 +74909,7 @@ GameObject:
   - component: {fileID: 4561673578613942473}
   - component: {fileID: 528229664989663828}
   - component: {fileID: 3609643596718093105}
+  - component: {fileID: 5236565383728797799}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Player
@@ -75132,7 +75137,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8959699468201996388}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c263312a5f0843646bb560ebd2ddb992, type: 3}
   m_Name: 
@@ -75156,9 +75161,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 363757152504883458}
-  - {fileID: 5596382129624706500}
-  - {fileID: 3220100803582191329}
+  - {fileID: 5385311128261038108}
+  - {fileID: 1693552526119504885}
+  - {fileID: 773152519503175636}
   selectedWeapon: 0
 --- !u!114 &4561673578613942473
 MonoBehaviour:
@@ -75201,8 +75206,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBullet: {fileID: 0}
   _lostMenu: {fileID: 0}
-  score: 0
-  points: 0
   damage: 50
   curHp: 0
   maxHp: 100
@@ -75239,3 +75242,16 @@ MonoBehaviour:
   mouseSens: 100
   _speed: 6
   _forceMode: 1
+--- !u!114 &5236565383728797799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8959699468201996388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7164ed2f5d3d1444d996e3c2640aca5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponChanger: {fileID: 7575198759384421689}

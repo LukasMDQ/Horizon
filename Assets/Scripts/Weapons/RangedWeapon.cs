@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 // ReSharper disable InconsistentNaming
 
@@ -16,16 +17,28 @@ namespace Weapons
         protected int ammo;
         public int maxAmmo;
 
-        protected virtual void Start()
+        public TextMeshProUGUI ammoUI;
+
+        protected virtual void Awake()
         {
             ammo = maxAmmo;
         }
 
+        private void OnEnable()
+        {
+            UpdateUI();
+        }
+
         public override void Attack()
         {
+            if (isAttacking) return;
+
+            isAttacking = true;
+            
             if (ammo > 0)
             {
                 ammo--;
+                UpdateUI();
                 
                 var position = _spawnPoint.position;
             
@@ -38,9 +51,20 @@ namespace Weapons
             else
             {
                 audioSource.PlayOneShot(noAmmoClip);
+                isAttacking = false;
             }
         }
 
         public abstract void Reload();
+
+        protected void CanAttackAgain()
+        {
+            isAttacking = false;
+        }
+
+        protected void UpdateUI()
+        {
+            ammoUI.text = $"{ammo}/{maxAmmo}";
+        }
     }
 }

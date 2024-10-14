@@ -26,16 +26,20 @@ public class WeaponChanger : MonoBehaviour
         weapons[index].gameObject.SetActive(true);
     }
 
-    public void CycleWeaponForward()
+    public IEnumerator CycleWeaponForward()
     {
+        yield return new WaitWhile(() => weapons[selectedWeapon].IsAttacking);
+
         selectedWeapon++;
         if (selectedWeapon > weapons.Length - 1) selectedWeapon = 0;
             
         ActivateWeapon(selectedWeapon);
     }
 
-    public void CycleWeaponBackward()
+    public IEnumerator CycleWeaponBackward()
     {
+        yield return new WaitWhile(() => weapons[selectedWeapon].IsAttacking);
+
         selectedWeapon--;
         if (selectedWeapon < 0) selectedWeapon = weapons.Length - 1;
             

@@ -7,15 +7,17 @@ namespace Weapons
         private int _ammoInBag;
         public int maxAmmoInBag;
 
-        protected override void Start()
+        protected override void Awake()
         {
-            base.Start();
+            base.Awake();
             _ammoInBag = maxAmmoInBag;
         }
 
         public override void Reload()
         {
-            if (ammo >= maxAmmo) return;
+            if (isAttacking || ammo >= maxAmmo) return;
+
+            isAttacking = true;
 
             var numAux = maxAmmo - ammo;
 
@@ -29,8 +31,10 @@ namespace Weapons
                 ammo += _ammoInBag;
                 _ammoInBag = 0;
             }
+            UpdateUI();
             
             audioSource.PlayOneShot(reloadClip);
+            Invoke(nameof(CanAttackAgain), 0.4f);
         }
 
         public void AmmoPickUp()

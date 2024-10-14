@@ -12,7 +12,7 @@ public class Drop : MonoBehaviour
     {       
         if (other.TryGetComponent(out Stats stats) && other.CompareTag("Player")) //el efecto del item varia dependiendo del bool
         {  
-            if (_ammo) stats.Reload(value);
+            if (_ammo) stats.Reload(value); // TODO refactor this
             if (_jewel)
             {
                 stats.AddJewel(value);
