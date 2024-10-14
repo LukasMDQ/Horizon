@@ -15,7 +15,7 @@ namespace Weapons
 
         private void Update()
         {
-            print(IsAttacking);
+            //print(IsAttacking);
         }
     }
 }
