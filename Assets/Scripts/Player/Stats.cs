@@ -18,6 +18,20 @@ public class Stats : Entity
     protected override void MyStart()
     {
         stamina = maxStamina;
+
+        // Load player health from PlayerStatsManager
+        if (PlayerStatsManager.MaxHP == 0)
+        {
+            // Set default values if it's the first time (e.g., first scene load)
+            PlayerStatsManager.MaxHP = 100;
+            PlayerStatsManager.HP = PlayerStatsManager.MaxHP;
+        }
+
+        // Assign PlayerStatsManager values to current player stats
+        maxHp = PlayerStatsManager.MaxHP;
+        curHp = PlayerStatsManager.HP;
+
+        UpdateHealthUI();
     }
 
     private void Update()
@@ -46,10 +60,30 @@ public class Stats : Entity
         Debug.Log("Buff applied");
     }
 
-    public void MaxLifeUp(int healPower)//AUMENTAR VIDA MAXIMA
+    public void MaxLifeUp(int healPower)
     {
         maxHp += healPower;
-        Debug.Log("VIDA MAXIMA AUMENTADA! ");
+        PlayerStatsManager.MaxHP = (int)maxHp; // Save the updated max health in PlayerStatsManager
+        Debug.Log("Max life increased!");
+    }
+
+    public override void TakeDamage(float dmg)
+    {
+        base.TakeDamage(dmg);
+
+        // Save current HP to PlayerStatsManager
+        PlayerStatsManager.HP = (int)curHp;
+        UpdateHealthUI();
+    }
+
+    public void Heal(int healPower)
+    {
+        curHp += healPower;
+        if (curHp > maxHp) curHp = maxHp;
+
+        // Update PlayerStatsManager
+        PlayerStatsManager.HP = (int)curHp;
+        UpdateHealthUI();
     }
 
     //----------- Death Management -----------  
@@ -65,10 +99,15 @@ public class Stats : Entity
     }
 
     //----------- UI Management -----------  
-    private void UIUpdate()
+    private void UpdateHealthUI()
     {
         hpBar.fillAmount = curHp / maxHp;
         hpVignette.alpha = 1 - (curHp / maxHp);
+    }
+
+    private void UIUpdate()
+    {
         staminaBar.fillAmount = stamina / maxStamina;
+        UpdateHealthUI();
     }
 }

@@ -78,7 +78,6 @@ public abstract class Entity : MonoBehaviour
     {
         if (other.CompareTag("WeaponPlayer"))
         {
-            Debug.Log("Es por weapon");
             GameObject player = GameObject.FindWithTag("Player");
             Debug.Log(player);
             if (player != null && player != gameObject && player.TryGetComponent(out Stats playerStats))

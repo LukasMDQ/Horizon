@@ -23,7 +23,6 @@ public class Bullet : MonoBehaviour
     {        
         if (other.TryGetComponent(out Stats stats) && other.CompareTag("Enemy"))//Interactura con el enemigo y se destruye.
         {
-            Debug.Log("Es por Bullet");
             stats.TakeDamage(damage);
             DestructionBullet();
         }
