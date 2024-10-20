@@ -29,7 +29,7 @@ public class InputController : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !Cursor.visible)
         {
             weaponChanger.weapons[weaponChanger.selectedWeapon].Attack();
         }

@@ -1,105 +1,59 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-//using JetBrains.Annotations;
-//using Unity.VisualScripting;
-// ReSharper disable StringLiteralTypo
-// ReSharper disable CommentTypo
 
-// ReSharper disable once CheckNamespace
-public class Stats : MonoBehaviour
+public class Stats : Entity
 {
-    //-------REFERENCE
-  
-    //-------TEXT    
-    //-------AUDIO
-    //-------ANIMATION
-    //---------UI-------
     [SerializeField] private TextMeshProUGUI textBullet; // TODO delete this later
-    // ReSharper disable once InconsistentNaming
     [SerializeField] private GameObject _lostMenu;
-    //[SerializeField] private GameObject _winMenu, _lostMenu;
-    //[SerializeField] public UI ui;
-    //[SerializeField] public cooldown cooldown;
-    //public TextMeshProUGUI textScore, textPoints, textHp;   
-    //---------STATS----    
-    public int damage;
-    public float curHp, maxHp;
-    public int jewels;
-    public float stamina, maxStamina;
-    public int shieldLvl;
-    public int bulletCount, maxBulletCount;
-
-    public Animator anim;
-    private AudioSource _spawnSound;
-    // ReSharper disable once InconsistentNaming
-    [SerializeField] private AudioClip[] _sounds;
-    //-----SHIELD
-    public GameObject shield;
-    [SerializeField] private GameObject shieldUi;
-    public float shieldCooldown;
-    public float shieldTime;
-    //-----ATTACK    
     public Image hpBar;
     public Image staminaBar;
-    public float hpBarAmount = 100f;
-    public float staminaBarAmount = 100f;
-    public float ChargeRate;
     public CanvasGroup hpVignette;
-    //--------HUD
-    private void Start()
+
+    public int jewels;
+    public float stamina, maxStamina;
+    public int damage;
+    public float ChargeRate;
+
+    protected override void MyStart()
     {
-        shieldCooldown = shieldTime;
-        anim = GetComponent<Animator>();
-        curHp = maxHp;
         stamina = maxStamina;
-        //ui.StartHpBar(curHp);
-        //Shield
-        //cooldown.Startshield(shieldCooldown);
-        if (!_spawnSound) _spawnSound = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        if (curHp > maxHp) curHp = maxHp;
-        if (stamina > maxStamina) stamina = maxStamina;
-        if (stamina <= 0) stamina = 0;
-        //ui.ChangeCurrentHp(curHp);
-        //cooldown.ChangeCurshield(shieldCooldown);        
-        //textScore.text = score.ToString();
-        //textPoints.text = points.ToString();        
-        //textHp.text = curHp.ToString();
-        ActiveShield();
-        ShieldCooldown();
-        Death();
+        UpdateStamina();
         UIUpdate();
-        //textBullet.text = bulletCount.ToString(); // We'll be updating ammo amount from weapon scripts
     }
 
-    //--------------Alteraciones-----------    
-    public void Heal(int healPower)//CURAR
+    //----------- Stamina Management -----------  
+    private void UpdateStamina()
     {
-        curHp += healPower;
-        Debug.Log("Curado");
+        if (stamina > maxStamina) stamina = maxStamina;
+        if (stamina < 0) stamina = 0;
     }
-    public void AddJewel(int jewelCount)//AÑADIR GEMA
+
+    //----------- Player-Specific Actions -----------  
+    public void AddJewel(int jewelCount)
     {
         jewels += jewelCount;
-        Debug.Log("gema añadida al grial");
+        Debug.Log("Jewel added to grial");
     }
-    public void Buff(int powerUp)//BUFF
+
+    public void Buff(int powerUp)
     {
         damage += powerUp;
-        Debug.Log("Bufeado");
+        Debug.Log("Buff applied");
     }
+
     public void MaxLifeUp(int healPower)//AUMENTAR VIDA MAXIMA
     {
         maxHp += healPower;
         Debug.Log("VIDA MAXIMA AUMENTADA! ");
     }
 
-    public void Death()//MUERTE
+    //----------- Death Management -----------  
+    public override void Death()
     {
         if (curHp <= 0)
         {
@@ -110,41 +64,11 @@ public class Stats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float dmg)//RECIBIR DAÑO
+    //----------- UI Management -----------  
+    private void UIUpdate()
     {
-        curHp -= dmg;        
-       // if (_sounds.Length > 0) _spawnSound.PlayOneShot(_sounds[0]);
-    }
-    public void Reload(int ammoValue)//RECARGAR // TODO eliminate this
-    {
-        /*if (bulletCount < maxBulletCount)
-            bulletCount += ammoValue;
-        Debug.Log("RECARGA");*/
-        Debug.LogWarning("Refactoring this, for more info check Weapons scripts");
-    }
-    //----------Escudo-------       
-    public void ActiveShield()//ACTIVAR ESCUDOS
-    {
-        if (Input.GetKey(KeyCode.Q) && shieldCooldown == shieldTime && shieldLvl >= 1 && !shield.activeSelf)
-        {
-            _spawnSound.PlayOneShot(_sounds[2]);
-            shield.SetActive(true);
-            shieldCooldown = 0;
-        }
-    }
-    public void ShieldCooldown()
-    {
-        //cooldown.ChangeCurshield(shieldCooldown);
-        shieldCooldown += Time.deltaTime;
-        if (shieldCooldown >= shieldTime) shieldCooldown = shieldTime;
-    }
-
-    //----------UI-------   
-
-    public void UIUpdate()
-    {
-        hpBar.fillAmount = curHp / 100f;
+        hpBar.fillAmount = curHp / maxHp;
         hpVignette.alpha = 1 - (curHp / maxHp);
-        staminaBar.fillAmount = stamina / 100f; 
+        staminaBar.fillAmount = stamina / maxStamina;
     }
 }

@@ -51,7 +51,7 @@ public abstract class Entity : MonoBehaviour
     public virtual void Death()
     {
         if (_sounds.Length > 0) _spawnSound.PlayOneShot(_sounds[1]); // 1 = deathSound
-        if(_destroyEffect != null)
+        if(_destroyEffect != null && _drops != null)
         {
             RandomDrop();
             var myTransform = transform;
@@ -78,9 +78,10 @@ public abstract class Entity : MonoBehaviour
     {
         if (other.CompareTag("WeaponPlayer"))
         {
+            Debug.Log("Es por weapon");
             GameObject player = GameObject.FindWithTag("Player");
             Debug.Log(player);
-            if (player != null && player.TryGetComponent(out Stats playerStats))
+            if (player != null && player != gameObject && player.TryGetComponent(out Stats playerStats))
             {
                 TakeDamage(playerStats.damage);
             }

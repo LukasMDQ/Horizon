@@ -61,9 +61,13 @@ public abstract class SkeletonEnemy : Entity
     {
         if (_patrolPoints.Length == 0) return;
 
-        _agent.destination = _patrolPoints[_currentPatrolIndex].position;
-        _currentPatrolIndex = (_currentPatrolIndex + 1) % _patrolPoints.Length;
-        SetAnimationBooleans(true, false, false, false, false); // Activa la animación de caminar (walk).
+        if(_agent != null)
+        {
+            _agent.destination = _patrolPoints[_currentPatrolIndex].position;
+            _currentPatrolIndex = (_currentPatrolIndex + 1) % _patrolPoints.Length;
+            SetAnimationBooleans(true, false, false, false, false); // Activa la animación de caminar (walk).
+        }
+       
     }
 
     private void Patrol()
@@ -76,7 +80,7 @@ public abstract class SkeletonEnemy : Entity
             _agent.isStopped = false;
         }
 
-        if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
+        if (_agent != null && !_agent.pathPending && _agent.remainingDistance < 0.5f)
         {
             GotoNextPatrolPoint();
         }

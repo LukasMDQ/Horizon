@@ -66,5 +66,17 @@ namespace Weapons
         {
             ammoUI.text = $"{ammo}/{maxAmmo}";
         }
+
+        public void GetAmmo(int newAmmo)
+        {
+            if(newAmmo + ammo >= maxAmmo)
+            {
+                ammo = maxAmmo;
+            } else
+            {
+                ammo += newAmmo;
+            }
+            UpdateUI();
+        }
     }
 }
