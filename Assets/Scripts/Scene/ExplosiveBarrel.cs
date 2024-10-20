@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class <c>ExplosiveBarrel</c> create the behaviour of explosive barrels, 
+/// please don't put in scene an explosive asset next to other explosive asset for avoid excessive resource consumption.
+/// </summary>
 public class ExplosiveBarrel : Entity
 {
     [SerializeField]
@@ -46,11 +50,7 @@ public class ExplosiveBarrel : Entity
     {
         int randomChance = Random.Range(0, 101);
 
-        if (randomChance <= 50)
-        {
-            Explode();
-        }
-        else if (randomChance > 50 && randomChance <= 80)
+        if (randomChance > 50 && randomChance <= 80)
         {
             Drop();
         }
