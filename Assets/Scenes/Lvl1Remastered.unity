@@ -256,6 +256,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2572963}
   m_Mesh: {fileID: -633945100355014200, guid: a59f6548c14dfa84ba2ca07e21ce1543, type: 3}
+--- !u!1 &7634732 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4024761336289371510, guid: fef11dfd3057a544c8608cec553831da, type: 3}
+  m_PrefabInstance: {fileID: 1827221891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8118172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15182,6 +15187,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 452a86ca4bb346709707701376fdcd66, type: 3}
+--- !u!1 &719780969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4088050418711964871, guid: fef11dfd3057a544c8608cec553831da, type: 3}
+  m_PrefabInstance: {fileID: 1827221891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &722934314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6547983685286309856, guid: 9cc8cd2156291d9468415c34c3a98639, type: 3}
@@ -16380,6 +16390,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6124398279993684991, guid: 9cc8cd2156291d9468415c34c3a98639, type: 3}
   m_PrefabInstance: {fileID: 1154724417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &771673728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1680912097229792606, guid: fef11dfd3057a544c8608cec553831da, type: 3}
+  m_PrefabInstance: {fileID: 1827221891}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &773599636 stripped
 Transform:
@@ -32453,15 +32468,15 @@ PrefabInstance:
     - target: {fileID: 9197845906957863603, guid: fef11dfd3057a544c8608cec553831da, type: 3}
       propertyPath: jewel1
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7634732}
     - target: {fileID: 9197845906957863603, guid: fef11dfd3057a544c8608cec553831da, type: 3}
       propertyPath: jewel2
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 771673728}
     - target: {fileID: 9197845906957863603, guid: fef11dfd3057a544c8608cec553831da, type: 3}
       propertyPath: jewel3
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 719780969}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36055,6 +36070,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4534147065827568, guid: 5187dfa4d8f19524e8bbf7c6894b7de7, type: 3}
   m_PrefabInstance: {fileID: 1830021765}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2023557708 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9197845906957863603, guid: fef11dfd3057a544c8608cec553831da, type: 3}
+  m_PrefabInstance: {fileID: 1827221891}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 809d2833f61616749a1d1c713ec4a4fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2030467862 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8586475746251682474, guid: a89e36b881cda9a4cbdefb99342aa4a3, type: 3}
@@ -48402,7 +48428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597456025629664243, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -41.256
+      value: -42.22
       objectReference: {fileID: 0}
     - target: {fileID: 597456025629664243, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -48410,7 +48436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597456025629664243, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 63.734
+      value: 65.09
       objectReference: {fileID: 0}
     - target: {fileID: 597456025629664243, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -48479,7 +48505,7 @@ PrefabInstance:
     - target: {fileID: 2892002909300080059, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
       propertyPath: chalice
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2023557708}
     - target: {fileID: 3243681273884137938, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

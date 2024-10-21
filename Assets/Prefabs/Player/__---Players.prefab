@@ -5023,6 +5023,7 @@ MonoBehaviour:
   noAmmoClip: {fileID: 8300000, guid: e7632c6401c09437e83de45d33c5858e, type: 3}
   reloadClip: {fileID: 8300000, guid: 2dc35d77cfe164a2eab57d08500740e2, type: 3}
   maxAmmo: 5
+  ammoUI: {fileID: 0}
 --- !u!1 &522784869259005953
 GameObject:
   m_ObjectHideFlags: 0
@@ -35388,6 +35389,7 @@ MonoBehaviour:
   noAmmoClip: {fileID: 8300000, guid: e7632c6401c09437e83de45d33c5858e, type: 3}
   reloadClip: {fileID: 8300000, guid: cef0fa03af5b747f0abe82cde0b2bccc, type: 3}
   maxAmmo: 2
+  ammoUI: {fileID: 0}
   maxAmmoInBag: 8
 --- !u!1 &5748001422986877546
 GameObject:
@@ -35513,9 +35515,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skills: {fileID: 4561673578613942473}
   stats: {fileID: 528229664989663828}
-  jewel1: {fileID: 0}
-  jewel2: {fileID: 0}
-  jewel3: {fileID: 0}
+  jewel1: {fileID: 4024761336289371510}
+  jewel2: {fileID: 1680912097229792606}
+  jewel3: {fileID: 4088050418711964871}
 --- !u!1 &5792867000195254272
 GameObject:
   m_ObjectHideFlags: 0
@@ -75204,29 +75206,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25ca34e2c5d8ba42a8fda7f8d5f8132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textBullet: {fileID: 0}
-  _lostMenu: {fileID: 0}
-  damage: 50
   curHp: 0
   maxHp: 100
+  _destroyEffect: {fileID: 0}
+  _drops: {fileID: 0}
+  _spawnSound: {fileID: 0}
+  _sounds: []
+  drop: 0
+  textBullet: {fileID: 0}
+  _lostMenu: {fileID: 0}
+  hpBar: {fileID: 0}
+  staminaBar: {fileID: 0}
+  hpVignette: {fileID: 0}
   jewels: 0
   stamina: 0
   maxStamina: 100
-  shieldLvl: 0
-  bulletCount: 10
-  maxBulletCount: 10
-  anim: {fileID: 0}
-  _sounds: []
-  shield: {fileID: 0}
-  shieldUi: {fileID: 0}
-  shieldCooldown: 0
-  shieldTime: 0
-  hpBar: {fileID: 0}
-  staminaBar: {fileID: 0}
-  hpBarAmount: 100
-  staminaBarAmount: 100
+  damage: 50
   ChargeRate: 5
-  hpVignette: {fileID: 0}
 --- !u!114 &3609643596718093105
 MonoBehaviour:
   m_ObjectHideFlags: 0
