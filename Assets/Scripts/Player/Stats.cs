@@ -76,11 +76,9 @@ public class Stats : Entity
         UpdateHealthUI();
     }
 
-    public void Heal(int healPower)
+    public override void Heal(int healPower)
     {
-        curHp += healPower;
-        if (curHp > maxHp) curHp = maxHp;
-
+        base.Heal(healPower);
         // Update PlayerStatsManager
         PlayerStatsManager.HP = (int)curHp;
         UpdateHealthUI();
