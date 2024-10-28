@@ -37,6 +37,12 @@ namespace Weapons
             Invoke(nameof(CanAttackAgain), 0.4f);
         }
 
+        protected override void UpdateUI()
+        {
+            base.UpdateUI();
+            ammoInBagUI.text = $"{_ammoInBag}/{maxAmmoInBag}";
+        }
+
         public void AmmoPickUp()
         {
             _ammoInBag = maxAmmoInBag;
