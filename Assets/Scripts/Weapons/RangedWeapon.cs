@@ -29,6 +29,11 @@ namespace Weapons
             UpdateUI();
         }
 
+        private void OnDisable()
+        {
+            ClearUI();
+        }
+
         public override void Attack()
         {
             if (isAttacking) return;
@@ -65,6 +70,11 @@ namespace Weapons
         protected void UpdateUI()
         {
             ammoUI.text = $"{ammo}/{maxAmmo}";
+        }
+
+        private void ClearUI()
+        {
+            ammoUI.text = "";
         }
 
         public void GetAmmo(int newAmmo)
