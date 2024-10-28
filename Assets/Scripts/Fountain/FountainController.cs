@@ -13,6 +13,7 @@ public class FountainController : MonoBehaviour
 
     public string turnOffColorLight = "#125C61";
 
+
     void Awake()
     {
         ActivateWater();
@@ -22,7 +23,7 @@ public class FountainController : MonoBehaviour
         if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.F))
         {
             DeactivateWater();
-            HealPlayer();
+            UseChargeChalice();
         }
     }
     public void ChangeLightColor(string hexColor)
@@ -58,13 +59,12 @@ public class FountainController : MonoBehaviour
         }
     }
 
-    private void HealPlayer()
+    private void UseChargeChalice()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
-        Stats stats = player.GetComponent<Stats>();
-        int playerMaxLife = (int)stats.maxHp;
-        stats.Heal(playerMaxLife);
+        ChaliceController chaliceController = player.GetComponent<ChaliceController>();
+        chaliceController.ChargeChalice();
     }
 
     private void OnTriggerEnter(Collider other)

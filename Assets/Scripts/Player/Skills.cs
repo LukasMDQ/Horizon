@@ -6,6 +6,7 @@ public class Skills : MonoBehaviour
 {
     public GameObject[] skillsObject;
     private Stats _stats;
+    private ChaliceController _chaliceController;
 
     public Slider[] cooldownSliders;
 
@@ -24,11 +25,13 @@ public class Skills : MonoBehaviour
     // ReSharper disable once InconsistentNaming
     [SerializeField] private SkillsCooldownFeedback[] _skillsCooldownFeedback;
 
+
     private void Start()
     {
         onCooldown = new bool[skillsObject.Length];
         _cooldownTimers = new float[skillsObject.Length];
         _stats = GetComponent<Stats>();
+        _chaliceController = GetComponent<ChaliceController>();
         
         foreach (GameObject skill in skillsObject)
         {
@@ -43,17 +46,17 @@ public class Skills : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !onCooldown[0] && _stats.jewels >= 1)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !onCooldown[0] && _stats.jewels >= 1 && _chaliceController.IsChargeChalice)
         {
             ActivateSkill(0);
             _stats.Heal(10);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && !onCooldown[1] && _stats.jewels >= 2)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !onCooldown[1] && _stats.jewels >= 2 && _chaliceController.IsChargeChalice)
         {
             ActivateSkill(1);
             _stats.Buff(10);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !onCooldown[2] && _stats.jewels >= 3)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !onCooldown[2] && _stats.jewels >= 3 && _chaliceController.IsChargeChalice)
         {
             ActivateSkill(2);
         }
@@ -75,6 +78,8 @@ public class Skills : MonoBehaviour
 
     private void ActivateSkill(int index)
     {
+       
+        Debug.Log("activacion");
         if (index >= 0 && index < skillsObject.Length)
         {
             // Activar la habilidad 
@@ -89,6 +94,8 @@ public class Skills : MonoBehaviour
             // Iniciar cooldown para esa habilidad
             StartCoroutine(Cooldown(index));
         }
+
+        _chaliceController.UseChalice();
     }
 
     //  desactivar la habilidad después de un tiempo
