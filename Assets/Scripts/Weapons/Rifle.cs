@@ -32,7 +32,7 @@ namespace Weapons
                 _ammoInBag = 0;
             }
             UpdateUI();
-            
+            UpdateUIReload();
             audioSource.PlayOneShot(reloadClip);
             Invoke(nameof(CanAttackAgain), 0.4f);
         }
@@ -46,6 +46,11 @@ namespace Weapons
         public void AmmoPickUp()
         {
             _ammoInBag = maxAmmoInBag;
+        }
+
+        public void UpdateUIReload()
+        {
+            reloadUI.alpha = 0f;
         }
     }
 }

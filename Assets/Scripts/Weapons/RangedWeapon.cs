@@ -10,6 +10,7 @@ namespace Weapons
         [SerializeField] private GameObject _flashEffect;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private GameObject _bullet;
+        [SerializeField] public CanvasGroup reloadUI;
         public AudioSource audioSource;
         public AudioClip noAmmoClip;
         public AudioClip reloadClip;
@@ -57,6 +58,7 @@ namespace Weapons
             else
             {
                 audioSource.PlayOneShot(noAmmoClip);
+                reloadUI.alpha = 1f;
                 isAttacking = false;
             }
         }

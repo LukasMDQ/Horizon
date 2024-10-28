@@ -12,6 +12,7 @@ namespace Weapons
             
             ammo = maxAmmo;
             UpdateUI();
+            UpdateUIReload();
             
             audioSource.PlayOneShot(reloadClip);
             Invoke(nameof(CanAttackAgain), 0.4f);
@@ -21,6 +22,11 @@ namespace Weapons
         {
             base.UpdateUI();
             ammoInBagUI.text = "Unlimited";
+        }
+
+        public void UpdateUIReload()
+        {
+            reloadUI.alpha = 0f;
         }
     }
 }
