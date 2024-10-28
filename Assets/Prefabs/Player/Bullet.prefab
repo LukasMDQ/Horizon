@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2982785560999309995}
   - component: {fileID: 1796437091162395371}
   - component: {fileID: 2594569613688452002}
+  - component: {fileID: 5248521707470687030}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: WeaponPlayer
@@ -28,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4649820365336439104}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07047562, y: 0.6801932, z: -0.065423094, w: 0.7266982}
+  m_LocalRotation: {x: 0.07047406, y: 0.68019336, z: -0.06542186, w: 0.7266982}
   m_LocalPosition: {x: -7.51, y: 1.81, z: 31.79}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.036, y: 86.218, z: 0.046}
 --- !u!33 &947249039848496930
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -104,7 +105,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2594569613688452002
 MonoBehaviour:
@@ -118,7 +119,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b8617bf3e53ab409015245205d4643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 50
+  _speed: 30
   damage: 50
   _lifeTime: 0.7
   _inpact: {fileID: 358637981425055526, guid: c2c34dbe9acc0f248924956b05ed94ba, type: 3}
+--- !u!54 &5248521707470687030
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649820365336439104}
+  serializedVersion: 4
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 3
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

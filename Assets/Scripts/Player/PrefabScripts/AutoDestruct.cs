@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutoDestruct : MonoBehaviour
 {
-    [SerializeField] int _lifeTime = default;
+    [SerializeField] float _lifeTime = default;
    
     void Update()
     {
