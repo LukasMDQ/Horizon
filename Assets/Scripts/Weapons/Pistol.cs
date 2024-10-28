@@ -16,5 +16,11 @@ namespace Weapons
             audioSource.PlayOneShot(reloadClip);
             Invoke(nameof(CanAttackAgain), 0.4f);
         }
+
+        protected override void UpdateUI()
+        {
+            base.UpdateUI();
+            ammoInBagUI.text = "Unlimited";
+        }
     }
 }

@@ -1,6 +1,6 @@
-using System;
 using TMPro;
 using UnityEngine;
+
 // ReSharper disable InconsistentNaming
 
 namespace Weapons
@@ -17,7 +17,8 @@ namespace Weapons
         protected int ammo;
         public int maxAmmo;
 
-        public TextMeshProUGUI ammoUI;
+        public TextMeshProUGUI ammoInWeaponUI;
+        public TextMeshProUGUI ammoInBagUI;
 
         protected virtual void Awake()
         {
@@ -27,6 +28,11 @@ namespace Weapons
         private void OnEnable()
         {
             UpdateUI();
+        }
+
+        private void OnDisable()
+        {
+            ClearUI();
         }
 
         public override void Attack()
@@ -62,9 +68,15 @@ namespace Weapons
             isAttacking = false;
         }
 
-        protected void UpdateUI()
+        protected virtual void UpdateUI()
         {
-            ammoUI.text = $"{ammo}/{maxAmmo}";
+            ammoInWeaponUI.text = $"{ammo}/{maxAmmo}";
+        }
+
+        private void ClearUI()
+        {
+            ammoInWeaponUI.text = "";
+            ammoInBagUI.text = "";
         }
 
         public void GetAmmo(int newAmmo)
