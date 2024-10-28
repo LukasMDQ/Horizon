@@ -7,6 +7,7 @@ public class FountainController : MonoBehaviour
     [SerializeField] Material lightingWater;
     [SerializeField] Material opaqueWater;
     [SerializeField] Renderer[] waterRenders;
+    [SerializeField] ChaliceAnimation animationController;
     private bool isPlayerInTrigger = false;
 
     public string turnOnColorLight = "#2EAEB7";
@@ -64,6 +65,7 @@ public class FountainController : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
         ChaliceController chaliceController = player.GetComponent<ChaliceController>();
+        animationController.FountainUse();
         chaliceController.ChargeChalice();
     }
 

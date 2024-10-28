@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.041117445, g: 0.07249471, b: 0.12565556, a: 1}
+  m_IndirectSpecularColor: {r: 0.041120112, g: 0.07249693, b: 0.1256583, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3360,6 +3360,26 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: ec746a2ff79cb0143bba6f93b6b65956, type: 3}
+    - target: {fileID: 2387334050315580146, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.059335995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387334050315580146, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.059335995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387334050315580146, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.59336
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387334050315580146, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387334050315580146, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 941
+      objectReference: {fileID: 0}
     - target: {fileID: 2549380183618750131, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
       propertyPath: m_text
       value: Has Muerto
@@ -32619,6 +32639,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 12.7
       objectReference: {fileID: 0}
+    - target: {fileID: 8559720209632651842, guid: fef11dfd3057a544c8608cec553831da, type: 3}
+      propertyPath: textChaliceUses
+      value: 
+      objectReference: {fileID: 2008024650}
     - target: {fileID: 9197845906957863603, guid: fef11dfd3057a544c8608cec553831da, type: 3}
       propertyPath: jewel1
       value: 
@@ -35833,6 +35857,17 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2008024650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5184892622783832559, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+  m_PrefabInstance: {fileID: 130853670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2008309352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48667,6 +48702,30 @@ PrefabInstance:
     - target: {fileID: 2946970322844513415, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166321958998159405, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
+      propertyPath: floatRate
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166321958998159405, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
+      propertyPath: floatSpeed
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166321958998159405, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
+      propertyPath: scaleSpeed
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166321958998159405, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
+      propertyPath: startScale.x
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166321958998159405, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
+      propertyPath: startScale.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166321958998159405, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
+      propertyPath: startScale.z
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 3243681273884137938, guid: b537de440788d6a43baaed71cbfcdf9f, type: 3}
       propertyPath: m_LocalScale.x

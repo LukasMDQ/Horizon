@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 // ReSharper disable once CheckNamespace
 [RequireComponent(typeof(Animator))]
@@ -79,5 +80,10 @@ public class ChaliceAnimation : MonoBehaviour
                 _chalice.SetTrigger(Jewel3);
                 break;
         }
+    }
+
+    public void FountainUse()
+    {
+        _chalice.SetTrigger("Fountain");
     }
 }

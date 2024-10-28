@@ -9,7 +9,7 @@ public class ChaliceController : MonoBehaviour
     [SerializeField]
     private int chargeMaxUses = 5;
     private int chargeActualUses = 5;
-
+    
     [SerializeField]
     private TextMeshProUGUI textChaliceUses;
 

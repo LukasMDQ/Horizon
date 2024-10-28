@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  _effect: {fileID: 0}
+  _pickUpSound: {fileID: 0}
   _ammo: 0
   _heal: 0
   _maxHp: 0
@@ -9848,6 +9848,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 7203d585c2a6182468b3533e08ae7c98, type: 2}
     - target: {fileID: 114000013075131974, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: floatRate
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013075131974, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: endScale.x
       value: 0.1
       objectReference: {fileID: 0}
@@ -9861,19 +9865,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114000013075131974, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: floatSpeed
-      value: 0.01
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013075131974, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: scaleSpeed
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 114000013075131974, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: startScale.x
-      value: 0.05
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 114000013075131974, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: startScale.y
-      value: 0.05
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 114000013075131974, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: startScale.z
-      value: 0.05
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

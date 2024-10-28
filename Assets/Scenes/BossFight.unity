@@ -15763,6 +15763,26 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: ec746a2ff79cb0143bba6f93b6b65956, type: 3}
+    - target: {fileID: 2387334050315580146, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.059335995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387334050315580146, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.059335995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387334050315580146, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.59336
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387334050315580146, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387334050315580146, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 941
+      objectReference: {fileID: 0}
     - target: {fileID: 2549380183618750131, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
       propertyPath: m_text
       value: Has Muerto
@@ -23576,6 +23596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: //---Players
       objectReference: {fileID: 0}
+    - target: {fileID: 8559720209632651842, guid: fef11dfd3057a544c8608cec553831da, type: 3}
+      propertyPath: textChaliceUses
+      value: 
+      objectReference: {fileID: 2050764850}
     - target: {fileID: 8959699468201996388, guid: fef11dfd3057a544c8608cec553831da, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -25848,6 +25872,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7956353835799979631, guid: 4bfa2d7e8bb243e4c99794844f26dd0d, type: 3}
   m_PrefabInstance: {fileID: 2024086072}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2050764850 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5184892622783832559, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+  m_PrefabInstance: {fileID: 1292201579}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2067228841
 GameObject:
   m_ObjectHideFlags: 0
