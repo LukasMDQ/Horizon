@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace FiniteStateMachine.States
 {
@@ -6,40 +7,71 @@ namespace FiniteStateMachine.States
     {
         private readonly Transform _myTransform;
         private readonly Transform _player;
-        private readonly Rigidbody _rigidBody;
-        private readonly float _speed;
-        private readonly float _distanceToAttack;
+        private readonly NavMeshAgent _agent;
         
+        private readonly float _speed;
+        private readonly float _speedMultiplier;
+        private readonly float _distanceToAttack;
+        private float _distanceToChase;
+
+        private float _timerToChange;
+
+        private readonly LayerMask _layerMask;
+
         // ReSharper disable once SuggestBaseTypeForParameter
-        public Pursuing(BossStateMachine stateMachine, Transform myTransform, Transform player, Rigidbody rigidBody, float speed, float distanceToAttack) : base(stateMachine)
+        public Pursuing(BossStateMachine stateMachine, Transform myTransform, Transform player, NavMeshAgent agent, float speed, float speedMultiplier, float distanceToAttack, float distanceToChase, LayerMask layerMask) : base(stateMachine)
         {
             this.stateMachine = stateMachine;
 
             _myTransform = myTransform;
             _player = player;
-            _rigidBody = rigidBody;
+            _agent = agent;
 
             _speed = speed;
+            _speedMultiplier = speedMultiplier;
             _distanceToAttack = distanceToAttack;
+            _distanceToChase = distanceToChase;
+            _layerMask = layerMask;
+        }
+
+        public override void Enter()
+        {
+            var auxSpeed = _speed * _speedMultiplier;
+            _agent.speed = auxSpeed;
+            _agent.acceleration = auxSpeed * 2;
+        }
+
+        public override void Exit()
+        {
+            var auxSpeed = _speed / _speedMultiplier;
+            _agent.speed = auxSpeed;
+            _agent.acceleration = auxSpeed * 2;
+        }
+
+        public override void UpdateLogic()
+        {
+            UpdatePlayerPosition();
         }
 
         public override void UpdatePhysics()
         {
-            var directionalVector = _player.position - _myTransform.position;
+            var myPosition = _myTransform.position;
+            var ray = new Ray(myPosition, (_player.position - myPosition).normalized);
+
+            if (!Physics.Raycast(ray, out var hit, _distanceToAttack, _layerMask, QueryTriggerInteraction.Ignore)) return;
             
-            if (directionalVector.magnitude < _distanceToAttack)
+            if (hit.transform.gameObject.CompareTag("Player"))
             {
                 stateMachine.ChangeState(((BossStateMachine) stateMachine).attackingState);
-                return;
             }
-
-            _myTransform.LookAt(_player);
-            MoveTowardTarget(directionalVector, _speed);
         }
-
-        private void MoveTowardTarget(Vector3 direction, float speed)
+        
+        private void UpdatePlayerPosition()
         {
-            _rigidBody.MovePosition(_myTransform.position + direction.normalized * (speed * 1.5f * Time.deltaTime));
+            var position = _myTransform.position;
+            var vectorToPlayer = _player.position - position;
+            
+            _agent.SetDestination(vectorToPlayer.normalized * (vectorToPlayer.magnitude - 1) + position);
         }
     }
 }

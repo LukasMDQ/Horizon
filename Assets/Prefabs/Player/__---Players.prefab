@@ -74912,6 +74912,7 @@ GameObject:
   - component: {fileID: 528229664989663828}
   - component: {fileID: 3609643596718093105}
   - component: {fileID: 5236565383728797799}
+  - component: {fileID: 8559720209632651842}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Player
@@ -75251,3 +75252,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponChanger: {fileID: 7575198759384421689}
+--- !u!114 &8559720209632651842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8959699468201996388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e99477633be934e89e39ee12f0f75e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeMaxUses: 5
