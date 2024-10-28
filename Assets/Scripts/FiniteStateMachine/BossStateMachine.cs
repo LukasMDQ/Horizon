@@ -22,6 +22,7 @@ namespace FiniteStateMachine
         public float distanceToChangeWaypoint;
         public float distanceToChase;
         public float distanceToAttack;
+        public Collider attackArea;
 
         public Transform player;
 
@@ -33,7 +34,7 @@ namespace FiniteStateMachine
             var myTransform = transform;
             patrollingState = new Patrolling(this, myTransform, player, agent, speed, distanceToChangeWaypoint, distanceToChase, waypoints, layerMask);
             pursuingState = new Pursuing(this, myTransform, player, agent, speed, speedMultiplier, distanceToAttack, distanceToChase, layerMask);
-            attackingState = new Attacking(this, myTransform, player, distanceToAttack);
+            attackingState = new Attacking(this, myTransform, player, distanceToAttack, attackArea);
         }
 
         protected override BaseState GetInitialState()

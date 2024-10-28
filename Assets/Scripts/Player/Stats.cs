@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Stats : Entity
@@ -12,7 +13,7 @@ public class Stats : Entity
 
     public float stamina, maxStamina;
     public int damage;
-    public float ChargeRate;
+    [FormerlySerializedAs("ChargeRate")] public float chargeRate;
 
     protected override void MyStart()
     {
