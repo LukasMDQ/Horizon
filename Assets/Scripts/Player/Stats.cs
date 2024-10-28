@@ -10,7 +10,6 @@ public class Stats : Entity
     public Image staminaBar;
     public CanvasGroup hpVignette;
 
-    public int jewels;
     public float stamina, maxStamina;
     public int damage;
     public float ChargeRate;
@@ -50,7 +49,7 @@ public class Stats : Entity
     //----------- Player-Specific Actions -----------  
     public void AddJewel(int jewelCount)
     {
-        jewels += jewelCount;
+        PlayerStatsManager.jewels += jewelCount;
         Debug.Log("Jewel added to grial");
     }
 

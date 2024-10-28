@@ -46,17 +46,17 @@ public class Skills : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !onCooldown[0] && _stats.jewels >= 1 && _chaliceController.IsChargeChalice)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !onCooldown[0] && PlayerStatsManager.jewels >= 1 && _chaliceController.IsChargeChalice)
         {
             ActivateSkill(0);
             _stats.Heal(10);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && !onCooldown[1] && _stats.jewels >= 2 && _chaliceController.IsChargeChalice)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !onCooldown[1] && PlayerStatsManager.jewels >= 2 && _chaliceController.IsChargeChalice)
         {
             ActivateSkill(1);
             _stats.Buff(10);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !onCooldown[2] && _stats.jewels >= 3 && _chaliceController.IsChargeChalice)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !onCooldown[2] && PlayerStatsManager.jewels >= 3 && _chaliceController.IsChargeChalice)
         {
             ActivateSkill(2);
         }

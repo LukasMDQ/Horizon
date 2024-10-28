@@ -30,7 +30,7 @@ public class ChaliceAnimation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) //Habilidad 1 - chequea si está en cooldown y cuantas gemas hay, preparado para más adelante si tenemos 3 anim para cada habilidad
         {
-            if(!skills.onCooldown[0] && stats.jewels >= 1)
+            if(!skills.onCooldown[0] && PlayerStatsManager.jewels >= 1)
             {
                 _chalice.SetTrigger(Trigger);
             }
@@ -41,7 +41,7 @@ public class ChaliceAnimation : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (!skills.onCooldown[1] && stats.jewels >= 2)
+            if (!skills.onCooldown[1] && PlayerStatsManager.jewels >= 2)
             {
                 _chalice.SetTrigger(Trigger);
             }
@@ -52,7 +52,7 @@ public class ChaliceAnimation : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (!skills.onCooldown[2] && stats.jewels >= 3)
+            if (!skills.onCooldown[2] && PlayerStatsManager.jewels >= 3)
             {
                 _chalice.SetTrigger(Trigger);
             }
@@ -65,7 +65,7 @@ public class ChaliceAnimation : MonoBehaviour
 
     public void JewelUpdate()
     {
-        switch (stats.jewels) //Setear la visibilidad dependiendo de cuantas gemas tenemos
+        switch (PlayerStatsManager.jewels) //Setear la visibilidad dependiendo de cuantas gemas tenemos
         {
             case 1:
                 jewel1.SetActive(true);

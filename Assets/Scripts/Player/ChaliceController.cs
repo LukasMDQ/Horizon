@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class ChaliceController : MonoBehaviour
 {
-    private bool isChargeChalice = true;
-    [SerializeField]
-    private int chargeMaxUses = 5;
-    private int chargeActualUses = 5;
+    
     
     [SerializeField]
     private TextMeshProUGUI textChaliceUses;
@@ -19,26 +16,26 @@ public class ChaliceController : MonoBehaviour
     }
     public bool IsChargeChalice
     {
-        get { return isChargeChalice; }
-        private set { isChargeChalice = value; }
+        get { return PlayerStatsManager.isChargeChalice; }
+        private set { PlayerStatsManager.isChargeChalice = value; }
     }
 
     public int ChargeMaxUses
     {
-        get { return chargeMaxUses; }
-        private set { chargeMaxUses = Mathf.Max(1, value); }
+        get { return PlayerStatsManager.chargeMaxUses; }
+        private set { PlayerStatsManager.chargeMaxUses = Mathf.Max(1, value); }
     }
 
     public int ChargeActualUses
     {
-        get { return chargeActualUses; }
-        private set { chargeActualUses = Mathf.Clamp(value, 0, ChargeMaxUses); }
+        get { return PlayerStatsManager.chargeActualUses; }
+        private set { PlayerStatsManager.chargeActualUses = Mathf.Clamp(value, 0, ChargeMaxUses); }
     }
 
     public void ChargeChalice()
     {
         IsChargeChalice = true;
-        ChargeActualUses = chargeMaxUses;
+        ChargeActualUses = PlayerStatsManager.chargeMaxUses;
         UpdateChaliceUsesUI();
     }
 
@@ -54,6 +51,6 @@ public class ChaliceController : MonoBehaviour
 
     public void UpdateChaliceUsesUI()
     {
-        textChaliceUses.text = $"{chargeActualUses}/{chargeMaxUses}";
+        textChaliceUses.text = $"{PlayerStatsManager.chargeActualUses}/{PlayerStatsManager.chargeMaxUses}";
     }
 }
