@@ -47,10 +47,5 @@ namespace Weapons
         {
             _ammoInBag = maxAmmoInBag;
         }
-
-        public void UpdateUIReload()
-        {
-            reloadUI.alpha = 0f;
-        }
     }
 }

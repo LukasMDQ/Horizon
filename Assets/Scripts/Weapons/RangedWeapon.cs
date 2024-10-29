@@ -1,8 +1,6 @@
 using TMPro;
 using UnityEngine;
 
-// ReSharper disable InconsistentNaming
-
 namespace Weapons
 {
     public abstract class RangedWeapon : Weapon
@@ -21,6 +19,8 @@ namespace Weapons
         public TextMeshProUGUI ammoInWeaponUI;
         public TextMeshProUGUI ammoInBagUI;
 
+        private float _reloadHudAlpha;
+
         protected virtual void Awake()
         {
             ammo = maxAmmo;
@@ -29,11 +29,13 @@ namespace Weapons
         private void OnEnable()
         {
             UpdateUI();
+            reloadUI.alpha = _reloadHudAlpha;
         }
 
         private void OnDisable()
         {
             ClearUI();
+            reloadUI.alpha = 0f;
         }
 
         public override void Attack()
@@ -46,6 +48,11 @@ namespace Weapons
             {
                 ammo--;
                 UpdateUI();
+                if (ammo <= 0)
+                {
+                    _reloadHudAlpha = 1f;
+                    reloadUI.alpha = _reloadHudAlpha;
+                }
                 
                 var position = _spawnPoint.position;
             
@@ -58,7 +65,6 @@ namespace Weapons
             else
             {
                 audioSource.PlayOneShot(noAmmoClip);
-                reloadUI.alpha = 1f;
                 isAttacking = false;
             }
         }
@@ -91,6 +97,12 @@ namespace Weapons
                 ammo += newAmmo;
             }
             UpdateUI();
+        }
+        
+        protected void UpdateUIReload()
+        {
+            _reloadHudAlpha = 0f;
+            reloadUI.alpha = _reloadHudAlpha;
         }
     }
 }

@@ -23,10 +23,5 @@ namespace Weapons
             base.UpdateUI();
             ammoInBagUI.text = "Unlimited";
         }
-
-        public void UpdateUIReload()
-        {
-            reloadUI.alpha = 0f;
-        }
     }
 }
