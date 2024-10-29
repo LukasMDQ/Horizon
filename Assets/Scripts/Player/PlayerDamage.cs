@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerDamage : MonoBehaviour
 {
     public Stats stats;
-    [SerializeField] int dmg;
+    [SerializeField] private int dmg;
     [SerializeField] private GameObject _slash;
     [SerializeField] private GameObject _airslash;
 
@@ -14,16 +14,15 @@ public class PlayerDamage : MonoBehaviour
         dmg = stats.damage;
     }
 
-    void Update()
+    private void Update()
     {
         dmg = stats.damage;
     }
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.TryGetComponent(out Stats stats) && other.CompareTag("Enemy"))  //Interactura con el enemigo y se destruye.
+        if (other.TryGetComponent(out Stats thisStats) && other.CompareTag("Enemy"))  //Interactua con el enemigo y se destruye.
         {
-            stats.TakeDamage(dmg);
+            thisStats.TakeDamage(dmg);
             SlashSound();
         }
         else
@@ -33,9 +32,10 @@ public class PlayerDamage : MonoBehaviour
 
     }
 
-    void SlashSound()
+    private void SlashSound()
     {
-        Instantiate(_slash, transform.position, transform.rotation);
+        var myTransform = transform;
+        Instantiate(_slash, myTransform.position, myTransform.rotation);
         stats.stamina -= 50f; //Saca Stamina 
 
         StopCoroutine(RechargeStamina());
@@ -52,9 +52,11 @@ public class PlayerDamage : MonoBehaviour
         }*/
         //Destroy(_slash, 1f);
     }
-    void AirSlashSound()
+
+    private void AirSlashSound()
     {
-        Instantiate(_airslash, transform.position, transform.rotation);
+        var myTransform = transform;
+        Instantiate(_airslash, myTransform.position, myTransform.rotation);
         stats.stamina -= 25f; //Saca Stamina 
 
         StopCoroutine(RechargeStamina());
@@ -78,7 +80,7 @@ public class PlayerDamage : MonoBehaviour
 
         while (stats.stamina < stats.maxStamina)
         {
-            stats.stamina += stats.ChargeRate / 10f; //Recharge Rate para controlar qué tan rapido se regenera
+            stats.stamina += stats.chargeRate / 10f; //Recharge Rate para controlar qué tan rapido se regenera
 
             if (stats.stamina > stats.maxStamina)
             {
