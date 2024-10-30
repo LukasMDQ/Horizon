@@ -75773,9 +75773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d269b6e255a334e929cae36fd2a5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSens: 100
+  mouseSensitivity: 100
   _speed: 6
-  _forceMode: 1
 --- !u!114 &5236565383728797799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75788,6 +75787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7164ed2f5d3d1444d996e3c2640aca5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement3D: {fileID: 0}
   weaponChanger: {fileID: 7575198759384421689}
 --- !u!114 &8559720209632651842
 MonoBehaviour:

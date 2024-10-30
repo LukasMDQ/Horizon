@@ -1,110 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Security.Cryptography;
-using System.Threading;
 using UnityEngine;
 
-
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(BoxCollider))]
-
+// ReSharper disable once CheckNamespace
 public class Movement3D : MonoBehaviour
 {
-    public float mouseSens;
-    float _xRotation, _yRotation;
-    Vector3 _direction;
-    public static Transform playerTransform;
-
+    private Rigidbody _rigidBody;
+    private Vector3   _direction;
     
-    [SerializeField]
-    float _speed;
-    float _sprintSpeed;
-    float _walkSpeed;
+    public static Transform playerTransform;
+    
+    public  float mouseSensitivity;
+    private float _mouseRotationX, _mouseRotationY;
+    
+    // ReSharper disable once InconsistentNaming
+    [SerializeField] private float _speed;
+    private float _walkSpeed;
+    private float _sprintSpeed;
 
-    Rigidbody _rigidBody;
-    BoxCollider _boxCollider;
-
-    [SerializeField]
-    ForceMode _forceMode;
-
-    void Awake()
+    private void Awake()
     {
-        HideCursor();       
-        _rigidBody = GetComponent<Rigidbody>();
-        _boxCollider = GetComponent<BoxCollider>();
+        #region HideCursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        #endregion
+        
+        if (!_rigidBody) _rigidBody = GetComponent<Rigidbody>();
         playerTransform = transform;
     }
-
-    // Start is called before the first frame update
-    void Start()
+    
+    private void Start()
     {
         _walkSpeed = _speed;
         _sprintSpeed = _speed*2;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        sprint();
-        MouseLook();
-        _rigidBody.MoveRotation(Quaternion.Euler(_xRotation, _yRotation, 0));
-        float VerticalAxis = Input.GetAxis("Vertical");
-        float HorizontalAxis = Input.GetAxis("Horizontal");
-        //float HeightAxis = Input.GetAxis("Height");
+        // Keep the vertical velocity component so as to not overwrite gravity
+        var currentVelocity = _rigidBody.velocity;
 
-        Vector3 forwardDirection = transform.forward * VerticalAxis;
-        Vector3 rightDirection = transform.right * HorizontalAxis;
-        //Vector3 verticalDirection = transform.up * HeightAxis;
-
-        _direction = forwardDirection + rightDirection;//+ verticalDirection
-        _direction.Normalize();
-        //transform.position += _direction * _speed * Time.deltaTime;
-      
-    }
-
-    void FixedUpdate()
-    {
-        //_rigidbody.MovePosition(transform.position + (_speed * _direction * Time.fixedDeltaTime));
-        //_rigidbody.AddForce(_speed * _direction, _forceMode);
-
-        //_rigidBody.velocity = _direction * _speed;
-        // Mantener la componente de velocidad vertical causada por la gravedad
-        Vector3 currentVelocity = _rigidBody.velocity;
-
-        // Solo modificamos las componentes x y z para el movimiento horizontal
+        // We only modify the X and Y components for horizontal movement
         _rigidBody.velocity = new Vector3(_direction.x * _speed, currentVelocity.y, _direction.z * _speed);
     }
 
-    private void MouseLook()
+    public Vector3 Direction
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+        set => _direction = value;
+    }
 
-        _xRotation -= mouseY;
-        _xRotation = Mathf.Clamp(_xRotation, -70, 70);
-        _yRotation += mouseX;
-    }
-    private void HideCursor()//----------------BLOQUEAR CURSOR
+    public void MouseLook(float mouseX, float mouseY)
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        _mouseRotationX -= mouseY * mouseSensitivity * Time.deltaTime;
+        _mouseRotationX = Mathf.Clamp(_mouseRotationX, -70, 70);
+        _mouseRotationY += mouseX * mouseSensitivity * Time.deltaTime;
+        
+        _rigidBody.MoveRotation(Quaternion.Euler(_mouseRotationX, _mouseRotationY, 0));
     }
-    void sprint()
+
+    public void Sprint(bool isPressingButton)
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            // Cambiamos la variable al nuevo valor
-            _speed = _sprintSpeed;
-        }
-        else
-        {
-            // Volvemos la variable al valor inicial
-            _speed = _walkSpeed;
-        }        
+        _speed = isPressingButton ? _sprintSpeed : _walkSpeed;
     }
-    public void Slow (float slowValue)//REDUCE VELOCIDAD
+    
+    public void Slow (float slowValue) // REDUCE SPEED VALUE
     {
-        _speed -= slowValue;
+        _speed -= slowValue; // TODO probably refactor this later, speed never returns to normal value so player it's slowed permanently
     }
 }
