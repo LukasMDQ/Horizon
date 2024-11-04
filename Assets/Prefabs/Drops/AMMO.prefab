@@ -203,8 +203,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 5
-  _effect: {fileID: 0}
+  pickEffect: {fileID: 0}
   _ammo: 1
   _heal: 0
   _maxHp: 0
   _jewel: 0
+  chalice: {fileID: 0}
+  collisionSound: {fileID: 8300000, guid: 87a2e502ddd174591af0e35f76e448a2, type: 3}
