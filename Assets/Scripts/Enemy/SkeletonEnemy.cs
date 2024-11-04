@@ -26,6 +26,7 @@ public abstract class SkeletonEnemy : Entity
     private static readonly int AttackM = Animator.StringToHash("attackM");
     private static readonly int AttackD = Animator.StringToHash("attackD");
     private static readonly int idleP = Animator.StringToHash("idle");
+    private static readonly int hit = Animator.StringToHash("Hit");
 
     /// <summary>
     /// Don't forget to define attackRange
@@ -65,7 +66,7 @@ public abstract class SkeletonEnemy : Entity
         {
             _agent.destination = _patrolPoints[_currentPatrolIndex].position;
             _currentPatrolIndex = (_currentPatrolIndex + 1) % _patrolPoints.Length;
-            SetAnimationBooleans(true, false, false, false, false); // Activa la animación de caminar (walk).
+            SetAnimationBooleans(true, false, false, false, false, false); // Activa la animación de caminar (walk).
         }
        
     }
@@ -94,7 +95,7 @@ public abstract class SkeletonEnemy : Entity
             _isAttacking = false;
             _agent.isStopped = false;
             _agent.speed = 6f;
-            SetAnimationBooleans(false, true, false, false, false); // Activa la animación de correr (run).
+            SetAnimationBooleans(false, true, false, false, false, false); // Activa la animación de correr (run).
         }
 
         // Rotar hacia el jugador
@@ -110,13 +111,14 @@ public abstract class SkeletonEnemy : Entity
     protected abstract void Attack();
 
     // Configura los parámetros booleanos del Animator
-    protected void SetAnimationBooleans(bool walk, bool run, bool attackM, bool attackD, bool idle) // Can we change the booleans to triggers?
+    protected void SetAnimationBooleans(bool walk, bool run, bool attackM, bool attackD, bool idle, bool hitT) // Can we change the booleans to triggers?
     {
         _animator.SetBool(Walk, walk);
         _animator.SetBool(Run, run);
         _animator.SetBool(AttackM, attackM);
         _animator.SetBool(AttackD, attackD);
         _animator.SetBool(idleP, idle);
+        _animator.SetBool(hit, hitT);
     }
 
     public override void Death()

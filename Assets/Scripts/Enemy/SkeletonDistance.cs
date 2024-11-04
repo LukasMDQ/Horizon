@@ -23,7 +23,7 @@ public class SkeletonDistance : SkeletonEnemy
             _isChasing = false;
             _agent.isStopped = true;
             StartCoroutine(AutoFire());
-            SetAnimationBooleans(false, false, false, true, false); Debug.Log("attackdistance");
+            SetAnimationBooleans(false, false, false, true, false, false); Debug.Log("attackdistance");
         }
     }
 
