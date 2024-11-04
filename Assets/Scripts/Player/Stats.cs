@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -15,12 +16,14 @@ public class Stats : Entity
     public int damage;
     [FormerlySerializedAs("ChargeRate")] public float chargeRate;
 
+    bool _loading;
+
     protected override void MyStart()
     {
         stamina = maxStamina;
 
         // Load player health from PlayerStatsManager
-        if (PlayerStatsManager.MaxHP == 0)
+        if (PlayerStatsManager.MaxHP >= 0 && PlayerStatsManager.jewels == 0)
         {
             // Set default values if it's the first time (e.g., first scene load)
             PlayerStatsManager.MaxHP = 100;
@@ -41,13 +44,17 @@ public class Stats : Entity
     }
 
     //----------- Stamina Management -----------  
+    #region Stamina Management
+
     private void UpdateStamina()
     {
         if (stamina > maxStamina) stamina = maxStamina;
         if (stamina < 0) stamina = 0;
     }
+    #endregion
 
     //----------- Player-Specific Actions -----------  
+    #region Player-Specific Actions
     public void AddJewel(int jewelCount)
     {
         PlayerStatsManager.jewels += jewelCount;
@@ -83,8 +90,11 @@ public class Stats : Entity
         PlayerStatsManager.HP = (int)curHp;
         UpdateHealthUI();
     }
+    #endregion
 
     //----------- Death Management -----------  
+
+    #region Death Management
     public override void Death()
     {
         if (curHp <= 0)
@@ -95,8 +105,12 @@ public class Stats : Entity
             Cursor.visible = true;
         }
     }
+    #endregion
 
     //----------- UI Management -----------  
+
+    #region UI Management
+
     private void UpdateHealthUI()
     {
         hpBar.fillAmount = curHp / maxHp;
@@ -108,4 +122,41 @@ public class Stats : Entity
         staminaBar.fillAmount = stamina / maxStamina;
         UpdateHealthUI();
     }
+    #endregion
+
+    //---------- Data Management ----------
+    #region Data Management
+    public override void Save()
+    {
+        if (_loading)
+            return;
+
+        _mementoState.Rec(transform.position, transform.rotation);
+    }
+
+    public override void Load()
+    {
+        if (_mementoState.IsRemember())
+        {
+            StartCoroutine(CoroutineLoad());
+        }
+    }
+
+
+    IEnumerator CoroutineLoad()
+    {
+        var WaitForSeconds = new WaitForSeconds(0.01f);
+        _loading = true;
+
+        while (_mementoState.IsRemember())
+        {
+            var data = _mementoState.Remember();
+
+            transform.SetPositionAndRotation((Vector3)data.parameters[0], (Quaternion)data.parameters[1]);
+            yield return WaitForSeconds;
+        }
+
+        _loading = false;
+    }
+    #endregion
 }

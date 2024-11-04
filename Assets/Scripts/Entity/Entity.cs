@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public abstract class Entity : MonoBehaviour
+public abstract class Entity : Rewind
 {
     public float curHp, maxHp;
     public GameObject _destroyEffect, _drops;
@@ -85,5 +85,15 @@ public abstract class Entity : MonoBehaviour
                 TakeDamage(playerStats.damage);
             }
         }
+    }
+
+    public override void Load()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Save()
+    {
+        throw new System.NotImplementedException();
     }
 }

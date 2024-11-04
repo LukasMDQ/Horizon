@@ -4,8 +4,8 @@ using UnityEngine;
 
 public static class PlayerStatsManager
 {
-    public static int HP { get; set; }
-    public static int MaxHP { get; set; }
+    public static int HP { get; set; } = 100;
+    public static int MaxHP { get; set; } = 100;
 
     public static bool isChargeChalice = true;
     [SerializeField]

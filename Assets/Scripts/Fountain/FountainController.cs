@@ -8,16 +8,21 @@ public class FountainController : MonoBehaviour
     [SerializeField] Material opaqueWater;
     [SerializeField] Renderer[] waterRenders;
     [SerializeField] ChaliceAnimation animationController;
+    private CheckpointManager checkpointManager;
     private bool isPlayerInTrigger = false;
 
     public string turnOnColorLight = "#2EAEB7";
 
     public string turnOffColorLight = "#125C61";
 
-
     void Awake()
     {
         ActivateWater();
+    }
+
+    private void Start()
+    {
+         checkpointManager = GetComponent<CheckpointManager>();
     }
     void Update()
     {
@@ -25,6 +30,13 @@ public class FountainController : MonoBehaviour
         {
             DeactivateWater();
             UseChargeChalice();
+
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                Debug.Log("Vamos bien");
+                checkpointManager.SaveElements(player.transform.position);
+            }
         }
     }
     public void ChangeLightColor(string hexColor)
@@ -85,5 +97,5 @@ public class FountainController : MonoBehaviour
             isPlayerInTrigger = false;
         }
     }
-
+       
 }
