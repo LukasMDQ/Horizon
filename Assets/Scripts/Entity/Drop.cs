@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Weapons;
 
 public class Drop : MonoBehaviour
 {
     public int value;
-    [SerializeField] GameObject _pickUpSound;
     [SerializeField] bool _ammo, _heal, _maxHp, _jewel;
     public ChaliceAnimation chalice;
- 
+    public AudioClip collisionSound;
+
 
     private void GiveAmmo(Collider other)
     {
@@ -43,7 +44,10 @@ public class Drop : MonoBehaviour
 
     private void Destruction() //instancia efecto y destruye el prefab
     {
-       // Instantiate(_pickUpSound, transform.position, transform.rotation);
+        if (collisionSound != null)
+        {
+            AudioSource.PlayClipAtPoint(collisionSound, transform.position);// Instancia un sonido y reproduce el clip
+        }        
         Destroy(gameObject);
     }
 }
