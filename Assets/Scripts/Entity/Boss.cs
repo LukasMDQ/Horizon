@@ -1,11 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using FiniteStateMachine;
 
 public class Boss : Entity
 {
+    public BossStateMachine bossStateMachine;
+    
     protected override void MyStart()
     {
         
+    }
+
+    public override void Death()
+    {
+        if (_sounds.Length > 0) _spawnSound.PlayOneShot(_sounds[1]); // 1 = deathSound
+        if(_destroyEffect != null && _drops != null)
+        {
+            var myTransform = transform;
+            Instantiate(_destroyEffect, myTransform.position, myTransform.rotation);
+        }
+        bossStateMachine.SetBossAnimations(BossStateMachine.BossAnimationsType.Death);
     }
 }

@@ -46,10 +46,17 @@ namespace FiniteStateMachine.States
             
             _agent.speed = _speed;
             _agent.acceleration = _speed * 2;
+            
+            ((BossStateMachine) stateMachine).SetBossAnimations(BossStateMachine.BossAnimationsType.Patrolling);
         }
 
         public override void UpdatePhysics()
         {
+            if (((BossStateMachine) stateMachine).animator.GetBool("Dead"))
+            {
+                stateMachine.ChangeState(((BossStateMachine) stateMachine).deathState);
+                return;
+            }
             var position = _myTransform.position;
             var ray = new Ray(position, (_player.position - position).normalized);
 
@@ -62,7 +69,7 @@ namespace FiniteStateMachine.States
                 }
             }
 
-            var directionalVector = _currentTarget.transform.position - _myTransform.position;
+            var directionalVector = _currentTarget.position - _myTransform.position;
 
             if (directionalVector.magnitude <= _distanceToChangeWaypoint)
             {

@@ -11933,16 +11933,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   agent: {fileID: 5841174078863719364}
   speed: 3
   speedMultiplier: 1.5
   distanceToChangeWaypoint: 1
   distanceToChase: 10
   distanceToAttack: 2
+  attackArea: {fileID: 2889639610891409792}
   player: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 8
+  animator: {fileID: 95549024643180554}
 --- !u!1 &1953607639529104
 GameObject:
   m_ObjectHideFlags: 0

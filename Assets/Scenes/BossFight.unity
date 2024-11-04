@@ -5294,6 +5294,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _sounds: []
   drop: 0
+  bossStateMachine: {fileID: 935415289}
 --- !u!82 &935415288
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5390,6 +5391,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &935415289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1856468526917816156, guid: 9e066cea98814aa448c70270a3c60251, type: 3}
+  m_PrefabInstance: {fileID: 1512655308}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935415286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b96024381dd9046ac4076555245188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &953586684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22393,10 +22405,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1672557233}
     - target: {fileID: 1856468526917816156, guid: 9e066cea98814aa448c70270a3c60251, type: 3}
-      propertyPath: attackArea
-      value: 
-      objectReference: {fileID: 1512655309}
-    - target: {fileID: 1856468526917816156, guid: 9e066cea98814aa448c70270a3c60251, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 1200385452}
@@ -22412,6 +22420,18 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[3]
       value: 
       objectReference: {fileID: 269126252}
+    - target: {fileID: 1856468526917816156, guid: 9e066cea98814aa448c70270a3c60251, type: 3}
+      propertyPath: waypoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 239319255}
+    - target: {fileID: 1856468526917816156, guid: 9e066cea98814aa448c70270a3c60251, type: 3}
+      propertyPath: waypoints.Array.data[5]
+      value: 
+      objectReference: {fileID: 760846288}
+    - target: {fileID: 1856468526917816156, guid: 9e066cea98814aa448c70270a3c60251, type: 3}
+      propertyPath: waypoints.Array.data[6]
+      value: 
+      objectReference: {fileID: 361148749}
     - target: {fileID: 2889639610891409792, guid: 9e066cea98814aa448c70270a3c60251, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -22433,11 +22453,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1512655311}
   m_SourcePrefab: {fileID: 100100000, guid: 9e066cea98814aa448c70270a3c60251, type: 3}
---- !u!65 &1512655309 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 2889639610891409792, guid: 9e066cea98814aa448c70270a3c60251, type: 3}
-  m_PrefabInstance: {fileID: 1512655308}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1512655310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2931280156101070792, guid: 9e066cea98814aa448c70270a3c60251, type: 3}

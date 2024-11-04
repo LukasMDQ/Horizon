@@ -39,6 +39,8 @@ namespace FiniteStateMachine.States
             var auxSpeed = _speed * _speedMultiplier;
             _agent.speed = auxSpeed;
             _agent.acceleration = auxSpeed * 2;
+            
+            ((BossStateMachine) stateMachine).SetBossAnimations(BossStateMachine.BossAnimationsType.Pursuing);
         }
 
         public override void Exit()
@@ -55,6 +57,11 @@ namespace FiniteStateMachine.States
 
         public override void UpdatePhysics()
         {
+            if (((BossStateMachine) stateMachine).animator.GetBool("Dead"))
+            {
+                stateMachine.ChangeState(((BossStateMachine) stateMachine).deathState);
+                return;
+            }
             var myPosition = _myTransform.position;
             var ray = new Ray(myPosition, (_player.position - myPosition).normalized);
 
