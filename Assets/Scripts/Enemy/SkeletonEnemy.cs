@@ -20,6 +20,7 @@ public abstract class SkeletonEnemy : Entity
     private   int  _currentPatrolIndex;
     protected bool _isChasing;
     protected bool _isAttacking;
+    protected bool _isRecievingDamage; 
 
     private static readonly int Walk    = Animator.StringToHash("walk");
     private static readonly int Run     = Animator.StringToHash("run");
@@ -132,6 +133,21 @@ public abstract class SkeletonEnemy : Entity
         }
     }
 
+    public override void TakeDamage(float damage)
+    {
+        SetAnimationBooleans(false, false, false, false, false, true);
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Hit_Sword"))
+        {
+            _isRecievingDamage = true;
+            _agent.isStopped = true;
+            _agent.speed = 0f;
+            _isChasing = false;
+            _isAttacking = false;
+        }
+        
+        base.TakeDamage(damage);
+       
+    }
     private void OnDrawGizmosSelected()
     {
         // Dibuja los rangos de detección y ataque para depuración.
