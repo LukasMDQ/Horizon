@@ -1,9 +1,15 @@
 using FiniteStateMachine;
+using UnityEngine.UI;
 
 public class Boss : Entity
 {
     public BossStateMachine bossStateMachine;
-    
+    public Image hpBar;
+
+    private void Update()
+    {
+        UpdateHealthUI();
+    }
     protected override void MyStart()
     {
         
@@ -18,5 +24,10 @@ public class Boss : Entity
             Instantiate(_destroyEffect, myTransform.position, myTransform.rotation);
         }
         bossStateMachine.SetBossAnimations(BossStateMachine.BossAnimationsType.Death);
+    }
+
+    private void UpdateHealthUI()
+    {
+        hpBar.fillAmount = curHp / maxHp;
     }
 }
