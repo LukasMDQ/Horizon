@@ -115,9 +115,11 @@ MonoBehaviour:
   maxHp: 50
   _destroyEffect: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7, type: 3}
   _drops: {fileID: 9143262811207141790, guid: 0716b07ae2a1c4a4fb455c40ae7345be, type: 3}
+  _spawnSound: {fileID: 0}
   _sounds:
   - {fileID: 8300000, guid: e2cadc22f1691b74d8fec6b71bc9d80f, type: 3}
   - {fileID: 8300000, guid: a821df33682bbbf4fbdce500daaa11ac, type: 3}
+  drop: 0
 --- !u!82 &4162150056126617389
 AudioSource:
   m_ObjectHideFlags: 0
@@ -130,7 +132,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a821df33682bbbf4fbdce500daaa11ac, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.647
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

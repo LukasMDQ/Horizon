@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -9,9 +10,10 @@ public class Button : MonoBehaviour
     public GameObject player;
     public Rewind[] rewinds;
     public Animator animTransition;
+    public string sceneName;
+    public float transitionDuration;
     public void PlayGame()
     {
-
         StartCoroutine(Transition());
         Time.timeScale = 1;
 
@@ -19,6 +21,7 @@ public class Button : MonoBehaviour
         PlayerStatsManager.HP = PlayerStatsManager.MaxHP;
         PlayerStatsManager.jewels = 0;
     }
+
     public void MainGame()
     {
         SceneManager.LoadScene(0);
@@ -56,8 +59,8 @@ public class Button : MonoBehaviour
     private IEnumerator Transition()
     {
         animTransition.SetTrigger("ON");
-        yield return new WaitForSeconds(4f);
-        SceneManager.LoadScene(1);
+        yield return new WaitForSeconds(transitionDuration);
+        SceneManager.LoadScene(sceneName);
     }
    
 }
