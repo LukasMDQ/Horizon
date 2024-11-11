@@ -16,6 +16,7 @@ public class Movement3D : MonoBehaviour
     [SerializeField] private float _speed;
     private float _walkSpeed;
     private float _sprintSpeed;
+    public Stats Stats;
 
     private void Awake()
     {
@@ -32,6 +33,13 @@ public class Movement3D : MonoBehaviour
     {
         _walkSpeed = _speed;
         _sprintSpeed = _speed*2;
+    }
+    private void Update()
+    {
+        if ( Stats.stamina <=1)
+        {
+            _speed = _walkSpeed;
+        }
     }
 
     private void FixedUpdate()

@@ -8,6 +8,7 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField] private int dmg;
     [SerializeField] private GameObject _slash;
     [SerializeField] private GameObject _airslash;
+    [SerializeField] float _staminaCost;
 
     private void Awake()
     {
@@ -16,6 +17,20 @@ public class PlayerDamage : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKey (KeyCode.LeftShift))
+        {
+            StopAllCoroutines();
+            stats.stamina -= _staminaCost* Time.deltaTime;
+        }
+        else if (Input.GetKeyUp (KeyCode.LeftShift))
+        {
+            if (stats.stamina < stats.maxStamina)
+            {
+                StartCoroutine(RechargeStamina());
+            }
+        }
+        
+       
         dmg = stats.damage;
     }
     private void OnTriggerEnter(Collider other)
@@ -29,54 +44,37 @@ public class PlayerDamage : MonoBehaviour
         {
             AirSlashSound();
         }
-
     }
 
     private void SlashSound()
     {
-        var myTransform = transform;
-        Instantiate(_slash, myTransform.position, myTransform.rotation);
-        stats.stamina -= 50f; //Saca Stamina 
-
-        StopCoroutine(RechargeStamina());
-
-        StartCoroutine(RechargeStamina());
-
-        /*if (stats.stamina >= stats.maxStamina)
+        if (stats.stamina >= 25)
         {
-            StopCoroutine(RechargeStamina()); //Para la Corutina cuando la stamina se llena
+            var myTransform = transform;
+            Instantiate(_slash, myTransform.position, myTransform.rotation);
+            stats.stamina -= 25f; //Saca Stamina 
+
+            // StopCoroutine(RechargeStamina());
+            StopAllCoroutines();
+            StartCoroutine(RechargeStamina());
         }
-        else
-        {
-            StartCoroutine(RechargeStamina()); //Inicia la Corutina si es menor a la Stamina Maxima
-        }*/
-        //Destroy(_slash, 1f);
     }
-
     private void AirSlashSound()
     {
-        var myTransform = transform;
-        Instantiate(_airslash, myTransform.position, myTransform.rotation);
-        stats.stamina -= 25f; //Saca Stamina 
-
-        StopCoroutine(RechargeStamina());
-
-        StartCoroutine(RechargeStamina());
-
-        /*if (stats.stamina >= stats.maxStamina)
+        if (stats.stamina >= 25)
         {
-            StopCoroutine(RechargeStamina()); //Para la Corutina cuando la stamina se llena
+            var myTransform = transform;
+            Instantiate(_airslash, myTransform.position, myTransform.rotation);
+            stats.stamina -= 25f; //Saca Stamina 
+
+            //StopCoroutine(RechargeStamina());
+            StopAllCoroutines();
+            StartCoroutine(RechargeStamina());
         }
-        else
-        {
-            StartCoroutine(RechargeStamina()); //Inicia la Corutina si es menor a la Stamina Maxima
-        }*/
-
-        //Destroy(_airslash, 1f);
     }
     private IEnumerator RechargeStamina() //Recarga de Stamina
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
 
         while (stats.stamina < stats.maxStamina)
         {

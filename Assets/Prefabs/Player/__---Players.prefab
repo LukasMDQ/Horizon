@@ -25024,6 +25024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   animationWeapons: {fileID: 5848559327964224254}
+  stats: {fileID: 528229664989663828}
 --- !u!1 &3802531305079072259
 GameObject:
   m_ObjectHideFlags: 0
@@ -30375,6 +30376,7 @@ MonoBehaviour:
   dmg: 0
   _slash: {fileID: 5389310674046434550, guid: d32d579eb6964844382abd171dbc4dc0, type: 3}
   _airslash: {fileID: 6587491774509748789, guid: 49c219616b6bd1946be5743c22fdd9b3, type: 3}
+  _staminaCost: 0
 --- !u!95 &182178030203912561
 Animator:
   serializedVersion: 5
@@ -75760,7 +75762,7 @@ MonoBehaviour:
   stamina: 0
   maxStamina: 100
   damage: 50
-  chargeRate: 5
+  chargeRate: 15
 --- !u!114 &3609643596718093105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75775,6 +75777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   _speed: 6
+  Stats: {fileID: 528229664989663828}
 --- !u!114 &5236565383728797799
 MonoBehaviour:
   m_ObjectHideFlags: 0
