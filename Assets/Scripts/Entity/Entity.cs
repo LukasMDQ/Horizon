@@ -55,7 +55,7 @@ public abstract class Entity : Rewind
         {
             RandomDrop();
             var myTransform = transform;
-            Instantiate(_destroyEffect, myTransform.position, myTransform.rotation);
+            Instantiate(_destroyEffect, myTransform.position, transform.rotation);
         }
         Destroy(gameObject);
     }

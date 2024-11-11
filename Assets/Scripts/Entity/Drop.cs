@@ -21,10 +21,12 @@ public class Drop : MonoBehaviour
             if (_ammo) ammoWeapon.GetAmmo(ammoWeapon.maxAmmo);
         }
     }
-
+   
+    
+   
     private void OnTriggerEnter(Collider other)
     {
-       
+
         if (other.TryGetComponent(out Stats stats) && other.CompareTag("Player")) //el efecto del item varia dependiendo del bool
         {
             if (_ammo)
@@ -40,7 +42,7 @@ public class Drop : MonoBehaviour
             if (_maxHp) stats.MaxLifeUp(value);
             Destruction();
         }
-    }
+    } 
 
     private void Destruction() //instancia efecto y destruye el prefab
     {
