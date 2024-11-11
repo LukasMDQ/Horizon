@@ -1,4 +1,5 @@
 using FiniteStateMachine;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class Boss : Entity
     public BossStateMachine bossStateMachine;
     public Image hpBar;
     public Animator grateAnimator;
+    public TextMeshProUGUI bossHPText;
 
     private void Update()
     {
@@ -31,6 +33,7 @@ public class Boss : Entity
     private void UpdateHealthUI()
     {
         hpBar.fillAmount = curHp / maxHp;
+        bossHPText.text = $"{curHp*2}|{maxHp*2}";
     }
 
     public void startGrateAnim()
