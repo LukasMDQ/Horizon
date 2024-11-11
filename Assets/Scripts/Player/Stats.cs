@@ -100,7 +100,7 @@ public class Stats : Entity
         if (curHp <= 0)
         {
             _lostMenu.SetActive(true);
-            Time.timeScale = 0;
+            Time.timeScale = 0.2f;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
