@@ -8,9 +8,11 @@ public class Button : MonoBehaviour
 {
     public GameObject player;
     public Rewind[] rewinds;
+    public Animator animTransition;
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+
+        StartCoroutine(Transition());
         Time.timeScale = 1;
 
         PlayerStatsManager.MaxHP = 100;
@@ -49,6 +51,13 @@ public class Button : MonoBehaviour
             SceneManager.LoadScene(1);
         }
 
+    }
+
+    private IEnumerator Transition()
+    {
+        animTransition.SetTrigger("ON");
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene(1);
     }
    
 }
