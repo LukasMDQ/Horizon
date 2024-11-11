@@ -1,10 +1,12 @@
 using FiniteStateMachine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Boss : Entity
 {
     public BossStateMachine bossStateMachine;
     public Image hpBar;
+    public Animator grateAnimator;
 
     private void Update()
     {
@@ -12,7 +14,7 @@ public class Boss : Entity
     }
     protected override void MyStart()
     {
-        
+
     }
 
     public override void Death()
@@ -29,5 +31,10 @@ public class Boss : Entity
     private void UpdateHealthUI()
     {
         hpBar.fillAmount = curHp / maxHp;
+    }
+
+    public void startGrateAnim()
+    {
+        grateAnimator.SetTrigger("GrateOFF");
     }
 }
