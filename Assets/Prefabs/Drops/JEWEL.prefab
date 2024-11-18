@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 597456025629664243}
-  - component: {fileID: 2892002909300080059}
   - component: {fileID: 8698717796875285427}
   - component: {fileID: 6018460304506151149}
-  m_Layer: 0
+  - component: {fileID: 8101801197567264391}
+  m_Layer: 7
   m_Name: JEWEL
   m_TagString: Joya
   m_Icon: {fileID: 0}
@@ -35,25 +35,6 @@ Transform:
   - {fileID: 3056324147839737443}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 59.528, z: 0}
---- !u!114 &2892002909300080059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1654655649947452902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f71923fcdd205944b6bded861552bb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1
-  _pickUpSound: {fileID: 0}
-  _ammo: 0
-  _heal: 0
-  _maxHp: 0
-  _jewel: 1
-  chalice: {fileID: 0}
 --- !u!65 &8698717796875285427
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -171,6 +152,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8101801197567264391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654655649947452902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2747d34ee37586247ad6f34905702768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionSound: {fileID: 0}
+  jewelValue: 1
+  chalice: {fileID: 0}
 --- !u!1 &3188213346927340212
 GameObject:
   m_ObjectHideFlags: 0
