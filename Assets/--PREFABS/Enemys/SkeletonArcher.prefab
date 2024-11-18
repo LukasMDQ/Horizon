@@ -1550,6 +1550,7 @@ GameObject:
   - component: {fileID: 8497435177824128894}
   - component: {fileID: 2132693615524698644}
   - component: {fileID: 5135638710162106471}
+  - component: {fileID: 8968292878988095990}
   m_Layer: 9
   m_Name: SkeletonArcher
   m_TagString: Enemy
@@ -1796,6 +1797,32 @@ MonoBehaviour:
   - {fileID: 0}
   detectionRange: 15
   attackRange: 10
+  _attackCooldown: 3
+  _eBullet: {fileID: 2378613323578908062, guid: 8ba7d9e278ba0c8409c453c5199b4141, type: 3}
+  _spawnPoint: {fileID: 4589296115471265998}
+--- !u!114 &8968292878988095990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2545540355632684611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f0b1f621e551645a4cd68509f9f8fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  agent: {fileID: 2132693615524698644}
+  speed: 3
+  distanceToChangeWaypoint: 1
+  distanceToChase: 15
+  distanceToAttack: 10
+  player: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 9
+  animator: {fileID: 7430279111184258804}
   _attackCooldown: 3
   _eBullet: {fileID: 2378613323578908062, guid: 8ba7d9e278ba0c8409c453c5199b4141, type: 3}
   _spawnPoint: {fileID: 4589296115471265998}

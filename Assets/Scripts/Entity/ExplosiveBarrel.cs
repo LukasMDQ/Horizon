@@ -1,22 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// Class <c>ExplosiveBarrel</c> create the behaviour of explosive barrels, 
 /// please don't put in scene an explosive asset next to other explosive asset for avoid excessive resource consumption.
 /// </summary>
+// ReSharper disable once CheckNamespace
 public class ExplosiveBarrel : Entity
 {
-    [SerializeField]
-    GameObject _explodeEffect;
+    [SerializeField] private GameObject _explodeEffect;
 
     [SerializeField]
     private float explosionRange;
 
-    void Drop()
+    private void Drop()
     {
-        Instantiate(_drops, transform.position, transform.rotation);
+        var myTransform = transform;
+        Instantiate(_drops, myTransform.position, myTransform.rotation);
     }
 
     private void OnDrawGizmos()
@@ -25,38 +24,45 @@ public class ExplosiveBarrel : Entity
         Gizmos.DrawWireSphere(transform.position, explosionRange);
     }
 
-    void Explode()
+    private void Explode()
     {
-        Instantiate(_explodeEffect, transform.position, transform.rotation);
+        var myTransform = transform;
+        Instantiate(_explodeEffect, myTransform.position, myTransform.rotation);
 
+        // ReSharper disable once SuggestVarOrType_Elsewhere
+        // ReSharper disable once Unity.PreferNonAllocApi
         Collider[] objectsToExplode = Physics.OverlapSphere(transform.position, explosionRange); 
 
-        foreach (Collider objectToExplode in objectsToExplode)
+        foreach (var objectToExplode in objectsToExplode)
         {
-            Entity entity = objectToExplode.GetComponent<Entity>();
+            var entity = objectToExplode.GetComponent<Entity>();
             if (entity != null && entity != this)
             {
-                objectToExplode.GetComponent<Entity>().Death();
+                entity.Death();
+                //objectToExplode.GetComponent<Entity>().Death();
             }
 
-            Stats player = objectToExplode.GetComponent<Stats>();
-            if (player != null && player != this)
+            var player = objectToExplode.GetComponent<Stats>();
+            if (player != null)
             {
-                objectToExplode.GetComponent<Stats>().TakeDamage(50);
+                player.TakeDamage(50);
+                //objectToExplode.GetComponent<Stats>().TakeDamage(50);
             }
         }
     }
-    void RandomEffectOnDestroy()
-    {
-        int randomChance = Random.Range(0, 101);
 
-        if (randomChance > 50 && randomChance <= 80)
+    private void RandomEffectOnDestroy()
+    {
+        var randomChance = Random.Range(0, 100);
+
+        if (randomChance < 30)
         {
             Drop();
         }
         else
         {
-            Instantiate(_destroyEffect, transform.position, transform.rotation);
+            var myTransform = transform;
+            Instantiate(_destroyEffect, myTransform.position, myTransform.rotation);
         }
         Explode();
     }
@@ -69,10 +75,5 @@ public class ExplosiveBarrel : Entity
             RandomEffectOnDestroy();           
         } 
         Destroy(gameObject);
-    }
-
-    protected override void MyStart()
-    {
-        
     }
 }

@@ -11796,6 +11796,8 @@ GameObject:
   - component: {fileID: 8433494606411561894}
   - component: {fileID: 5841174078863719364}
   - component: {fileID: 1856468526917816156}
+  - component: {fileID: 2522921166970009814}
+  - component: {fileID: 2952419542586834235}
   m_Layer: 0
   m_Name: Crusader tank_prefab
   m_TagString: Untagged
@@ -11937,17 +11939,135 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   agent: {fileID: 5841174078863719364}
-  speed: 3
-  speedMultiplier: 1.5
+  speed: 4
+  speedMultiplier: 2
   distanceToChangeWaypoint: 1
   distanceToChase: 10
-  distanceToAttack: 2
-  attackArea: {fileID: 2889639610891409792}
+  distanceToAttack: 3
   player: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 8
   animator: {fileID: 95549024643180554}
+--- !u!114 &2522921166970009814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949430161825482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9aa249998fd4d5a9b0c69a8756c6576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHp: 0
+  maxHp: 2500
+  _destroyEffect: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+  _drops: {fileID: 0}
+  _spawnSound: {fileID: 0}
+  _sounds: []
+  drop: 0
+  bossStateMachine: {fileID: 1856468526917816156}
+  hpBar: {fileID: 0}
+  grateAnimator: {fileID: 0}
+  bossHPText: {fileID: 0}
+--- !u!82 &2952419542586834235
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949430161825482}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1953607639529104
 GameObject:
   m_ObjectHideFlags: 0
@@ -12666,6 +12786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1563305888077304211}
   - component: {fileID: 2889639610891409792}
+  - component: {fileID: 1422604540562245096}
   m_Layer: 0
   m_Name: MeleeAttack
   m_TagString: Untagged
@@ -12709,3 +12830,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.6, y: 1, z: 1.4285649}
   m_Center: {x: 0, y: 0.38, z: 0.5787828}
+--- !u!114 &1422604540562245096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2931280156101070792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ae19fde7b00e04082890cad5255604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 50
+  _impactEnemy: {fileID: 4882682601762512077, guid: 00aff2fa52b5d0c4dbbfa4591fbec0db, type: 3}

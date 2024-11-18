@@ -1,33 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
+// ReSharper disable once CheckNamespace
 public abstract class Entity : Rewind
 {
     public float curHp, maxHp;
     public GameObject _destroyEffect, _drops;
     public AudioSource _spawnSound;
     public AudioClip[] _sounds;
-    public bool drop= false;
+    public bool drop;
 
-    private void Start()
+    protected virtual void Start()
     {
         if (!_spawnSound) _spawnSound = gameObject.GetComponent<AudioSource>();
 
         curHp = maxHp;
-
-        MyStart();
     }
-
-    /// <summary>
-    /// Use this instead of Start() to not overrite it
-    /// </summary>
-    protected abstract void MyStart();
 
     public virtual void TakeDamage(float damage)
     {
-        curHp -= damage;      
+        curHp -= damage;
         if (curHp <= 0)
         {
             Death();
@@ -35,17 +27,17 @@ public abstract class Entity : Rewind
         else
         {
             if (_sounds.Length > 0) _spawnSound.PlayOneShot(_sounds[0]); // 0 = dmgSound
-        }        
+        }
     }
 
-    public virtual void Heal(int healPower)//CURAR
+    public virtual void Heal(int healPower)
     {
         curHp += healPower;
         
         if (curHp > maxHp)
             curHp = maxHp;
 
-        Debug.Log("Curado");
+        Debug.Log("Healed");
     }
 
     public virtual void Death()
@@ -54,36 +46,35 @@ public abstract class Entity : Rewind
         if(_destroyEffect != null && _drops != null)
         {
             RandomDrop();
+            
             var myTransform = transform;
-            Instantiate(_destroyEffect, myTransform.position, transform.rotation);
+            Instantiate(_destroyEffect, myTransform.position, myTransform.rotation);
         }
         Destroy(gameObject);
     }
 
     private void RandomDrop()
     {
-        if (drop)
-        {
-            int rdn = Random.Range(0, 100);
+        if (!drop) return;
+        
+        var rdn = Random.Range(0, 100);
 
-            if (rdn <= 50)
-            {
-                var myTransform = transform;
-                Instantiate(_drops, myTransform.position, myTransform.rotation);
-            }
-        }        
+        if (rdn <= 50)
+        {
+            var myTransform = transform;
+            Instantiate(_drops, myTransform.position, myTransform.rotation);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("WeaponPlayer"))
+        if (!other.CompareTag("WeaponPlayer")) return;
+        
+        var player = GameObject.FindWithTag("Player"); // TODO refactor later
+        
+        if (player != null && player != gameObject && player.TryGetComponent(out Stats playerStats))
         {
-            GameObject player = GameObject.FindWithTag("Player");
-            Debug.Log(player);
-            if (player != null && player != gameObject && player.TryGetComponent(out Stats playerStats))
-            {
-                TakeDamage(playerStats.damage);
-            }
+            TakeDamage(playerStats.damage);
         }
     }
 

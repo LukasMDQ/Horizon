@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class MementoState : MonoBehaviour
+public class MementoState
 {
-    List<ParamsMemento> _parameters = new List<ParamsMemento>();
+    private List<ParamsMemento> _parameters = new List<ParamsMemento>();
 
     public void Rec(params object[] parameter)
     {

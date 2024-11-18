@@ -3,20 +3,19 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// ReSharper disable once CheckNamespace
 public class Boss : Entity
 {
     public BossStateMachine bossStateMachine;
     public Image hpBar;
     public Animator grateAnimator;
     public TextMeshProUGUI bossHPText;
+    
+    private static readonly int GrateOff = Animator.StringToHash("GrateOFF");
 
     private void Update()
     {
-        UpdateHealthUI();
-    }
-    protected override void MyStart()
-    {
-
+        UpdateHealthHud();
     }
 
     public override void Death()
@@ -30,14 +29,15 @@ public class Boss : Entity
         bossStateMachine.SetBossAnimations(BossStateMachine.BossAnimationsType.Death);
     }
 
-    private void UpdateHealthUI()
+    private void UpdateHealthHud()
     {
         hpBar.fillAmount = curHp / maxHp;
         bossHPText.text = $"{curHp*2}|{maxHp*2}";
     }
 
-    public void startGrateAnim()
+    // ReSharper disable once UnusedMember.Global
+    public void StartGrateAnim() // This should be called from an animation event
     {
-        grateAnimator.SetTrigger("GrateOFF");
+        grateAnimator.SetTrigger(GrateOff);
     }
 }

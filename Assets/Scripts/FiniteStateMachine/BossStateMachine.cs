@@ -2,16 +2,15 @@ using System;
 using FiniteStateMachine.States;
 using UnityEngine;
 using UnityEngine.AI;
-using Random = UnityEngine.Random;
 
 namespace FiniteStateMachine
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public class BossStateMachine : StateMachine
     {
-        [HideInInspector] public Patrolling patrollingState;
-        [HideInInspector] public Pursuing pursuingState;
-        [HideInInspector] public Attacking attackingState;
+        [HideInInspector] public BossPatrolling patrollingState;
+        [HideInInspector] public BossPursuing pursuingState;
+        [HideInInspector] public BossAttacking attackingState;
         [HideInInspector] public Death deathState;
 
         public Transform[] waypoints;
@@ -24,32 +23,26 @@ namespace FiniteStateMachine
         public float distanceToChangeWaypoint;
         public float distanceToChase;
         public float distanceToAttack;
-        public Collider attackArea;
 
         public Transform player;
 
         [Tooltip("Layers I can see")]
         public LayerMask layerMask;
-        
-        // This could work, but I have no idea
-        /*[Tooltip("Time needed for the attack to occur")]
-        [Range(0f, 10f)]
-        public float timeToAttack;*/
 
         public Animator animator;
         private static readonly int Patrolling = Animator.StringToHash("Patrolling");
-        private static readonly int Pursuing = Animator.StringToHash("Pursuing");
-        private static readonly int Attacking = Animator.StringToHash("Attacking");
-        private static readonly int GotHit = Animator.StringToHash("GotHit");
-        private static readonly int Dead = Animator.StringToHash("Dead");
+        private static readonly int Pursuing   = Animator.StringToHash("Pursuing");
+        private static readonly int Attacking  = Animator.StringToHash("Attacking");
+        private static readonly int GotHit     = Animator.StringToHash("GotHit");
+        private static readonly int Dead       = Animator.StringToHash("Dead");
 
         private void Awake()
         {
             var myTransform = transform;
-            patrollingState = new Patrolling(this, myTransform, player, agent, speed, distanceToChangeWaypoint, distanceToChase, waypoints, layerMask);
-            pursuingState = new Pursuing(this, myTransform, player, agent, speed, speedMultiplier, distanceToAttack, distanceToChase, layerMask);
-            attackingState = new Attacking(this, myTransform, player, distanceToAttack, attackArea);
-            deathState = new Death(this);
+            patrollingState = new BossPatrolling(this, myTransform, player, agent, speed, distanceToChangeWaypoint, distanceToChase, waypoints, layerMask);
+            pursuingState = new BossPursuing(this, myTransform, player, agent, speed, speedMultiplier, distanceToAttack, layerMask);
+            attackingState = new BossAttacking(this, myTransform, player, distanceToAttack);
+            deathState = new Death(this, agent);
         }
 
         protected override BaseState GetInitialState()
@@ -98,6 +91,17 @@ namespace FiniteStateMachine
             Attack,
             GetHit,
             Death
+        }
+
+        public bool IsDead()
+        {
+            return animator.GetBool(Dead);
+        }
+        
+        // ReSharper disable once UnusedMember.Local
+        private void ResetAttack() // This should be called from an animation event
+        {
+            attackingState.ResetAttack();
         }
 
         private void OnDrawGizmos()

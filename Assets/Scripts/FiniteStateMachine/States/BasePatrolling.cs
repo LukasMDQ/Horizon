@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace FiniteStateMachine.States
 {
-    public class Patrolling : BaseState
+    public abstract class BasePatrolling : BaseState
     {
         private readonly Transform[] _waypoints;
         private Transform _currentTarget;
@@ -16,13 +16,12 @@ namespace FiniteStateMachine.States
         private readonly float _speed;
         private readonly float _distanceToChangeWaypoint;
         private readonly float _distanceToChase;
-        
+
         private float _timerToChange;
 
         private readonly LayerMask _layerMask;
-        
-        // ReSharper disable once SuggestBaseTypeForParameter
-        public Patrolling(BossStateMachine stateMachine, Transform myTransform, Transform player, NavMeshAgent agent, float speed, float distanceToChangeWaypoint, float distanceToChase, Transform[] waypoints, LayerMask layerMask) : base(stateMachine)
+
+        protected BasePatrolling(StateMachine stateMachine, Transform myTransform, Transform player, NavMeshAgent agent, float speed, float distanceToChangeWaypoint, float distanceToChase, Transform[] waypoints, LayerMask layerMask) : base(stateMachine)
         {
             this.stateMachine = stateMachine;
 
@@ -41,22 +40,20 @@ namespace FiniteStateMachine.States
         public override void Enter()
         {
             _targetIndex = Random.Range(0, _waypoints.Length);
+            
+            if (_waypoints.Length <= 0) return;
+
             _currentTarget = _waypoints[_targetIndex];
             _agent.SetDestination(_currentTarget.position);
             
             _agent.speed = _speed;
             _agent.acceleration = _speed * 2;
-            
-            ((BossStateMachine) stateMachine).SetBossAnimations(BossStateMachine.BossAnimationsType.Patrolling);
         }
 
-        public override void UpdatePhysics()
+        public abstract override void UpdatePhysics();
+
+        protected void PursuitOrWaypoint(BasePursuing pursuingState)
         {
-            if (((BossStateMachine) stateMachine).animator.GetBool("Dead"))
-            {
-                stateMachine.ChangeState(((BossStateMachine) stateMachine).deathState);
-                return;
-            }
             var position = _myTransform.position;
             var ray = new Ray(position, (_player.position - position).normalized);
 
@@ -64,24 +61,46 @@ namespace FiniteStateMachine.States
             {
                 if (hit.transform.gameObject.CompareTag("Player"))
                 {
-                    stateMachine.ChangeState(((BossStateMachine) stateMachine).pursuingState);
+                    stateMachine.ChangeState(pursuingState);
                     return;
                 }
             }
-
+            
+            if (!_currentTarget)
+            {
+                Debug.LogError($"{_myTransform.gameObject.name} We don't have any current target!");
+                return;
+            }
+            
             var directionalVector = _currentTarget.position - _myTransform.position;
-
+            
             if (directionalVector.magnitude <= _distanceToChangeWaypoint)
             {
-                ChangeWaypoint();
+                ChangeWaypoint(2);
+            }
+        }
+        
+        protected void PursuitOrWaypoint(BasePursuing pursuingState, bool distanceEnemy)
+        {
+            if (!distanceEnemy) return;
+            
+            var position = _myTransform.position;
+            var ray = new Ray(position, (_player.position - position).normalized);
+
+            if (Physics.Raycast(ray, out var hit, _distanceToChase, _layerMask, QueryTriggerInteraction.Ignore))
+            {
+                if (hit.transform.gameObject.CompareTag("Player"))
+                {
+                    stateMachine.ChangeState(pursuingState);
+                }
             }
         }
 
-        private void ChangeWaypoint()
+        private void ChangeWaypoint(int timerBeforeChange)
         {
             _timerToChange += Time.fixedDeltaTime;
             
-            if (_timerToChange < 2) return;
+            if (_timerToChange < timerBeforeChange) return;
 
             _timerToChange = 0;
             

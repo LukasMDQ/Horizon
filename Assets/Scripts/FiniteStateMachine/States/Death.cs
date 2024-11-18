@@ -1,11 +1,19 @@
-using UnityEngine;
+using UnityEngine.AI;
 
 namespace FiniteStateMachine.States
 {
     public class Death : BaseState
     {
-        public Death(StateMachine stateMachine) : base(stateMachine)
+        private readonly NavMeshAgent _agent;
+        
+        public Death(StateMachine stateMachine, NavMeshAgent agent) : base(stateMachine)
         {
+            _agent = agent;
+        }
+
+        public override void Enter()
+        {
+            _agent.isStopped = true;
         }
     }
 }

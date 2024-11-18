@@ -1,12 +1,11 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
+// ReSharper disable once CheckNamespace
 public class Stats : Entity
 {
-    [SerializeField] private TextMeshProUGUI textBullet; // TODO delete this later
     [SerializeField] private GameObject _lostMenu;
     public Image hpBar;
     public Image staminaBar;
@@ -16,10 +15,11 @@ public class Stats : Entity
     public int damage;
     [FormerlySerializedAs("ChargeRate")] public float chargeRate;
 
-    bool _loading;
+    private bool _loading;
 
-    protected override void MyStart()
+    protected override void Start()
     {
+        base.Start();
         stamina = maxStamina;
 
         // Load player health from PlayerStatsManager
@@ -34,13 +34,13 @@ public class Stats : Entity
         maxHp = PlayerStatsManager.MaxHP;
         curHp = PlayerStatsManager.HP;
 
-        UpdateHealthUI();
+        UpdateHealthHud();
     }
 
     private void Update()
     {
         UpdateStamina();
-        UIUpdate();
+        HudUpdate();
     }
 
     //----------- Stamina Management -----------  
@@ -58,7 +58,7 @@ public class Stats : Entity
     public void AddJewel(int jewelCount)
     {
         PlayerStatsManager.jewels += jewelCount;
-        Debug.Log("Jewel added to grial");
+        Debug.Log("Jewel added to chalice");
     }
 
     public void Buff(int powerUp)
@@ -80,7 +80,7 @@ public class Stats : Entity
 
         // Save current HP to PlayerStatsManager
         PlayerStatsManager.HP = (int)curHp;
-        UpdateHealthUI();
+        UpdateHealthHud();
     }
 
     public override void Heal(int healPower)
@@ -88,7 +88,7 @@ public class Stats : Entity
         base.Heal(healPower);
         // Update PlayerStatsManager
         PlayerStatsManager.HP = (int)curHp;
-        UpdateHealthUI();
+        UpdateHealthHud();
     }
     #endregion
 
@@ -111,16 +111,16 @@ public class Stats : Entity
 
     #region UI Management
 
-    private void UpdateHealthUI()
+    private void UpdateHealthHud()
     {
         hpBar.fillAmount = curHp / maxHp;
         hpVignette.alpha = 1 - (curHp / maxHp);
     }
 
-    private void UIUpdate()
+    private void HudUpdate()
     {
         staminaBar.fillAmount = stamina / maxStamina;
-        UpdateHealthUI();
+        UpdateHealthHud();
     }
     #endregion
 
@@ -131,7 +131,8 @@ public class Stats : Entity
         if (_loading)
             return;
 
-        _mementoState.Rec(transform.position, transform.rotation);
+        var myTransform = transform;
+        _mementoState.Rec(myTransform.position, myTransform.rotation);
     }
 
     public override void Load()
@@ -143,9 +144,9 @@ public class Stats : Entity
     }
 
 
-    IEnumerator CoroutineLoad()
+    private IEnumerator CoroutineLoad()
     {
-        var WaitForSeconds = new WaitForSeconds(0.01f);
+        var waitForSeconds = new WaitForSeconds(0.01f);
         _loading = true;
 
         while (_mementoState.IsRemember())
@@ -153,7 +154,7 @@ public class Stats : Entity
             var data = _mementoState.Remember();
 
             transform.SetPositionAndRotation((Vector3)data.parameters[0], (Quaternion)data.parameters[1]);
-            yield return WaitForSeconds;
+            yield return waitForSeconds;
         }
 
         _loading = false;

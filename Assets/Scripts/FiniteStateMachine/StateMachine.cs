@@ -17,7 +17,7 @@ namespace FiniteStateMachine
             _currentState?.UpdateLogic();
         }
 
-        private void LateUpdate()
+        private void FixedUpdate()
         {
             _currentState?.UpdatePhysics();
         }
