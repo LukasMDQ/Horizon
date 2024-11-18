@@ -19,6 +19,7 @@ public class JewelDrop : Drop
                 Debug.Log("Stats component found!");
                 stats.AddJewel(jewelValue);
                 chalice.JewelUpdate();
+                base.ApplyDropEffect(other);
             }
             else
             {

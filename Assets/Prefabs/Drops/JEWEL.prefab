@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8698717796875285427}
   - component: {fileID: 6018460304506151149}
   - component: {fileID: 8101801197567264391}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: JEWEL
   m_TagString: Joya
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2747d34ee37586247ad6f34905702768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionSound: {fileID: 0}
+  collisionSound: {fileID: 8300000, guid: 87a2e502ddd174591af0e35f76e448a2, type: 3}
   jewelValue: 1
   chalice: {fileID: 0}
 --- !u!1 &3188213346927340212
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 2598307086873400168}
   - component: {fileID: 2946970322844513415}
   - component: {fileID: 4955259397377173129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StarsParticles (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4982,7 +4982,7 @@ GameObject:
   - component: {fileID: 1454653231984622090}
   - component: {fileID: 7878185137066377751}
   - component: {fileID: 2478572969696610263}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlowParticles (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9786,6 +9786,10 @@ PrefabInstance:
     - target: {fileID: 1000013931470818, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_Name
       value: Diamondo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013931470818, guid: 5c02591794acece409986647ed6329a7, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4000012015927304, guid: 5c02591794acece409986647ed6329a7, type: 3}
       propertyPath: m_LocalScale.x

@@ -43,10 +43,13 @@ public abstract class Entity : Rewind
     public virtual void Death()
     {
         if (_sounds.Length > 0) _spawnSound.PlayOneShot(_sounds[1]); // 1 = deathSound
-        if(_destroyEffect != null && _drops != null)
+        if (_drops != null)
         {
+            Debug.Log("Entra");
             RandomDrop();
-            
+        }
+        if(_destroyEffect != null)
+        {
             var myTransform = transform;
             Instantiate(_destroyEffect, myTransform.position, myTransform.rotation);
         }
@@ -55,12 +58,14 @@ public abstract class Entity : Rewind
 
     private void RandomDrop()
     {
+        Debug.Log("RandomDrop Entra");
         if (!drop) return;
         
         var rdn = Random.Range(0, 100);
 
-        if (rdn <= 50)
+        if (rdn <= 100)
         {
+            Debug.Log("RandomDrop Entra en chance");
             var myTransform = transform;
             Instantiate(_drops, myTransform.position, myTransform.rotation);
         }

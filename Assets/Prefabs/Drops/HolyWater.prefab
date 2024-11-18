@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2615688287164727583}
   - component: {fileID: 6637251377776926890}
   - component: {fileID: 1395587440981404620}
-  - component: {fileID: 6525287802245461474}
-  m_Layer: 0
+  - component: {fileID: 8008057969841893678}
+  m_Layer: 6
   m_Name: HolyWater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.14315605, y: 0.33943737, z: 0.1431551}
   m_Center: {x: 0.0000009536743, y: 0.17012799, z: 0.00000047683716}
---- !u!114 &6525287802245461474
+--- !u!114 &8008057969841893678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,13 +115,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4651629928008614796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f71923fcdd205944b6bded861552bb5, type: 3}
+  m_Script: {fileID: 11500000, guid: d3dd41792653a294a8dbbb0138fef767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 25
-  _ammo: 0
-  _heal: 1
-  _maxHp: 0
-  _jewel: 0
-  chalice: {fileID: 0}
-  collisionSound: {fileID: 8300000, guid: 87a2e502ddd174591af0e35f76e448a2, type: 3}
+  collisionSound: {fileID: 8300000, guid: 5da5d9ceaee16f44ca8348c7723e507c, type: 3}
+  healValue: 30

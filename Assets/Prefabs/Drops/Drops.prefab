@@ -49,7 +49,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -78,7 +78,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 8024162994507867303}
   - component: {fileID: 505372953249830070}
   - component: {fileID: 8448548363908878947}
-  - component: {fileID: 8434431963119125527}
+  - component: {fileID: 3444641395074868790}
   m_Layer: 0
   m_Name: AMMO
   m_TagString: Untagged
@@ -272,7 +272,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.80260944, y: 0.48060653, z: 0.71019125}
   m_Center: {x: -0.00000047683716, y: 0.23838057, z: -0.00000071525574}
---- !u!114 &8434431963119125527
+--- !u!114 &3444641395074868790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,13 +281,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6112774640860083974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f71923fcdd205944b6bded861552bb5, type: 3}
+  m_Script: {fileID: 11500000, guid: e8e520f3d18243443abaf3aa30485ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 5
-  _ammo: 1
-  _heal: 0
-  _maxHp: 0
-  _jewel: 0
-  chalice: {fileID: 0}
-  collisionSound: {fileID: 8300000, guid: 87a2e502ddd174591af0e35f76e448a2, type: 3}
+  collisionSound: {fileID: 0}
