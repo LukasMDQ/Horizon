@@ -104,8 +104,8 @@ public class Stats : Entity
     {
         _lostMenu.SetActive(true);
 
-        yield return new WaitForSeconds(1);
-        Time.timeScale = 0f;
+        yield return new WaitForSeconds(0.5f);
+        Time.timeScale = 0.2f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         PlayerStatsManager.HP = PlayerStatsManager.MaxHP;

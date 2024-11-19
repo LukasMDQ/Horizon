@@ -6,13 +6,12 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed = default;
-    public int damage = default;
+    public int damage;
     [SerializeField] float _lifeTime = default;      
     [SerializeField] private GameObject _inpact;
    
     private void Start()
     {
-       
         Destroy(gameObject, _lifeTime);
     }
     void Update()

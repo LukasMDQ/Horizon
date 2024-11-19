@@ -32,7 +32,7 @@ public class Boss : Entity
     private void UpdateHealthHud()
     {
         hpBar.fillAmount = curHp / maxHp;
-        bossHPText.text = $"{curHp*2}|{maxHp*2}";
+        bossHPText.text = $"{curHp}|{maxHp}";
     }
 
     // ReSharper disable once UnusedMember.Global

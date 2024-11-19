@@ -3,6 +3,7 @@ using FiniteStateMachine.States;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 namespace FiniteStateMachine
 {
     [RequireComponent(typeof(NavMeshAgent))]
@@ -33,6 +34,7 @@ namespace FiniteStateMachine
         private static readonly int Patrolling = Animator.StringToHash("Patrolling");
         private static readonly int Pursuing   = Animator.StringToHash("Pursuing");
         private static readonly int Attacking  = Animator.StringToHash("Attacking");
+        private static readonly int AttackRNG  = Animator.StringToHash("AttackRNG");
         private static readonly int GotHit     = Animator.StringToHash("GotHit");
         private static readonly int Dead       = Animator.StringToHash("Dead");
 
@@ -67,6 +69,7 @@ namespace FiniteStateMachine
                     break;
                 case BossAnimationsType.Attack:
                     animator.SetTrigger(Attacking);
+                    animator.SetInteger(AttackRNG, UnityEngine.Random.Range(0, 3));
                     animator.SetBool(Patrolling, false);
                     animator.SetBool(Pursuing, false);
                     break;

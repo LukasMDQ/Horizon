@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.07047406, y: 0.68019336, z: -0.06542186, w: 0.7266982}
   m_LocalPosition: {x: -7.51, y: 1.81, z: 31.79}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4649820365336439104}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b8617bf3e53ab409015245205d4643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 50
-  damage: 100
-  _lifeTime: 0.7
+  _speed: 60
+  damage: 200
+  _lifeTime: 0.4
   _inpact: {fileID: 358637981425055526, guid: c2c34dbe9acc0f248924956b05ed94ba, type: 3}
