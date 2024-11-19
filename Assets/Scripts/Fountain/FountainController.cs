@@ -34,7 +34,6 @@ public class FountainController : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                Debug.Log("Vamos bien");
                 checkpointManager.SaveElements(player.transform.position);
             }
         }

@@ -20,13 +20,10 @@ public class CheckpointManager : MonoBehaviour
         {
             item.Save();
         }
-
-        // Optionally, save data persistently (e.g., PlayerPrefs)
         PlayerPrefs.SetInt("SavedScene", lastSavedSceneIndex);
         PlayerPrefs.SetFloat("SavedPositionX", lastSavedPosition.x);
         PlayerPrefs.SetFloat("SavedPositionY", lastSavedPosition.y);
         PlayerPrefs.SetFloat("SavedPositionZ", lastSavedPosition.z);
-        PlayerPrefs.Save();
     }
 
     public (int, Vector3) GetLastSavedData()

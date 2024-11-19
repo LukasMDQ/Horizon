@@ -7,7 +7,6 @@ public class AmmoDrop : Drop
 {
     public override void ApplyDropEffect(Collider other)
     {
-        Debug.Log($"ApplyDropEffect called. Object: {other.name}, Tag: {other.tag}");
         if (other.CompareTag("Player"))
         {
             GiveAmmo(other);

@@ -19,18 +19,15 @@ public class Stats : Entity
 
     protected override void Start()
     {
-        base.Start();
-        stamina = maxStamina;
 
-        // Load player health from PlayerStatsManager
-        if (PlayerStatsManager.MaxHP >= 0 && PlayerStatsManager.jewels == 0)
-        {
-            // Set default values if it's the first time (e.g., first scene load)
-            PlayerStatsManager.MaxHP = 100;
-            PlayerStatsManager.HP = PlayerStatsManager.MaxHP;
-        }
+        stamina = maxStamina;
+        base.Start();
 
         // Assign PlayerStatsManager values to current player stats
+        Debug.Log($"PlayerStatsManager.MaxHP;{PlayerStatsManager.MaxHP}");
+        Debug.Log($"PlayerStatsManager.HP;{PlayerStatsManager.HP}");
+        Debug.Log($"maxHp;{maxHp}");
+        Debug.Log($"curHp;{curHp}");
         maxHp = PlayerStatsManager.MaxHP;
         curHp = PlayerStatsManager.HP;
 
@@ -76,6 +73,9 @@ public class Stats : Entity
 
     public override void TakeDamage(float dmg)
     {
+        Debug.Log("Entra a TakeDamage");
+        if (PlayerStatsManager.isInvulnerable) return;
+
         base.TakeDamage(dmg);
 
         // Save current HP to PlayerStatsManager
@@ -97,13 +97,18 @@ public class Stats : Entity
     #region Death Management
     public override void Death()
     {
-        if (curHp <= 0)
-        {
-            _lostMenu.SetActive(true);
-            Time.timeScale = 0.2f;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        StartCoroutine(LostMenuManager());
+    }
+
+    private IEnumerator LostMenuManager()
+    {
+        _lostMenu.SetActive(true);
+
+        yield return new WaitForSeconds(1);
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        PlayerStatsManager.HP = PlayerStatsManager.MaxHP;
     }
     #endregion
 

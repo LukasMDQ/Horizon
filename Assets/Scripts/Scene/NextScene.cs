@@ -18,8 +18,10 @@ public class NextScene : MonoBehaviour
 
     private IEnumerator Transition()
     {
+        PlayerStatsManager.isInvulnerable = true;
         animTransition.SetTrigger("ON");
         yield return new WaitForSeconds(2f);
+        PlayerStatsManager.isInvulnerable = false;
         SceneManager.LoadScene(sceneName);
     }
 }

@@ -17,9 +17,13 @@ public class Button : MonoBehaviour
         StartCoroutine(Transition());
         Time.timeScale = 1;
 
-        PlayerStatsManager.MaxHP = 100;
         PlayerStatsManager.HP = PlayerStatsManager.MaxHP;
         PlayerStatsManager.jewels = 0;
+        PlayerPrefs.DeleteKey("SavedScene");
+        PlayerPrefs.DeleteKey("SavedPositionX");
+        PlayerPrefs.DeleteKey("SavedPositionY");
+        PlayerPrefs.DeleteKey("SavedPositionZ");
+
     }
 
     public void MainGame()
@@ -36,7 +40,7 @@ public class Button : MonoBehaviour
 
     public void LoadGame()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 1)
+        if (SceneManager.GetActiveScene().name != "Lvl1Remastered")
         {
             // Load saved scene index and position from PlayerPrefs
             int savedSceneIndex = PlayerPrefs.GetInt("SavedScene", SceneManager.GetActiveScene().buildIndex);
@@ -45,13 +49,14 @@ public class Button : MonoBehaviour
             float z = PlayerPrefs.GetFloat("SavedPositionZ", player.transform.position.z);
 
             Vector3 savedPosition = new Vector3(x, y, z);
-            PlayerStatsManager.MaxHP = 100;
-            PlayerStatsManager.HP = 50;
+
             // Load the saved scene and then set the player's position
             SceneManager.LoadScene(savedSceneIndex);
+            Debug.LogError("Tu hermana");
+            player.transform.position = savedPosition;
         } else
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("Lvl1Remastered");
         }
 
     }

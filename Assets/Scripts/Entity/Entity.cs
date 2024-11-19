@@ -19,6 +19,7 @@ public abstract class Entity : Rewind
 
     public virtual void TakeDamage(float damage)
     {
+        Debug.Log("Me hacen daño");
         curHp -= damage;
         if (curHp <= 0)
         {
@@ -37,7 +38,6 @@ public abstract class Entity : Rewind
         if (curHp > maxHp)
             curHp = maxHp;
 
-        Debug.Log("Healed");
     }
 
     public virtual void Death()
@@ -45,7 +45,6 @@ public abstract class Entity : Rewind
         if (_sounds.Length > 0) _spawnSound.PlayOneShot(_sounds[1]); // 1 = deathSound
         if (_drops != null)
         {
-            Debug.Log("Entra");
             RandomDrop();
         }
         if(_destroyEffect != null)
@@ -58,14 +57,12 @@ public abstract class Entity : Rewind
 
     private void RandomDrop()
     {
-        Debug.Log("RandomDrop Entra");
         if (!drop) return;
         
         var rdn = Random.Range(0, 100);
 
-        if (rdn <= 100)
+        if (rdn <= 50)
         {
-            Debug.Log("RandomDrop Entra en chance");
             var myTransform = transform;
             Instantiate(_drops, myTransform.position, myTransform.rotation);
         }
