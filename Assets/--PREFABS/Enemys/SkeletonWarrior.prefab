@@ -1454,10 +1454,10 @@ AudioSource:
   m_GameObject: {fileID: 3921200927494117742}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1259720196849295090, guid: 829f0e495344c434881441c36eddf460, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.43
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1582,17 +1582,6 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _sounds: []
   drop: 0
-  _patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  detectionRange: 10
-  attackRange: 2
 --- !u!114 &7280251653314092160
 MonoBehaviour:
   m_ObjectHideFlags: 0

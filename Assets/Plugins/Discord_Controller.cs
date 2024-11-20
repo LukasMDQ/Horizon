@@ -7,7 +7,7 @@ using System.Data;
 public class Discord_Controller : MonoBehaviour
 {
     public long applicationID;
-    public string details = "Playing";
+    public string details = "Jugando";
     public string state = "";
     public string largeImage = "icon";
     public string largeText = "Por Encima del Horizonte";
