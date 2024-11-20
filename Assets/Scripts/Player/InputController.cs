@@ -10,6 +10,7 @@ public class InputController : MonoBehaviour
     public WeaponChanger weaponChanger;
 
     private RangedWeapon _rangedWeapon;
+    private IInteractable currentInteractable;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class InputController : MonoBehaviour
         
         ChangeWeaponInput();
         ReloadWeaponInput();
+        InteractInput();
 
         if (Input.GetMouseButtonDown(0) && !Cursor.visible)
         {
@@ -70,6 +72,33 @@ public class InputController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             movement3D.Sprint(false);
+        }
+    }
+
+    private void InteractInput()
+    {
+        if (currentInteractable != null && Input.GetKeyDown(KeyCode.F))
+        {
+            currentInteractable.Interact();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out IInteractable interactable))
+        {
+            currentInteractable = interactable;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out IInteractable interactable))
+        {
+            if (currentInteractable == interactable)
+            {
+                currentInteractable = null;
+            }
         }
     }
 

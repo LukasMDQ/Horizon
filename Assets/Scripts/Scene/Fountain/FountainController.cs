@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FountainController : MonoBehaviour
+public class FountainController : MonoBehaviour, IInteractable
 {
     [SerializeField] Material lightingWater;
     [SerializeField] Material opaqueWater;
     [SerializeField] Renderer[] waterRenders;
     [SerializeField] ChaliceAnimation animationController;
     private CheckpointManager checkpointManager;
-    private bool isPlayerInTrigger = false;
 
     public string turnOnColorLight = "#2EAEB7";
 
@@ -24,20 +23,7 @@ public class FountainController : MonoBehaviour
     {
          checkpointManager = GetComponent<CheckpointManager>();
     }
-    void Update()
-    {
-        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.F))
-        {
-            DeactivateWater();
-            UseChargeChalice();
-
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
-                checkpointManager.SaveElements(player.transform.position);
-            }
-        }
-    }
+  
     public void ChangeLightColor(string hexColor)
     {
         Color newColor;
@@ -80,21 +66,16 @@ public class FountainController : MonoBehaviour
         chaliceController.ChargeChalice();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void Interact()
     {
-        if (other.CompareTag("Player"))
+        DeactivateWater();
+        UseChargeChalice();
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
         {
-            isPlayerInTrigger = true;
+            checkpointManager.SaveElements(player.transform.position);
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            ActivateWater();
-            isPlayerInTrigger = false;
-        }
-    }
-       
 }
