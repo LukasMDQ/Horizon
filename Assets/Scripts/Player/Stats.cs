@@ -8,6 +8,7 @@ public class Stats : Entity,IinstaKill
 {
     [SerializeField] private GameObject _lostMenu;
     public Image hpBar;
+    public Image hpBarLerp;
     public Image staminaBar;
     public CanvasGroup hpVignette;
 
@@ -16,6 +17,7 @@ public class Stats : Entity,IinstaKill
     [FormerlySerializedAs("ChargeRate")] public float chargeRate;
 
     private bool _loading;
+    private float lerpSpeed = 0.05f; 
 
     protected override void Start()
     {
@@ -119,7 +121,7 @@ public class Stats : Entity,IinstaKill
     private void UpdateHealthHud()
     {
         hpBar.fillAmount = curHp / maxHp;
-
+        hpBarLerp.fillAmount = Mathf.Lerp(hpBarLerp.fillAmount, curHp / maxHp, lerpSpeed);
         hpVignette.alpha = 1 - (curHp / maxHp);
     }
 

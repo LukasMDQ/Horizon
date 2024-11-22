@@ -8,8 +8,11 @@ public class Boss : Entity
 {
     public BossStateMachine bossStateMachine;
     public Image hpBar;
+    public Image hpBarLerp;
     public Animator grateAnimator;
     public TextMeshProUGUI bossHPText;
+
+    private float lerpSpeed = 0.02f;
     
     private static readonly int GrateOff = Animator.StringToHash("GrateOFF");
 
@@ -32,6 +35,7 @@ public class Boss : Entity
     private void UpdateHealthHud()
     {
         hpBar.fillAmount = curHp / maxHp;
+        hpBarLerp.fillAmount = Mathf.Lerp(hpBarLerp.fillAmount, curHp/maxHp, lerpSpeed);
         bossHPText.text = $"{curHp}|{maxHp}";
     }
 
