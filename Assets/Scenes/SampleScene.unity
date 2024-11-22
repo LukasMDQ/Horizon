@@ -6956,6 +6956,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lever
       objectReference: {fileID: 0}
+    - target: {fileID: 7548246703479452531, guid: 4f907f999ad591f45be018fe303207dc, type: 3}
+      propertyPath: leverAnimator
+      value: 
+      objectReference: {fileID: 8243490334375313352}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6995,7 +6999,6 @@ MonoBehaviour:
   MetalGrate: {fileID: 5826080133179809952}
   linkedLever: {fileID: 6307187770485009314}
   doorAnimator: {fileID: 5826080133179809955}
-  leverAnimator: {fileID: 8243490334375313352}
 --- !u!1 &8243490334375313351 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1719207205587641512, guid: 4f907f999ad591f45be018fe303207dc, type: 3}
