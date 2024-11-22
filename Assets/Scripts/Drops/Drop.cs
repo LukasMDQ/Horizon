@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //TP2- Hernandez Lucas
-
+//TP2- Lidia Paiva
 public abstract class Drop : MonoBehaviour
 {
     public AudioClip collisionSound;

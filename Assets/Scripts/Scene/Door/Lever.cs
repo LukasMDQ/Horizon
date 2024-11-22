@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 
+// Lidia Paiva
 public class Lever : MonoBehaviour, IInteractable
 {
     public event Action OnLeverActivated;

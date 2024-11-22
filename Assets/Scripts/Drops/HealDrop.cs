@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Lidia Paiva
+// Lucas Hernandez
 public class HealDrop : Drop
 {
     public int healValue;

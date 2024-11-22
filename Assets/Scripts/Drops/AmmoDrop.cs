@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
 
+//Lidia Paiva
+//Lucas Hernandez
 public class AmmoDrop : Drop
 {
     public override void ApplyDropEffect(Collider other)

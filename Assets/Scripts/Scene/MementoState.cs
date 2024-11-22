@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 
+// Lidia Paiva
 public class MementoState
 {
     private List<ParamsMemento> _parameters = new List<ParamsMemento>();

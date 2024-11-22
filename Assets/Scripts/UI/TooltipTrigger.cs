@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+// Lidia Paiva
+
 public class TooltipTrigger : MonoBehaviour
 {
     public string content;

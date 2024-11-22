@@ -2,6 +2,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 // ReSharper disable once CheckNamespace
+
+// Lidia Paiva
 public abstract class Entity : Rewind
 {
     public float curHp, maxHp;
@@ -19,7 +21,6 @@ public abstract class Entity : Rewind
 
     public virtual void TakeDamage(float damage)
     {
-        Debug.Log("Me hacen daño");
         curHp -= damage;
         if (curHp <= 0)
         {

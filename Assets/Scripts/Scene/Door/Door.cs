@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
 
+//Lidia Paiva
 public class Door : MonoBehaviour
 {
     private bool isOpen = false;
     public GameObject MetalGrate;
     public Lever linkedLever;
-    private Vector3 originalPosition;
 
     public Animator doorAnimator;
     public Animator leverAnimator;
@@ -20,7 +20,6 @@ public class Door : MonoBehaviour
 
     private void Start()
     {
-        //originalPosition = MetalGrate.transform.position;
         if (linkedLever != null)
         {
             linkedLever.OnLeverActivated += OpenDoor;
@@ -38,7 +37,6 @@ public class Door : MonoBehaviour
         if (!isOpen)
         {
             isOpen = true;
-            //MetalGrate.transform.Translate(Vector3.up * 3);
             doorAnimator.SetTrigger(DoorActivated);
             leverAnimator.SetTrigger(LeverActivated);
         }
@@ -51,7 +49,6 @@ public class Door : MonoBehaviour
             isOpen = false;
             doorAnimator.SetTrigger(DoorDeactivated);
             leverAnimator.SetTrigger(LeverDeactivated);
-            //MetalGrate.transform.position = originalPosition;
         }
     }
 }
