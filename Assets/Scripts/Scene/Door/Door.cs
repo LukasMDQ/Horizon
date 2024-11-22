@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
 
+// TP2 - Lidia, Paiva - Ahumada, Leandro
+// Control de Puerta con una Lever
+
 public class Door : MonoBehaviour
 {
     private bool isOpen = false;

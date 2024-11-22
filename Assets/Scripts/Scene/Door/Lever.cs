@@ -1,7 +1,8 @@
 using UnityEngine;
 using System;
 
-// Lidia Paiva
+// TP2 - Lidia, Paiva - Ahumada, Leandro
+// La lever
 public class Lever : MonoBehaviour, IInteractable
 {
     public event Action OnLeverActivated;
