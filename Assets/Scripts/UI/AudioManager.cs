@@ -3,30 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+// TP 2 - Ahumada, Leandro
+// Script de Controladora de Audio, Set de Volumen.
+
 public class AudioManager : MonoBehaviour
 {
 
-    [SerializeField]
+    [SerializeField] //Audio Mixer
     AudioMixer _audioMixer;
 
-    [SerializeField]
+    [SerializeField] //Máximo y minimo de volúmen.
     float _minDB = -80;
     [SerializeField]
     float _maxDB = 0;
 
-    [SerializeField]
+    [SerializeField] //Set inicial
     [Range(0, 1)] public float master = 1f;
     [Range(0, 1)] public float BGM = 1f;
     [Range(0, 1)] public float SFX = 1f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    void Update() //Setea el Volumen en cada Frame.
     {
         _audioMixer.SetFloat("VolumeMaster", Mathf.Lerp(_minDB, _maxDB, master));
         _audioMixer.SetFloat("VolumeMusic", Mathf.Lerp(_minDB, _maxDB, BGM));

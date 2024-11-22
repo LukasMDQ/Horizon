@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// TP 2 - Ahumada, Leandro
+// Script de Transición de Escenas con Fade In, Fade Out.
+
 public class NextScene : MonoBehaviour
 {
     public string sceneName;

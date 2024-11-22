@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // ReSharper disable once InconsistentNaming
+
 public class UI : MonoBehaviour
 {    
     [SerializeField] // ReSharper disable once InconsistentNaming
@@ -14,7 +15,7 @@ public class UI : MonoBehaviour
     private void Start()
     {
         textMesh = GetComponent<TextMeshProUGUI>();
-        _slider = GetComponent<Slider>();//barraHp
+        _slider = GetComponent<Slider>(); //barraHp
         
     }   
     //---------------LOGICA BARRA HP--------------//    

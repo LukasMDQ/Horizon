@@ -119,6 +119,7 @@ public class Stats : Entity,IinstaKill
     private void UpdateHealthHud()
     {
         hpBar.fillAmount = curHp / maxHp;
+
         hpVignette.alpha = 1 - (curHp / maxHp);
     }
 

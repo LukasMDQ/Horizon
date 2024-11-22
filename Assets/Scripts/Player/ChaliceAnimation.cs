@@ -4,8 +4,11 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-// ReSharper disable once CheckNamespace
 [RequireComponent(typeof(Animator))]
+
+// TP - 2 - Luchetti, Nicolás - Ahumada, Leandro 
+// Control de animaciones del Caliz.
+
 public class ChaliceAnimation : MonoBehaviour
 {
     private Animator _chalice;
@@ -15,6 +18,8 @@ public class ChaliceAnimation : MonoBehaviour
     public GameObject jewel2;
     public GameObject jewel3;
     
+    //Declaracion de Nombres de Triggers para facil modificación/acceso
+
     private static readonly int Trigger = Animator.StringToHash("Trigger");
     private static readonly int Cooldown = Animator.StringToHash("Cooldown");
     private static readonly int Jewel1 = Animator.StringToHash("Jewel1");
@@ -28,7 +33,7 @@ public class ChaliceAnimation : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) //Habilidad 1 - chequea si está en cooldown y cuantas gemas hay, preparado para más adelante si tenemos 3 anim para cada habilidad
+        if (Input.GetKeyDown(KeyCode.Alpha1)) //Habilidad - chequea si está en cooldown y cuantas gemas hay, preparado para más adelante si tenemos 3 anim para cada habilidad
         {
             if(!skills.onCooldown[0] && PlayerStatsManager.jewels >= 1)
             {
@@ -36,14 +41,14 @@ public class ChaliceAnimation : MonoBehaviour
             }
             else
             {
-                _chalice.SetTrigger(Cooldown);
+                _chalice.SetTrigger(Cooldown); //Animación de que no se puede utilizar ahora.
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             if (!skills.onCooldown[1] && PlayerStatsManager.jewels >= 2)
             {
-                _chalice.SetTrigger(Trigger);
+                _chalice.SetTrigger(Trigger); //"Trigger" cambiará cuando tengamos distintas animaciones, por ahora utilizan la misma.
             }
             else
             {
@@ -65,7 +70,7 @@ public class ChaliceAnimation : MonoBehaviour
 
     public void JewelUpdate()
     {
-        switch (PlayerStatsManager.jewels) //Setear la visibilidad dependiendo de cuantas gemas tenemos
+        switch (PlayerStatsManager.jewels) //Setear la visibilidad dependiendo de cuantas gemas tenemos.
         {
             case 1:
                 jewel1.SetActive(true);
@@ -82,7 +87,7 @@ public class ChaliceAnimation : MonoBehaviour
         }
     }
 
-    public void FountainUse()
+    public void FountainUse() //Trigger de Animación de un Caliz colocado en una fuente.
     {
         _chalice.SetTrigger("Fountain");
     }

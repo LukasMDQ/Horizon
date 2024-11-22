@@ -4,6 +4,9 @@ using UnityEditor;
 using UnityEngine;
 using Weapons;
 
+// TP - 2 - Luchetti, Nicolás - Ahumada, Leandro 
+// Control de animaciones de las armas.
+
 public class AnimationWeapons : MonoBehaviour
 {
     public WeaponChanger changer; // Referencia a cambio de Armas
@@ -14,6 +17,8 @@ public class AnimationWeapons : MonoBehaviour
     public Animator animatorSword; 
     public Animator animatorShotgun; 
     public Animator animatorSwordCol;
+
+    //Declaracion de Triggers para facil modificacion/acceso
     
     private static readonly int PistolShoot      = Animator.StringToHash("PistolShoot");
     private static readonly int ShotgunShoot     = Animator.StringToHash("ShotgunShoot");
@@ -35,9 +40,9 @@ public class AnimationWeapons : MonoBehaviour
         {
             animatorShotgun.SetTrigger("ShotgunShoot");
         }
-    }*/
+    }*/ //Unused
 
-    public void AnimateThisRanged(RangedWeapon weaponToAnimate)
+    public void AnimateThisRanged(RangedWeapon weaponToAnimate) //Animaciones Armas a Distancia
     {
         weaponToAnimate.TryGetComponent(out Pistol pistol);
         weaponToAnimate.TryGetComponent(out Rifle rifle);
@@ -52,12 +57,12 @@ public class AnimationWeapons : MonoBehaviour
         }
     }
 
-    public void AnimateThisMelee(Sword sword)
+    public void AnimateThisMelee(Sword sword) //Animaciones Arma Meleé
     {
         if (sword)
         {
             animatorSword.SetTrigger(SwordShoot);
-            animatorSwordCol.SetTrigger(CollisionTrigger);
+            animatorSwordCol.SetTrigger(CollisionTrigger); //Activa Hitbox
         }
     }
 }

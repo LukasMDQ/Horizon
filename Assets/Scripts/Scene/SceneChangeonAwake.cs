@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// TP 2 - Ahumada, Leandro
+// Script cambio de Escena en Awake (Usado en Cinemática/Trigger de Animación).
+
 public class SceneChangeonAwake : MonoBehaviour
 {
     public string sceneName;
     void OnEnable()
     {
-        // Only specifying the sceneName or sceneBuildIndex will load the Scene with the Single mode
         SceneManager.LoadScene(sceneName);
     }
 }

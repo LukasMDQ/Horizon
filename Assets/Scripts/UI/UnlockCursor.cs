@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TP 2 - Ahumada, Leandro
+// Script de Lockeo/Desbloqueo Cursor para Menús.
+
 public class UnlockCursor : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Awake()
     {
         ActivateCursor();
