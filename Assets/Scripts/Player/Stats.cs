@@ -4,7 +4,8 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 // ReSharper disable once CheckNamespace
-//TP2- Hernandez Lucas
+//TP2 - Hernandez Lucas - Luchetti, Nicolás - Paiva, Lidia - Ahumada, Leandro
+
 public class Stats : Entity,IinstaKill
 {
     [SerializeField] private GameObject _lostMenu;
@@ -103,7 +104,7 @@ public class Stats : Entity,IinstaKill
         StartCoroutine(LostMenuManager());
     }
 
-    private IEnumerator LostMenuManager()
+    private IEnumerator LostMenuManager() //Setea Menú Derrota y hace un efecto de slowmotion
     {
         _lostMenu.SetActive(true);
 
@@ -119,14 +120,14 @@ public class Stats : Entity,IinstaKill
 
     #region UI Management
 
-    private void UpdateHealthHud()
+    private void UpdateHealthHud() //Update Barra de Vida, Viñeta de sangre
     {
         hpBar.fillAmount = curHp / maxHp;
         hpBarLerp.fillAmount = Mathf.Lerp(hpBarLerp.fillAmount, curHp / maxHp, lerpSpeed);
         hpVignette.alpha = 1 - (curHp / maxHp);
     }
 
-    private void HudUpdate()
+    private void HudUpdate() //Update Stamina y llama UpdateHealthHud
     {
         staminaBar.fillAmount = stamina / maxStamina;
         UpdateHealthHud();
