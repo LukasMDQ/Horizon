@@ -10,13 +10,22 @@ public class Door : MonoBehaviour
     public Lever linkedLever;
     private Vector3 originalPosition;
 
+    public Animator doorAnimator;
+    public Animator leverAnimator;
+
+    private static readonly int LeverActivated = Animator.StringToHash("Activate");
+    private static readonly int LeverDeactivated = Animator.StringToHash("Deactivate");
+    private static readonly int DoorActivated = Animator.StringToHash("ActivateDoor");
+    private static readonly int DoorDeactivated = Animator.StringToHash("DeactivateDoor");
+
     private void Start()
     {
-        originalPosition = MetalGrate.transform.position;
+        //originalPosition = MetalGrate.transform.position;
         if (linkedLever != null)
         {
             linkedLever.OnLeverActivated += OpenDoor;
             linkedLever.OnLeverDeactivated += CloseDoor;
+            
         }
     }
     public void SubscribeToLever(Lever lever)
@@ -29,7 +38,9 @@ public class Door : MonoBehaviour
         if (!isOpen)
         {
             isOpen = true;
-            MetalGrate.transform.Translate(Vector3.up * 3);
+            //MetalGrate.transform.Translate(Vector3.up * 3);
+            doorAnimator.SetTrigger(DoorActivated);
+            leverAnimator.SetTrigger(LeverActivated);
         }
     }
 
@@ -38,7 +49,9 @@ public class Door : MonoBehaviour
         if(isOpen)
         {
             isOpen = false;
-            MetalGrate.transform.position = originalPosition;
+            doorAnimator.SetTrigger(DoorDeactivated);
+            leverAnimator.SetTrigger(LeverDeactivated);
+            //MetalGrate.transform.position = originalPosition;
         }
     }
 }

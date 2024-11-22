@@ -4048,6 +4048,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -39.188
       objectReference: {fileID: 0}
+    - target: {fileID: 3879684738128011760, guid: 2cdf99e62f3fad5428e79dfeb68d4650, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1280019963}
+    - target: {fileID: 3879684738128011760, guid: 2cdf99e62f3fad5428e79dfeb68d4650, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 5046447739763310627, guid: 2cdf99e62f3fad5428e79dfeb68d4650, type: 3}
       propertyPath: m_LocalScale.x
       value: 20.20962
@@ -17453,6 +17461,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df49fd9fbc46cc34280c8b598ba66926, type: 3}
+--- !u!1 &1280019963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9216718461030763324, guid: df49fd9fbc46cc34280c8b598ba66926, type: 3}
+  m_PrefabInstance: {fileID: 1280019962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1292201579
 PrefabInstance:
   m_ObjectHideFlags: 0

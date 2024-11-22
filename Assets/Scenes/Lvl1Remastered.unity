@@ -3125,15 +3125,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2469115860477871707, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.212746
+      value: 2.349715
       objectReference: {fileID: 0}
     - target: {fileID: 2469115860477871707, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.212746
+      value: 2.349715
       objectReference: {fileID: 0}
     - target: {fileID: 2469115860477871707, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.212746
+      value: 2.349715
       objectReference: {fileID: 0}
     - target: {fileID: 2549380183618750131, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
       propertyPath: m_fontAsset
@@ -17440,6 +17440,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df49fd9fbc46cc34280c8b598ba66926, type: 3}
+--- !u!1 &792130296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9216718461030763324, guid: df49fd9fbc46cc34280c8b598ba66926, type: 3}
+  m_PrefabInstance: {fileID: 792130295}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &792450014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4889176560358695976, guid: a2ffde52744241f429a62458d3cbd75e, type: 3}
@@ -39591,6 +39596,14 @@ PrefabInstance:
     - target: {fileID: 2599570312378821469, guid: 2cdf99e62f3fad5428e79dfeb68d4650, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -39.188
+      objectReference: {fileID: 0}
+    - target: {fileID: 3879684738128011760, guid: 2cdf99e62f3fad5428e79dfeb68d4650, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 792130296}
+    - target: {fileID: 3879684738128011760, guid: 2cdf99e62f3fad5428e79dfeb68d4650, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 5046447739763310627, guid: 2cdf99e62f3fad5428e79dfeb68d4650, type: 3}
       propertyPath: m_LocalScale.x
