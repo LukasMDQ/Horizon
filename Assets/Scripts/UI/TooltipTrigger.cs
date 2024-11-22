@@ -5,24 +5,26 @@ using UnityEngine.EventSystems;
 
 public class TooltipTrigger : MonoBehaviour
 {
-    private Transform playerTransform;
-    public float maxTooltipDistance = 3.0f;
     public string content;
     public string header;
 
     private void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        TooltipSystem.Hide();
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        float distance = Vector3.Distance(playerTransform.position, transform.position);
-        if (distance < maxTooltipDistance)
+        Vector3 positionWithOffset = transform.position + new Vector3(0, 1f, 0);
+        if (other.CompareTag("Player"))
         {
-            TooltipSystem.Show(content, transform.position, header);
+            TooltipSystem.Show(content, positionWithOffset, header);
         }
-        else
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
             TooltipSystem.Hide();
         }
