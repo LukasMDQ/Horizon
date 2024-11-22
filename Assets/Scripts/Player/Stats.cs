@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 // ReSharper disable once CheckNamespace
-public class Stats : Entity
+public class Stats : Entity,IinstaKill
 {
     [SerializeField] private GameObject _lostMenu;
     public Image hpBar;

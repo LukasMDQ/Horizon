@@ -1,14 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class Instakill : MonoBehaviour
+public class Instakill:MonoBehaviour
 {
-    [SerializeField] int _damage = default;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Stats stats) && other.CompareTag("Player"))
+        var instaKill = other.GetComponent<IinstaKill>();
         {
-            stats.TakeDamage(_damage);
+            if (instaKill != null)
+            {
+                instaKill.Death();
+            }
         }
     }
 }
