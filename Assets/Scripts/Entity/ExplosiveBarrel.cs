@@ -1,4 +1,5 @@
 using UnityEngine;
+//Lidia Paiva
 
 /// <summary>
 /// Class <c>ExplosiveBarrel</c> create the behaviour of explosive barrels, 

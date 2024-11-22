@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Lidia Paiva
 public class TooltipSystem : MonoBehaviour
 {
    private static TooltipSystem current;

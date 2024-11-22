@@ -4,6 +4,7 @@ using UnityEngine;
 
 using UnityEngine.SceneManagement;
 
+// Lidia Paiva
 public class CheckpointManager : MonoBehaviour
 {
     public Rewind[] rewinds;
