@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// TP 2 - Ahumada, Leandro
+// TP 2 - Ahumada, Leandro - Paiva, Lidia
 // Script de Transición de Escenas con Fade In, Fade Out.
 
 public class NextScene : MonoBehaviour
