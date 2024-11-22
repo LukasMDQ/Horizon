@@ -4,6 +4,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 // ReSharper disable once CheckNamespace
+//TP2- Hernandez Lucas
 public class Stats : Entity,IinstaKill
 {
     [SerializeField] private GameObject _lostMenu;

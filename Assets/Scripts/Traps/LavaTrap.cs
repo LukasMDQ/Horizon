@@ -1,4 +1,5 @@
 using UnityEngine;
+//TP2- Hernandez Lucas
 
 public class LavaTrap : MonoBehaviour
 {

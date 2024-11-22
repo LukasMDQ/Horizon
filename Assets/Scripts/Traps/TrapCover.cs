@@ -1,12 +1,12 @@
 using System.Collections;
 using UnityEngine;
-
+//TP2- Hernandez Lucas
 public class TrapCover : MonoBehaviour
 {
     private bool onCollision = false;
     private float collisionTime = 0f;
     [SerializeField]
-     float timeToDestroy = 3f; // Tiempo para destruir el objeto
+    float timeToDestroy; 
     
     private void OnCollisionEnter(Collision collision)
     {
@@ -17,7 +17,7 @@ public class TrapCover : MonoBehaviour
     }
 
     
-    private void OnCollisionStay(Collision collision)// mientars este en colision
+    private void OnCollisionStay(Collision collision)
     {
         if (onCollision)
         {
@@ -25,7 +25,7 @@ public class TrapCover : MonoBehaviour
 
             if (collisionTime >= timeToDestroy)
             {
-                Destroy(gameObject); // Destruir el objeto después de 3 segundos 
+                Destroy(gameObject);
             }
         }
     }

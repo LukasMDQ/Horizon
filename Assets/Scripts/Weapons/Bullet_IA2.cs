@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//TP2- Hernandez Lucas
 public class Bullet_IA2 : MonoBehaviour
 {
     [SerializeField] private float _speed;
@@ -15,12 +15,12 @@ public class Bullet_IA2 : MonoBehaviour
     {
         if (_player != null)
         {
-            // Calcula  distancia entre el objeto y el "Jugador"
+            
             float distance = Vector3.Distance(transform.position, _player.position);
-            // Calcula la dirección hacia el "Player"
+            
             Vector3 direction = (_player.position - transform.position).normalized;
 
-            // Mueve el objeto hacia el "Jugador"
+            
             transform.position += direction * (_speed * Time.deltaTime);          
             
         }

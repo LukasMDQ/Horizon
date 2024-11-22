@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // ReSharper disable once CheckNamespace
+//TP2- Hernandez Lucas
 public class StatsEnemy : Stats
 {   
     // ReSharper disable once InconsistentNaming

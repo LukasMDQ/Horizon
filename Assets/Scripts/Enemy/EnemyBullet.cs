@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TP2- Hernandez Lucas
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float _speed = default;
