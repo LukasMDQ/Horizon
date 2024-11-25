@@ -87,7 +87,7 @@ namespace Weapons
             ammoInBagUI.text = "";
         }
 
-        public void GetAmmo(int newAmmo)
+        public virtual void GetAmmo(int newAmmo)
         {
             if(newAmmo + ammo >= maxAmmo)
             {

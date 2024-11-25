@@ -36,6 +36,18 @@ namespace Weapons
             audioSource.PlayOneShot(reloadClip);
             Invoke(nameof(CanAttackAgain), 0.4f);
         }
+        public override void GetAmmo(int newAmmo)
+        {
+            if (newAmmo + _ammoInBag >= maxAmmoInBag)
+            {
+                _ammoInBag = maxAmmoInBag;
+            }
+            else
+            {
+                _ammoInBag += newAmmo;
+            }
+            UpdateUI();
+        }
 
         protected override void UpdateUI()
         {
