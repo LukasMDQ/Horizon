@@ -8,10 +8,13 @@ public class EasterEggRecolectable : MonoBehaviour, IInteractable
     public AudioClip clip;
     void IInteractable.Interact()
     {
-        PlayerStatsManager.easterEggAcc++;
-        source.PlayOneShot(clip);
-        Debug.Log($"Player stats easter eggs {PlayerStatsManager.easterEggAcc}");
-        gameObject.SetActive(false);
-        TooltipSystem.Hide();
+        if (gameObject.activeSelf)
+        {
+            PlayerStatsManager.easterEggAcc++;
+            source.PlayOneShot(clip);
+            Debug.Log($"Player stats easter eggs {PlayerStatsManager.easterEggAcc}");
+            gameObject.SetActive(false);
+            TooltipSystem.Hide();
+        }
     }
 }
