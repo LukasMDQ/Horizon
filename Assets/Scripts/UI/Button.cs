@@ -19,6 +19,7 @@ public class Button : MonoBehaviour
 
         PlayerStatsManager.HP = PlayerStatsManager.MaxHP;
         PlayerStatsManager.jewels = 0;
+        PlayerStatsManager.easterEggAcc = 0;
         PlayerPrefs.DeleteKey("SavedScene");
         PlayerPrefs.DeleteKey("SavedPositionX");
         PlayerPrefs.DeleteKey("SavedPositionY");
@@ -40,6 +41,7 @@ public class Button : MonoBehaviour
 
     public void LoadGame()
     {
+        PlayerStatsManager.easterEggAcc = 0;
         if (SceneManager.GetActiveScene().name != "Lvl1Remastered")
         {
             // Load saved scene index and position from PlayerPrefs

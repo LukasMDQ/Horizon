@@ -12,9 +12,15 @@ public class CinematicEndingTransition : MonoBehaviour
 
     void OnTriggerEnter(Collider other) //Al tocar un trigger, cambia de escena
     {
+
         if (other.CompareTag("Player") && sceneName != "")
         {
-            SceneManager.LoadScene(sceneName);
+            if (PlayerStatsManager.easterEggAcc >= 3) {
+                SceneManager.LoadScene("EndingEasterEgg");
+            } else
+            {
+                SceneManager.LoadScene(sceneName);
+            }
         }
     }
 }

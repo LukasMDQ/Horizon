@@ -29709,6 +29709,99 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &1824999429
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.09591934
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.24403234
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.06851444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.010417
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.355
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 49.515
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9913161
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.1305102
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.002104588
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.015975038
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526844277167483400, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -1.846
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610613167526708125, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_Name
+      value: EasterEgg
+      objectReference: {fileID: 0}
+    - target: {fileID: 5309312066823556315, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_Size.x
+      value: 18.232012
+      objectReference: {fileID: 0}
+    - target: {fileID: 5309312066823556315, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_Size.y
+      value: 5.0694027
+      objectReference: {fileID: 0}
+    - target: {fileID: 5309312066823556315, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_Size.z
+      value: 20.363111
+      objectReference: {fileID: 0}
+    - target: {fileID: 5309312066823556315, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_Center.x
+      value: 0.16169424
+      objectReference: {fileID: 0}
+    - target: {fileID: 5309312066823556315, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_Center.y
+      value: 2.0347502
+      objectReference: {fileID: 0}
+    - target: {fileID: 5309312066823556315, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
+      propertyPath: m_Center.z
+      value: 5.9101872
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 163c9b1806f87bf42b46211598b6353b, type: 3}
 --- !u!1 &1832388337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2670750222299699618, guid: 2cdf99e62f3fad5428e79dfeb68d4650, type: 3}
@@ -32332,3 +32425,4 @@ SceneRoots:
   - {fileID: 2141579765}
   - {fileID: 553465008}
   - {fileID: 896425794}
+  - {fileID: 1824999429}

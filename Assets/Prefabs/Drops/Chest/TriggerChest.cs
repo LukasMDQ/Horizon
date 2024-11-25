@@ -2,27 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerChest : MonoBehaviour
+public class TriggerChest : MonoBehaviour, IInteractable
 {
     private Animator _chestAnimator;
+    private bool _isActive;
+    public GameObject chestBaseCollider;
 
     private void Start()
     {
         _chestAnimator = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnActived()
     {
-        if (other.CompareTag("Player")) {
-            _chestAnimator.SetTrigger("OpenedChest");
+        _isActive = true;
+        _chestAnimator.SetTrigger("OpenedChest");
+        if(chestBaseCollider)
+        {
+            chestBaseCollider.SetActive(false);
+
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnDeactivated()
     {
-        if (other.CompareTag("Player"))
+        _chestAnimator.SetTrigger("ClosedChest");
+        _isActive = false;
+        if(chestBaseCollider)
         {
-            _chestAnimator.SetTrigger("ClosedChest");
+            chestBaseCollider.SetActive(true);
+        }
+    }
+
+    public void Interact()
+    {
+        if (!_isActive)
+        {
+            OnActived();
+        } else
+        {
+            OnDeactivated();
         }
     }
 }

@@ -15,4 +15,6 @@ public static class PlayerStatsManager
     public static int jewels;
 
     public static bool isInvulnerable = false;
+
+    public static int easterEggAcc = 3;
 }
