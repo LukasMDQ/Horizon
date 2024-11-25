@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Weapons
 {
@@ -6,7 +7,7 @@ namespace Weapons
     {
         private int _ammoInBag;
         public int maxAmmoInBag;
-
+        
         protected override void Awake()
         {
             base.Awake();
@@ -59,5 +60,12 @@ namespace Weapons
         {
             _ammoInBag = maxAmmoInBag;
         }
+        public override void Shoot()
+        {
+            base.Shoot();
+            Instantiate(_bullet, _spawnPoint.position, _spawnPoint.rotation);
+
+        }
+
     }
 }

@@ -6,8 +6,8 @@ namespace Weapons
     public abstract class RangedWeapon : Weapon
     {
         [SerializeField] private GameObject _flashEffect;
-        [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private GameObject _bullet;
+        public Transform _spawnPoint;
+        public GameObject _bullet;
         [SerializeField] public CanvasGroup reloadUI;
         public AudioSource audioSource;
         public AudioClip noAmmoClip;
@@ -37,6 +37,24 @@ namespace Weapons
             ClearUI();
             reloadUI.alpha = 0f;
         }
+        public virtual void Shoot()
+        {
+            ammo--;
+            UpdateUI();
+            if (ammo <= 0)
+            {
+                _reloadHudAlpha = 1f;
+                reloadUI.alpha = _reloadHudAlpha;
+            }
+
+            var position = _spawnPoint.position;
+
+            Instantiate(_bullet, position, _spawnPoint.rotation);
+
+            Instantiate(_flashEffect, position, Quaternion.identity); // VFX and sound
+
+            animationWeapons.AnimateThisRanged(this);
+        }
 
         public override void Attack()
         {
@@ -46,21 +64,7 @@ namespace Weapons
             
             if (ammo > 0)
             {
-                ammo--;
-                UpdateUI();
-                if (ammo <= 0)
-                {
-                    _reloadHudAlpha = 1f;
-                    reloadUI.alpha = _reloadHudAlpha;
-                }
-                
-                var position = _spawnPoint.position;
-            
-                Instantiate(_bullet, position, _spawnPoint.rotation);
-            
-                Instantiate(_flashEffect, position, Quaternion.identity); // VFX and sound
-                
-                animationWeapons.AnimateThisRanged(this);
+                Shoot();
             }
             else
             {
