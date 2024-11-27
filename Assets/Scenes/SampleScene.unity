@@ -3166,6 +3166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5db51ece3c84fa48a58b92650fdba57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTooltipDistance: 3
   content: Presiona F para usar
   header: 
 --- !u!114 &875941247
@@ -3186,7 +3187,6 @@ MonoBehaviour:
   - {fileID: 326587722}
   - {fileID: 57471154}
   - {fileID: 1637897330}
-  animationController: {fileID: 0}
   turnOnColorLight: '#2EAEB7'
   turnOffColorLight: '#125C61'
 --- !u!65 &875941248
@@ -15431,6 +15431,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145921565}
   m_CullTransparentMesh: 1
+--- !u!1001 &982690790629999191
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7938757724951441074, guid: 27d0f931f22f0754fa23c4b9d5c8a1e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.304
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938757724951441074, guid: 27d0f931f22f0754fa23c4b9d5c8a1e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.532
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938757724951441074, guid: 27d0f931f22f0754fa23c4b9d5c8a1e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -16.694
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938757724951441074, guid: 27d0f931f22f0754fa23c4b9d5c8a1e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7070399
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938757724951441074, guid: 27d0f931f22f0754fa23c4b9d5c8a1e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938757724951441074, guid: 27d0f931f22f0754fa23c4b9d5c8a1e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071737
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938757724951441074, guid: 27d0f931f22f0754fa23c4b9d5c8a1e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938757724951441074, guid: 27d0f931f22f0754fa23c4b9d5c8a1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938757724951441074, guid: 27d0f931f22f0754fa23c4b9d5c8a1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938757724951441074, guid: 27d0f931f22f0754fa23c4b9d5c8a1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947588207251556256, guid: 27d0f931f22f0754fa23c4b9d5c8a1e1, type: 3}
+      propertyPath: m_Name
+      value: Spear Trap
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 27d0f931f22f0754fa23c4b9d5c8a1e1, type: 3}
 --- !u!1001 &1763238420905974401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15736,3 +15793,4 @@ SceneRoots:
   - {fileID: 1976710725}
   - {fileID: 6307187770485009313}
   - {fileID: 5826080133179809951}
+  - {fileID: 982690790629999191}
