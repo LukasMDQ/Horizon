@@ -32,6 +32,11 @@ public class Button : MonoBehaviour
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
+    public void Prototype()
+    {
+        SceneManager.LoadScene(8);
+        Time.timeScale = 1;
+    }
 
     public void QuitGame()
     {
