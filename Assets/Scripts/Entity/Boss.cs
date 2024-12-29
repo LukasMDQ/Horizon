@@ -1,3 +1,4 @@
+using System.Collections;
 using FiniteStateMachine;
 using TMPro;
 using UnityEngine;
@@ -16,9 +17,10 @@ public class Boss : Entity
     
     private static readonly int GrateOff = Animator.StringToHash("GrateOFF");
 
-    private void Update()
+    public override void TakeDamage(float damage)
     {
-        UpdateHealthHud();
+        base.TakeDamage(damage);
+        StartCoroutine(UpdateHealthHud());
     }
 
     public override void Death()
@@ -32,11 +34,16 @@ public class Boss : Entity
         bossStateMachine.SetBossAnimations(BossStateMachine.BossAnimationsType.Death);
     }
 
-    private void UpdateHealthHud()
+    private IEnumerator UpdateHealthHud()
     {
         hpBar.fillAmount = curHp / maxHp;
-        hpBarLerp.fillAmount = Mathf.Lerp(hpBarLerp.fillAmount, curHp/maxHp, lerpSpeed);
         bossHPText.text = $"{curHp}|{maxHp}";
+        
+        while (hpBarLerp.fillAmount > hpBar.fillAmount)
+        {
+            hpBarLerp.fillAmount = Mathf.Lerp(hpBarLerp.fillAmount, curHp/maxHp, lerpSpeed);
+            yield return 0;
+        }
     }
 
     // ReSharper disable once UnusedMember.Global

@@ -2,7 +2,7 @@ using System;
 using FiniteStateMachine.States;
 using UnityEngine;
 using UnityEngine.AI;
-
+using Random = UnityEngine.Random;
 
 namespace FiniteStateMachine
 {
@@ -69,7 +69,7 @@ namespace FiniteStateMachine
                     break;
                 case BossAnimationsType.Attack:
                     animator.SetTrigger(Attacking);
-                    animator.SetInteger(AttackRNG, UnityEngine.Random.Range(0, 3));
+                    animator.SetInteger(AttackRNG, Random.Range(0, 3));
                     animator.SetBool(Patrolling, false);
                     animator.SetBool(Pursuing, false);
                     break;
