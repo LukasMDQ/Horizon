@@ -21,6 +21,7 @@ public class Boss : Entity
     {
         base.TakeDamage(damage);
         StartCoroutine(UpdateHealthHud());
+        bossStateMachine.ReactAttack();
     }
 
     public override void Death()
@@ -44,6 +45,12 @@ public class Boss : Entity
             hpBarLerp.fillAmount = Mathf.Lerp(hpBarLerp.fillAmount, curHp/maxHp, lerpSpeed);
             yield return 0;
         }
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        bossHPText.text = $"{curHp}|{maxHp}";
     }
 
     // ReSharper disable once UnusedMember.Global

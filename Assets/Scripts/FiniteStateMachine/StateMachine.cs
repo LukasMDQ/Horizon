@@ -4,30 +4,30 @@ namespace FiniteStateMachine
 {
     public class StateMachine : MonoBehaviour
     {
-        private BaseState _currentState;
+        protected BaseState CurrentState { get; private set; }
 
         private void Start()
         {
-            _currentState = GetInitialState();
-            _currentState?.Enter();
+            CurrentState = GetInitialState();
+            CurrentState?.Enter();
         }
 
         private void Update()
         {
-            _currentState?.UpdateLogic();
+            CurrentState?.UpdateLogic();
         }
 
         private void FixedUpdate()
         {
-            _currentState?.UpdatePhysics();
+            CurrentState?.UpdatePhysics();
         }
 
         public void ChangeState(BaseState newState)
         {
-            _currentState.Exit();
+            CurrentState.Exit();
 
-            _currentState = newState;
-            _currentState.Enter();
+            CurrentState = newState;
+            CurrentState.Enter();
         }
 
         protected virtual BaseState GetInitialState()

@@ -34,7 +34,7 @@ namespace FiniteStateMachine
         private static readonly int Patrolling = Animator.StringToHash("Patrolling");
         private static readonly int Pursuing   = Animator.StringToHash("Pursuing");
         private static readonly int Attacking  = Animator.StringToHash("Attacking");
-        private static readonly int AttackRNG  = Animator.StringToHash("AttackRNG");
+        private static readonly int AttackRng  = Animator.StringToHash("AttackRNG");
         private static readonly int GotHit     = Animator.StringToHash("GotHit");
         private static readonly int Dead       = Animator.StringToHash("Dead");
 
@@ -69,7 +69,7 @@ namespace FiniteStateMachine
                     break;
                 case BossAnimationsType.Attack:
                     animator.SetTrigger(Attacking);
-                    animator.SetInteger(AttackRNG, Random.Range(0, 3));
+                    animator.SetInteger(AttackRng, Random.Range(0, 3));
                     animator.SetBool(Patrolling, false);
                     animator.SetBool(Pursuing, false);
                     break;
@@ -105,6 +105,14 @@ namespace FiniteStateMachine
         private void ResetAttack() // This should be called from an animation event
         {
             attackingState.ResetAttack();
+        }
+
+        public void ReactAttack()
+        {
+            if (CurrentState != attackingState && CurrentState != deathState)
+            {
+                ChangeState(pursuingState);
+            }
         }
 
         private void OnDrawGizmos()
