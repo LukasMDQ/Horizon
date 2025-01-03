@@ -24,6 +24,7 @@ public abstract class Entity : Rewind
         curHp -= damage;
         if (curHp <= 0)
         {
+            curHp = 0;
             Death();
         }
         else
