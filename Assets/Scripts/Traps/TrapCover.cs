@@ -6,12 +6,20 @@ public class TrapCover : MonoBehaviour
     private bool onCollision = false;
     private float collisionTime = 0f;
     [SerializeField]
-    float timeToDestroy; 
-    
+    float timeToDestroy;
+    public AudioClip soundEffect;
+    public AudioSource audioSource;
+   
+    private void Start()
+    {        
+        audioSource.clip = soundEffect;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            audioSource.Play();
             onCollision = true;
         }
     }

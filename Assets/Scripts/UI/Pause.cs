@@ -8,10 +8,13 @@ using UnityEngine;
 public class Pause : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public bool isPaused;  
+    public GameObject devMenu;
+    public KeyCode toggleKey = KeyCode.F1;
+    public bool isPaused;   
     void Start() //Siempre que entra a un nivel, el menú de Pausa está desactivado.
     {
         pauseMenu.SetActive(false);
+       
     }
 
     void Update() //Pausa
@@ -27,15 +30,28 @@ public class Pause : MonoBehaviour
                 PauseGame();
             }
         }
+        if (isPaused)
+        {
+            DevMode();
+        }
     }
 
     public void PauseGame() //Pausa el juego.
     {
+        
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         isPaused = true;
+        
+    }
+    void DevMode() //Menu desarrollador
+    {
+        if (Input.GetKeyDown(toggleKey))
+        {
+            devMenu.SetActive(!devMenu.activeSelf);
+        }       
     }
 
     public void ResumeGame() //Reanuda el Juego.
