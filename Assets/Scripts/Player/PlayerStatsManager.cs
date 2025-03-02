@@ -17,4 +17,5 @@ public static class PlayerStatsManager
     public static bool isInvulnerable = false;
 
     public static int easterEggAcc;
+    public static int Damage { get; set; } = 50;
 }

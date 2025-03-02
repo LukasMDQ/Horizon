@@ -77,7 +77,6 @@ public class InputController : MonoBehaviour
 
     private void InteractInput()
     {
-        Debug.Log($"Interactable {currentInteractable}");
         if (currentInteractable != null && Input.GetKeyDown(KeyCode.F))
         {
             currentInteractable.Interact();

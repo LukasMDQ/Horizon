@@ -76,9 +76,9 @@ public abstract class Entity : Rewind
         
         var player = GameObject.FindWithTag("Player"); // TODO refactor later
         
-        if (player != null && player != gameObject && player.TryGetComponent(out Stats playerStats))
+        if (player != null && player != gameObject)
         {
-            TakeDamage(playerStats.damage);
+            TakeDamage(PlayerStatsManager.Damage);
         }
     }
 

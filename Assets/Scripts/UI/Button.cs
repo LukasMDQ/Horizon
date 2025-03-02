@@ -59,7 +59,6 @@ public class Button : MonoBehaviour
 
             // Load the saved scene and then set the player's position
             SceneManager.LoadScene(savedSceneIndex);
-            Debug.LogError("Tu hermana");
             player.transform.position = savedPosition;
         } else
         {
@@ -73,6 +72,6 @@ public class Button : MonoBehaviour
         animTransition.SetTrigger("ON");
         yield return new WaitForSeconds(transitionDuration);
         SceneManager.LoadScene(sceneName);
-    }
-   
+    }   
+
 }

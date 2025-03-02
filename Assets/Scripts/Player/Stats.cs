@@ -32,8 +32,10 @@ public class Stats : Entity,IinstaKill
         Debug.Log($"PlayerStatsManager.HP;{PlayerStatsManager.HP}");
         Debug.Log($"maxHp;{maxHp}");
         Debug.Log($"curHp;{curHp}");
+        Debug.Log($"PlayerStatsManager;{PlayerStatsManager.Damage}");
         maxHp = PlayerStatsManager.MaxHP;
         curHp = PlayerStatsManager.HP;
+        damage = PlayerStatsManager.Damage;
 
         UpdateHealthHud();
     }
@@ -65,6 +67,7 @@ public class Stats : Entity,IinstaKill
     public void Buff(int powerUp)
     {
         damage += powerUp;
+        PlayerStatsManager.Damage = damage;
         Debug.Log("Buff applied");
     }
 
