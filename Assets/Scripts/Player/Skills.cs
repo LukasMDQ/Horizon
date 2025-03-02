@@ -49,7 +49,7 @@ public class Skills : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1) && !onCooldown[0] && PlayerStatsManager.jewels >= 1 && _chaliceController.IsChargeChalice)
         {
             ActivateSkill(0);
-            _stats.Heal(10);
+            _stats.Heal(50);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && !onCooldown[1] && PlayerStatsManager.jewels >= 2 && _chaliceController.IsChargeChalice)
         {
