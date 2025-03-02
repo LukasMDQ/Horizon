@@ -22,6 +22,8 @@ public class Skills : MonoBehaviour
     // tiempo restante de cooldown de cada habilidad
     private float[] _cooldownTimers;
 
+    private int buffMeele = 50;
+
     // ReSharper disable once InconsistentNaming
     [SerializeField] private SkillsCooldownFeedback[] _skillsCooldownFeedback;
 
@@ -54,7 +56,8 @@ public class Skills : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2) && !onCooldown[1] && PlayerStatsManager.jewels >= 2 && _chaliceController.IsChargeChalice)
         {
             ActivateSkill(1);
-            _stats.Buff(10);
+            _stats.Buff(buffMeele);
+            Bullet.IsBuffed = true;
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && !onCooldown[2] && PlayerStatsManager.jewels >= 3 && _chaliceController.IsChargeChalice)
         {
@@ -105,6 +108,9 @@ public class Skills : MonoBehaviour
         yield return new WaitForSeconds(activeTime);
 
         // Desactivar la habilidad
+        _stats.Debuff(buffMeele);
+        Bullet.IsBuffed = false;
+
         skillsObject[index].SetActive(false);
     }
 

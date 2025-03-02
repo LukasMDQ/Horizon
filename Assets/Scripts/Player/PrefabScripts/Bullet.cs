@@ -7,9 +7,12 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed = default;
     public int damage;
+    public int buffBullet = 2; 
     [SerializeField] float _lifeTime = default;      
     [SerializeField] private GameObject _inpact;
-   
+    public static bool IsBuffed = false;
+
+
     private void Start()
     {
         Destroy(gameObject, _lifeTime);
@@ -20,14 +23,23 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {        
-        if (other.TryGetComponent(out Stats stats) && other.CompareTag("Enemy"))//Interactura con el enemigo y se destruye.
+        if (other.TryGetComponent(out Entity entity) && other.CompareTag("Enemy"))//Interactura con el enemigo y se destruye.
         {
-            stats.TakeDamage(damage);
+            BuffBulletDamage();
+            Debug.Log($"BulletDamage {damage}");
+            entity.TakeDamage(damage);
             DestructionBullet();
         }
         if (other.CompareTag("Static"))
         {            
             DestructionBullet();// de destruye al impactar con el tag static (entorno).
+        }
+    }
+    public void BuffBulletDamage()
+    {
+        if (IsBuffed)
+        {
+            damage *= buffBullet;
         }
     }
       

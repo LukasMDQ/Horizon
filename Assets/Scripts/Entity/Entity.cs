@@ -72,13 +72,15 @@ public abstract class Entity : Rewind
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"{other}");
         if (!other.CompareTag("WeaponPlayer")) return;
         
         var player = GameObject.FindWithTag("Player"); // TODO refactor later
-        
-        if (player != null && player != gameObject)
+
+        if (player != null && player != gameObject &&  player.TryGetComponent(out Stats playerStats) && !other.TryGetComponent(out Bullet bullet))
         {
-            TakeDamage(PlayerStatsManager.Damage);
+            Debug.Log($"WeaponPlayer {PlayerStatsManager.Damage}");
+            TakeDamage(playerStats.damage);
         }
     }
 

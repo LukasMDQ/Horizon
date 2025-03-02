@@ -68,7 +68,14 @@ public class Stats : Entity,IinstaKill
     {
         damage += powerUp;
         PlayerStatsManager.Damage = damage;
-        Debug.Log("Buff applied");
+        Debug.Log($"Buff applied {PlayerStatsManager.Damage}");
+    }
+
+    public void Debuff(int debuffValue)
+    {
+        damage -= debuffValue;
+        PlayerStatsManager.Damage = damage;
+        Debug.Log($"Debuff applied {PlayerStatsManager.Damage}");
     }
 
     public void MaxLifeUp(int healPower)
