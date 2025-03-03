@@ -54,6 +54,11 @@ public abstract class Entity : Rewind
             var myTransform = transform;
             Instantiate(_destroyEffect, myTransform.position, myTransform.rotation);
         }
+
+        if (gameObject.CompareTag("Enemy"))
+        {
+            RewardManager.AddGameStatCount(GameStats.EnemiesKilled);
+        }
         Destroy(gameObject);
     }
 
@@ -72,14 +77,12 @@ public abstract class Entity : Rewind
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"{other}");
         if (!other.CompareTag("WeaponPlayer")) return;
         
         var player = GameObject.FindWithTag("Player"); // TODO refactor later
 
         if (player != null && player != gameObject &&  player.TryGetComponent(out Stats playerStats) && !other.TryGetComponent(out Bullet bullet))
         {
-            Debug.Log($"WeaponPlayer {PlayerStatsManager.Damage}");
             TakeDamage(playerStats.damage);
         }
     }

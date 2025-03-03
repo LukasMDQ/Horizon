@@ -35,6 +35,7 @@ public class Bullet : MonoBehaviour
             DestructionBullet();// de destruye al impactar con el tag static (entorno).
         }
     }
+
     public void BuffBulletDamage()
     {
         if (IsBuffed)

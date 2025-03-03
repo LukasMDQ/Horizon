@@ -61,6 +61,7 @@ public class Stats : Entity,IinstaKill
     public void AddJewel(int jewelCount)
     {
         PlayerStatsManager.jewels += jewelCount;
+        RewardManager.AddGameStatCount(GameStats.JewelsCollected);
         Debug.Log("Jewel added to chalice");
     }
 
@@ -87,7 +88,6 @@ public class Stats : Entity,IinstaKill
 
     public override void TakeDamage(float dmg)
     {
-        Debug.Log("Entra a TakeDamage");
         if (PlayerStatsManager.isInvulnerable) return;
 
         base.TakeDamage(dmg);

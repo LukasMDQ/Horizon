@@ -11,6 +11,7 @@ public class EasterEggRecolectable : MonoBehaviour, IInteractable
         if (gameObject.activeSelf)
         {
             PlayerStatsManager.easterEggAcc++;
+            RewardManager.AddGameStatCount(GameStats.PostersCollected);
             source.PlayOneShot(clip);
             Debug.Log($"Player stats easter eggs {PlayerStatsManager.easterEggAcc}");
             gameObject.SetActive(false);
