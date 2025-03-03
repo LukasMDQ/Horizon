@@ -32,7 +32,7 @@ public class Stats : Entity,IinstaKill
         Debug.Log($"PlayerStatsManager.HP;{PlayerStatsManager.HP}");
         Debug.Log($"maxHp;{maxHp}");
         Debug.Log($"curHp;{curHp}");
-        Debug.Log($"PlayerStatsManager;{PlayerStatsManager.Damage}");
+        Debug.Log($"PlayerStatsManager.Damage;{PlayerStatsManager.Damage}");
         maxHp = PlayerStatsManager.MaxHP;
         curHp = PlayerStatsManager.HP;
         damage = PlayerStatsManager.Damage;
@@ -70,6 +70,12 @@ public class Stats : Entity,IinstaKill
         damage += powerUp;
         PlayerStatsManager.Damage = damage;
         Debug.Log($"Buff applied {PlayerStatsManager.Damage}");
+    }
+
+    public void RestoreBaseDamage()
+    {
+        damage = PlayerStatsManager.BaseDamage;
+        PlayerStatsManager.Damage = damage;
     }
 
     public void Debuff(int debuffValue)

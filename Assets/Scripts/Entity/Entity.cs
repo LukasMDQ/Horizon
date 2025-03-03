@@ -39,7 +39,6 @@ public abstract class Entity : Rewind
         
         if (curHp > maxHp)
             curHp = maxHp;
-
     }
 
     public virtual void Death()
@@ -81,9 +80,9 @@ public abstract class Entity : Rewind
         
         var player = GameObject.FindWithTag("Player"); // TODO refactor later
 
-        if (player != null && player != gameObject &&  player.TryGetComponent(out Stats playerStats) && !other.TryGetComponent(out Bullet bullet))
+        if (player != null && player != gameObject && !other.TryGetComponent(out Bullet bullet))
         {
-            TakeDamage(playerStats.damage);
+            TakeDamage(PlayerStatsManager.Damage);
         }
     }
 

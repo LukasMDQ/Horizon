@@ -23,16 +23,16 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {        
-        if (other.TryGetComponent(out Entity entity) && other.CompareTag("Enemy"))//Interactura con el enemigo y se destruye.
+        if (other.TryGetComponent(out Entity entity) && !other.CompareTag("Player"))
         {
             BuffBulletDamage();
-            Debug.Log($"BulletDamage {damage}");
+            Debug.Log($"BulletDamage {damage} and is buffed {IsBuffed}");
             entity.TakeDamage(damage);
             DestructionBullet();
         }
         if (other.CompareTag("Static"))
         {            
-            DestructionBullet();// de destruye al impactar con el tag static (entorno).
+            DestructionBullet();// Se destruye al impactar con el tag static (entorno).
         }
     }
 
@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour
         if (IsBuffed)
         {
             damage *= buffBullet;
-        }
+        } 
     }
       
     void DestructionBullet()

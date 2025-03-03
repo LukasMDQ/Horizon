@@ -18,4 +18,5 @@ public static class PlayerStatsManager
 
     public static int easterEggAcc;
     public static int Damage { get; set; } = 50;
+    public static int BaseDamage { get; set; } = 50;
 }

@@ -82,7 +82,6 @@ public class Skills : MonoBehaviour
     private void ActivateSkill(int index)
     {
        
-        Debug.Log("activacion");
         if (index >= 0 && index < skillsObject.Length)
         {
             // Activar la habilidad 
@@ -108,7 +107,7 @@ public class Skills : MonoBehaviour
         yield return new WaitForSeconds(activeTime);
 
         // Desactivar la habilidad
-        _stats.Debuff(buffMeele);
+        _stats.RestoreBaseDamage();
         Bullet.IsBuffed = false;
 
         skillsObject[index].SetActive(false);

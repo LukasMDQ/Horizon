@@ -4808,31 +4808,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1395587440981404620, guid: 3fabc1f8be74b54428620105588eaa49, type: 3}
       propertyPath: m_Size.x
-      value: 0.14758484
+      value: 0.29289556
       objectReference: {fileID: 0}
     - target: {fileID: 1395587440981404620, guid: 3fabc1f8be74b54428620105588eaa49, type: 3}
       propertyPath: m_Size.y
-      value: 0.5229014
+      value: 0.8567986
       objectReference: {fileID: 0}
     - target: {fileID: 1395587440981404620, guid: 3fabc1f8be74b54428620105588eaa49, type: 3}
       propertyPath: m_Size.z
-      value: 0.14758386
+      value: 0.23952411
       objectReference: {fileID: 0}
     - target: {fileID: 1395587440981404620, guid: 3fabc1f8be74b54428620105588eaa49, type: 3}
       propertyPath: m_Center.x
-      value: 0.0000009560064
+      value: -0.00038301945
       objectReference: {fileID: 0}
     - target: {fileID: 1395587440981404620, guid: 3fabc1f8be74b54428620105588eaa49, type: 3}
       propertyPath: m_Center.y
-      value: 0.24616866
+      value: 0.41311723
       objectReference: {fileID: 0}
     - target: {fileID: 1395587440981404620, guid: 3fabc1f8be74b54428620105588eaa49, type: 3}
       propertyPath: m_Center.z
-      value: 0.0000004780032
+      value: 0.0027057768
       objectReference: {fileID: 0}
     - target: {fileID: 1395587440981404620, guid: 3fabc1f8be74b54428620105588eaa49, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395587440981404620, guid: 3fabc1f8be74b54428620105588eaa49, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4651629928008614796, guid: 3fabc1f8be74b54428620105588eaa49, type: 3}
       propertyPath: m_Name
@@ -30947,6 +30951,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1395587440981404620, guid: 3fabc1f8be74b54428620105588eaa49, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4651629928008614796, guid: 3fabc1f8be74b54428620105588eaa49, type: 3}
       propertyPath: m_Name
       value: HolyWater (1)
@@ -42566,6 +42574,10 @@ PrefabInstance:
     - target: {fileID: 4620333009914668170, guid: e4bd81304b3a2b44caf2d4bedba717f6, type: 3}
       propertyPath: m_Name
       value: Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620333009914668170, guid: e4bd81304b3a2b44caf2d4bedba717f6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8405740251278990034, guid: e4bd81304b3a2b44caf2d4bedba717f6, type: 3}
       propertyPath: m_LocalPosition.x

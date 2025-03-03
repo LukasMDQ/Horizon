@@ -10,8 +10,10 @@ public class HealDrop : Drop
     {
         if (other.CompareTag("Player") && other.TryGetComponent(out Stats stats))
         {
-            stats.Heal(healValue);
-            base.ApplyDropEffect(other);
+            if (stats.curHp < stats.maxHp) { 
+                stats.Heal(healValue);
+                base.ApplyDropEffect(other);                        
+            }
         }
     }
 }

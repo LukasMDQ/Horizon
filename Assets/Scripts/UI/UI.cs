@@ -15,7 +15,7 @@ public class UI : MonoBehaviour
     public Animator AchievementAnimator;
     public TextMeshProUGUI AchievementText;
    
-    private void Start()
+    private void Awake()
     {
         UI UIInstance = this;
         RewardManager.SetUIReference(UIInstance);

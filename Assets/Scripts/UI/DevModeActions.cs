@@ -48,4 +48,16 @@ public class DevModeActions : MonoBehaviour
         PlayerStatsManager.Damage = (int)dmgValue;
         Debug.Log($"dmgPlayer:{PlayerStatsManager.Damage}");
     }
+
+    public void ToggleAllJewels(bool checkToggle)
+    {
+        if (checkToggle)
+        {
+            PlayerStatsManager.jewels = 3;
+        }
+        else
+        {
+            PlayerStatsManager.jewels = 0;
+        }
+    }
 }
