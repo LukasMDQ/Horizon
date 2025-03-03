@@ -20487,6 +20487,10 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 2440232252101897863, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
+      propertyPath: AchievementText
+      value: 
+      objectReference: {fileID: 2010384794}
+    - target: {fileID: 2440232252101897863, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
       propertyPath: AchievementCapsule
       value: 
       objectReference: {fileID: 130853672}
@@ -39968,6 +39972,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7187590568364773820, guid: 9cc8cd2156291d9468415c34c3a98639, type: 3}
   m_PrefabInstance: {fileID: 1196191722}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2010384794 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5806539020150227309, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+  m_PrefabInstance: {fileID: 130853670}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2010824636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 316233740034108677, guid: 3fabc1f8be74b54428620105588eaa49, type: 3}
