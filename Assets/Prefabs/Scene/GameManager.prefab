@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6357165825127934398}
   - component: {fileID: 4839065417795769342}
   - component: {fileID: 418016032446228734}
+  - component: {fileID: 2440232252101897863}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 5818000206381852566, guid: 2cdf99e62f3fad5428e79dfeb68d4650, type: 3}
+  devMenu: {fileID: 0}
+  toggleKey: 282
   isPaused: 0
 --- !u!114 &418016032446228734
 MonoBehaviour:
@@ -60,3 +63,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5473360808913214488, guid: fef11dfd3057a544c8608cec553831da, type: 3}
+  rewinds: []
+  animTransition: {fileID: 0}
+  sceneName: 
+  transitionDuration: 0
+--- !u!114 &2440232252101897863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611117811128207861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d065cb03e528e394cb156685f8a7937c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AchievementCapsule: {fileID: 0}
+  AchievementAnimator: {fileID: 0}
+  AchievementText: {fileID: 0}

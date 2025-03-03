@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public static class RewardManager
 {
+    private static UI _ui;
+
     private static Dictionary<string, int> gameStats = new Dictionary<string, int>
     {
         { GameStats.JewelsCollected, 0 },
@@ -76,12 +80,18 @@ public static class RewardManager
         }
     }
 
+    public static void SetUIReference(UI ui)
+    {
+        _ui = ui;
+    }
+
     public static void UnlockReward(string rewardName)
     {
         if (rewards.ContainsKey(rewardName) && !rewards[rewardName])
         {
             rewards[rewardName] = true;
             Debug.Log($"¡Logro desbloqueado: {rewardName}!");
+            _ui?.AchievementShow(rewardName);
         }
     }
 

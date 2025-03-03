@@ -11123,6 +11123,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 32edffebf979b21468b26ad7765223ea, type: 3}
   m_PrefabInstance: {fileID: 420567873}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &423178891 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5806539020150227309, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+  m_PrefabInstance: {fileID: 1790599977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &423178892 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6379064149714909473, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+  m_PrefabInstance: {fileID: 1790599977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &423178893 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1364216479330483960, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+  m_PrefabInstance: {fileID: 1790599977}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &435863073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1792407704121691769, guid: 96e4c24c29839c942bfc249d9e4d37f3, type: 3}
@@ -11479,6 +11500,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2440232252101897863, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
+      propertyPath: AchievementText
+      value: 
+      objectReference: {fileID: 423178891}
+    - target: {fileID: 2440232252101897863, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
+      propertyPath: AchievementCapsule
+      value: 
+      objectReference: {fileID: 423178893}
+    - target: {fileID: 2440232252101897863, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
+      propertyPath: AchievementAnimator
+      value: 
+      objectReference: {fileID: 423178892}
     - target: {fileID: 4839065417795769342, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -16126,7 +16159,6 @@ GameObject:
   m_Component:
   - component: {fileID: 786412634}
   - component: {fileID: 786412636}
-  - component: {fileID: 786412635}
   m_Layer: 0
   m_Name: CameraGrate
   m_TagString: Untagged
@@ -16149,14 +16181,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 221606465}
   m_LocalEulerAnglesHint: {x: 7.03, y: -62.102, z: 0.652}
---- !u!81 &786412635
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786412633}
-  m_Enabled: 1
 --- !u!20 &786412636
 Camera:
   m_ObjectHideFlags: 0
@@ -37029,6 +37053,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6036389804144309665, guid: fef11dfd3057a544c8608cec553831da, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 60ea0478f9d58f9499ee4ccd4f7108db, type: 3}
     - target: {fileID: 6051568547623893218, guid: fef11dfd3057a544c8608cec553831da, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9877196

@@ -9,17 +9,45 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {    
     [SerializeField] // ReSharper disable once InconsistentNaming
-    private Slider _slider;    
-    public TextMeshProUGUI textMesh;  
+    //private Slider _slider;
+    //public TextMeshProUGUI textMesh;
+    public CanvasGroup AchievementCapsule;
+    public Animator AchievementAnimator;
+    public TextMeshProUGUI AchievementText;
    
     private void Start()
     {
-        textMesh = GetComponent<TextMeshProUGUI>();
-        _slider = GetComponent<Slider>(); //barraHp
-        
+        UI UIInstance = this;
+        RewardManager.SetUIReference(UIInstance);
+
+        AchievementCapsule.alpha = 0.0f;
+        AchievementText.alpha = 0.0f;
     }   
+     
+    //---------------LOGROS---------------------------//
+
+    public void AchievementShow(string RewardName)
+    {
+        AchievementAnimator.SetTrigger("FadeIn");
+        switch (RewardName)
+        {
+            case "AllJewelsCollected":
+                AchievementText.SetText(" *Máximo Poder* ");
+                break;
+
+            case "AllPostersCollected":
+                AchievementText.SetText(" *La Chiqui por Siempre* ");
+                break;
+
+            case "FirstEnemiesKilled":
+                AchievementText.SetText(" *Bienvenido a La Matanza* ");
+                break;
+        }
+    }
+
+
     //---------------LOGICA BARRA HP--------------//    
-    public void ChangeMaxHp(float maxLife)
+    /*public void ChangeMaxHp(float maxLife)
     {
         _slider.maxValue = maxLife;       
     }    
@@ -32,6 +60,6 @@ public class UI : MonoBehaviour
     {
         ChangeMaxHp(curLife);
         ChangeCurrentHp( curLife);
-    }    
+    }*/
 
 }
