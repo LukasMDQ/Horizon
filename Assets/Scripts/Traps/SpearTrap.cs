@@ -7,6 +7,8 @@ public class SpearTrap : MonoBehaviour
 {
     [SerializeField] private Transform[] _spearsSpawner;
     [SerializeField] private GameObject spearPrefab;
+    [SerializeField] private float spearCadence;
+
 
     public bool isActiveTrap = false;
     private Coroutine activeTrapCoroutine;
@@ -34,7 +36,7 @@ public class SpearTrap : MonoBehaviour
                
                 Instantiate(spearPrefab, _spearsSpawner[i].position, _spearsSpawner[i].rotation);
                 
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(spearCadence);
             }
         }
     }
