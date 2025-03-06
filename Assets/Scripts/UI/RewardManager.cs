@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +8,8 @@ public static class RewardManager
 {
     private static UI _ui;
 
+
+
     private static Dictionary<string, int> gameStats = new Dictionary<string, int>
     {
         { GameStats.JewelsCollected, 0 },
@@ -15,11 +17,11 @@ public static class RewardManager
         { GameStats.EnemiesKilled, 0 }
     };
 
-    private static Dictionary<string, bool> rewards = new Dictionary<string, bool>
+    private static Dictionary<string, Reward> rewards = new Dictionary<string, Reward>
     {
-        { "AllJewelsCollected", false },
-        { "AllPostersCollected", false },
-        { "FirstEnemiesKilled", false }
+        { RewardNames.AllJewelsCollected, new Reward(RewardNames.AllJewelsCollected, " *MÃ¡ximo Poder* ") },
+        { RewardNames.AllPostersCollected, new Reward(RewardNames.AllPostersCollected, " *La Chiqui por Siempre* ") },
+        { RewardNames.FirstEnemiesKilled, new Reward(RewardNames.FirstEnemiesKilled, " *Bienvenido a La Matanza* ") }
     };
 
     public static void RegisterStat(string statName, int initialValue = 0)
@@ -30,11 +32,11 @@ public static class RewardManager
         }
     }
 
-    public static void RegisterReward(string rewardName)
+    public static void RegisterReward(string rewardName, string description)
     {
         if (!rewards.ContainsKey(rewardName))
         {
-            rewards[rewardName] = false;
+            rewards[rewardName] = new Reward(rewardName, description);
         }
     }
 
@@ -47,7 +49,7 @@ public static class RewardManager
         }
         else
         {
-            Debug.LogWarning($"La estadística {gameStatsName} no está registrada.");
+            Debug.LogWarning($"La estadÃ­stica {gameStatsName} no estÃ¡ registrada.");
         }
     }
 
@@ -60,23 +62,23 @@ public static class RewardManager
             case GameStats.JewelsCollected:
                 if (gameStats[GameStats.JewelsCollected] >= 3)
                 {
-                    UnlockReward("AllJewelsCollected");
+                    UnlockReward(RewardNames.AllJewelsCollected);
                 }
-                break;
+            break;
 
             case GameStats.PostersCollected:
                 if (gameStats[GameStats.PostersCollected] >= 3)
                 {
-                    UnlockReward("AllPostersCollected");
+                    UnlockReward(RewardNames.AllPostersCollected);
                 }
-                break;
+            break;
 
             case GameStats.EnemiesKilled:
                 if (gameStats[GameStats.EnemiesKilled] >= 5)
                 {
-                    UnlockReward("FirstEnemiesKilled");
+                    UnlockReward(RewardNames.FirstEnemiesKilled);
                 }
-                break;
+            break;
         }
     }
 
@@ -87,16 +89,24 @@ public static class RewardManager
 
     public static void UnlockReward(string rewardName)
     {
-        if (rewards.ContainsKey(rewardName) && !rewards[rewardName])
+        if (rewards.ContainsKey(rewardName) && !rewards[rewardName].Unlocked)
         {
-            rewards[rewardName] = true;
-            Debug.Log($"¡Logro desbloqueado: {rewardName}!");
+            Reward updatedReward = rewards[rewardName];
+            updatedReward.Unlocked = true;
+            rewards[rewardName] = updatedReward;
+
+            Debug.Log($"Â¡Logro desbloqueado: {rewardName}!");
             _ui?.AchievementShow(rewardName);
         }
     }
 
     public static bool IsRewardUnlocked(string rewardName)
     {
-        return rewards.ContainsKey(rewardName) && rewards[rewardName];
+        return rewards.ContainsKey(rewardName) && rewards[rewardName].Unlocked;
+    }
+
+    public static bool TryGetReward(string rewardName, out Reward reward)
+    {
+        return rewards.TryGetValue(rewardName, out reward);
     }
 }

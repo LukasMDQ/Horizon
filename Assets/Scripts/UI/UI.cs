@@ -22,26 +22,20 @@ public class UI : MonoBehaviour
 
         AchievementCapsule.alpha = 0.0f;
         AchievementText.alpha = 0.0f;
-    }   
-     
+    }
+
     //---------------LOGROS---------------------------//
 
-    public void AchievementShow(string RewardName)
+    public void AchievementShow(string rewardName)
     {
-        AchievementAnimator.SetTrigger("FadeIn");
-        switch (RewardName)
+        if (RewardManager.TryGetReward(rewardName, out Reward reward))
         {
-            case "AllJewelsCollected":
-                AchievementText.SetText(" *Máximo Poder* ");
-                break;
-
-            case "AllPostersCollected":
-                AchievementText.SetText(" *La Chiqui por Siempre* ");
-                break;
-
-            case "FirstEnemiesKilled":
-                AchievementText.SetText(" *Bienvenido a La Matanza* ");
-                break;
+            AchievementAnimator.SetTrigger("FadeIn");
+            AchievementText.SetText(reward.Description);
+        }
+        else
+        {
+            Debug.LogWarning($"El logro {rewardName} no está registrado en RewardManager.");
         }
     }
 
