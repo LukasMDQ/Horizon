@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-
+//TP2- Hernandez Lucas
 public class ToggleObjectCoroutine : MonoBehaviour
 {
     public GameObject FireDamage;

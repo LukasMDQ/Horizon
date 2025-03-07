@@ -1,6 +1,10 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;  // Necesario para usar UI como Slider
+//TP2- Hernandez Lucas
+//TP2-Nico Luchetti
+//TP2- Lidia Paiva
+
 
 public class Skills : MonoBehaviour
 {

@@ -1,6 +1,8 @@
 using UnityEngine;
 using Weapons;
 
+//TP2- Nico Luchetti
+
 // ReSharper disable once CheckNamespace
 [RequireComponent(typeof(Movement3D))]
 [RequireComponent(typeof(WeaponChanger))]

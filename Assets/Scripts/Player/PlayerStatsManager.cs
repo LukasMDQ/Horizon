@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TP2- Paiva Lidia
 public static class PlayerStatsManager
 {
     public static int HP { get; set; } = 100;

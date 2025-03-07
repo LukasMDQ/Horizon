@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+//TP2- Lidia Paiva
+
 public static class RewardManager
 {
     private static UI _ui;
