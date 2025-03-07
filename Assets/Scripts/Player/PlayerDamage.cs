@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-// TP 2 - Ahumada, Leandro
+//fINAL - - Ahumada, Leandro
 // Script de Daño a Meleé.
 
 public class PlayerDamage : MonoBehaviour

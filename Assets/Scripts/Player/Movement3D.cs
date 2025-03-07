@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 // ReSharper disable once CheckNamespace
-//TP2- Hernandez Lucas
+//fINAL - Hernandez Lucas
 public class Movement3D : MonoBehaviour
 {
     private Rigidbody _rigidBody;

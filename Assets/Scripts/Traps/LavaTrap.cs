@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-//TP2- Hernandez Lucas
+//TP FINAL- Hernandez Lucas
 
 public class LavaTrap : MonoBehaviour
 {

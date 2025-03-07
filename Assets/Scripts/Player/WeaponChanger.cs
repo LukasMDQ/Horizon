@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
-
+//fINAL - Hernandez Lucas - Luchetti, Nicolás 
 // ReSharper disable once CheckNamespace
 public class WeaponChanger : MonoBehaviour
 {

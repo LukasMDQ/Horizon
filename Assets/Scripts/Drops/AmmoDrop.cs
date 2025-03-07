@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
 
-//Lidia Paiva
-//Lucas Hernandez
+//TP FINAL- Lidia Paiva - ucas Hernandez
 public class AmmoDrop : Drop
 {
     public override void ApplyDropEffect(Collider other)

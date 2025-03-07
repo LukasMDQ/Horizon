@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
-//TP2- Hernandez Lucas
+//fINAL - Hernandez Lucas
 public class Player : MonoBehaviour
 {
     Vector3 _direction;

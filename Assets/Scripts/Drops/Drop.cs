@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//TP2- Hernandez Lucas
-//TP2- Lidia Paiva
+//TP FINAL- Hernandez Lucas - Lidia Paiva
 public abstract class Drop : MonoBehaviour
 {
     public AudioClip collisionSound;

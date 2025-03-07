@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-//TP2- Hernandez Lucas
+//fINAL - Hernandez Lucas
 public class Instakill:MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)

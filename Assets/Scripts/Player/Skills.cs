@@ -1,9 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;  // Necesario para usar UI como Slider
-//TP2- Hernandez Lucas
-//TP2-Nico Luchetti
-//TP2- Lidia Paiva
+//TP FINAL- Hernandez Lucas - Nico Luchetti - Lidia Paiva
 
 
 public class Skills : MonoBehaviour

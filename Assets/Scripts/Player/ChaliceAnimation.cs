@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Animator))]
 
-// TP - 2 - Luchetti, Nicolás - Ahumada, Leandro 
+//TP FINAL- - Luchetti, Nicolás - Ahumada, Leandro 
 // Control de animaciones del Caliz.
 
 public class ChaliceAnimation : MonoBehaviour

@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 // ReSharper disable once CheckNamespace
-//TP2 - Hernandez Lucas - Luchetti, Nicolás - Paiva, Lidia - Ahumada, Leandro
+//fINAL - Hernandez Lucas - Luchetti, Nicolás - Paiva, Lidia - Ahumada, Leandro
 
 public class Stats : Entity,IinstaKill, IDamageable
 {
