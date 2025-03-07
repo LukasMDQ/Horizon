@@ -27,6 +27,11 @@ public class Skills : MonoBehaviour
     // ReSharper disable once InconsistentNaming
     [SerializeField] private SkillsCooldownFeedback[] _skillsCooldownFeedback;
 
+    public enum SkillType
+    {
+        Heal, Buff, Shield 
+    }
+
 
     private void Start()
     {
@@ -48,22 +53,6 @@ public class Skills : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !onCooldown[0] && PlayerStatsManager.jewels >= 1 && _chaliceController.IsChargeChalice)
-        {
-            ActivateSkill(0);
-            _stats.Heal(50);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && !onCooldown[1] && PlayerStatsManager.jewels >= 2 && _chaliceController.IsChargeChalice)
-        {
-            ActivateSkill(1);
-            _stats.Buff(buffMeele);
-            Bullet.IsBuffed = true;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !onCooldown[2] && PlayerStatsManager.jewels >= 3 && _chaliceController.IsChargeChalice)
-        {
-            ActivateSkill(2);
-        }
-
         // Actualiza tiempos de cooldown
         for (int i = 0; i < skillsObject.Length; i++)
         {
@@ -78,7 +67,35 @@ public class Skills : MonoBehaviour
             }
         }
     }
+    public void SkillToUse(SkillType skill)
+    {
+        switch (skill) 
+        {
+            case SkillType.Heal:
+                if (!onCooldown[0] && PlayerStatsManager.jewels >= 1 && _chaliceController.IsChargeChalice)
+                {
+                    ActivateSkill(0);
+                    _stats.Heal(50);
+                }
+                break;
+            case SkillType.Buff:
+                if (!onCooldown[1] && PlayerStatsManager.jewels >= 2 && _chaliceController.IsChargeChalice)
+                {
+                    ActivateSkill(1);
+                    _stats.Buff(buffMeele);
+                    Bullet.IsBuffed = true;
+                }
+                break;
+            case SkillType.Shield:
+                if (!onCooldown[2] && PlayerStatsManager.jewels >= 3 && _chaliceController.IsChargeChalice)
+                {
+                    ActivateSkill(2);
+                }
+                break;
+            default: break;
 
+        }
+    }
     private void ActivateSkill(int index)
     {
        

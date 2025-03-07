@@ -11,6 +11,7 @@ public class InputController : MonoBehaviour
 
     private RangedWeapon _rangedWeapon;
     private IInteractable currentInteractable;
+    [SerializeField] private Skills skills;
 
     private void Awake()
     {
@@ -27,6 +28,8 @@ public class InputController : MonoBehaviour
         ChangeWeaponInput();
         ReloadWeaponInput();
         InteractInput();
+        SkillInput();
+
 
         if (Input.GetMouseButtonDown(0) && !Cursor.visible)
         {
@@ -117,5 +120,21 @@ public class InputController : MonoBehaviour
         var mouseY = Input.GetAxis("Mouse Y");
         
         movement3D.MouseLook(mouseX, mouseY);
+    }
+    private void SkillInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            skills.SkillToUse(Skills.SkillType.Heal);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            skills.SkillToUse(Skills.SkillType.Buff);
+            
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            skills.SkillToUse(Skills.SkillType.Shield);
+        }
     }
 }

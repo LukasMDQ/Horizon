@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 //TP2- Hernandez Lucas
 
-public class LavaTrap : MonoBehaviour
+public class LavaTrap : Entity
 {
     public float dps = default; // daño por segundo
     public float duration = 1.5f;// duracion del objeto
@@ -12,8 +12,8 @@ public class LavaTrap : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        Stats stats = other.GetComponent<Stats>();
-        
+        Stats stats = other.GetComponent<Stats>();        
+
         if (stats != null)
         {
            stats.TakeDamage (dps * Time.deltaTime);

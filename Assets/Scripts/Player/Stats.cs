@@ -13,6 +13,7 @@ public class Stats : Entity,IinstaKill
     public Image hpBarLerp;
     public Image staminaBar;
     public CanvasGroup hpVignette;
+    public Jewels jewels;
 
     public float stamina, maxStamina;
     public int damage;
@@ -61,6 +62,7 @@ public class Stats : Entity,IinstaKill
     public void AddJewel(int jewelCount)
     {
         PlayerStatsManager.jewels += jewelCount;
+        
         RewardManager.AddGameStatCount(GameStats.JewelsCollected);
         Debug.Log("Jewel added to chalice");
     }
