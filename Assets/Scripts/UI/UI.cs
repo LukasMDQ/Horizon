@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // ReSharper disable once InconsistentNaming
-
+//Leandro Ahumada
 public class UI : MonoBehaviour
 {    
     [SerializeField] // ReSharper disable once InconsistentNaming
