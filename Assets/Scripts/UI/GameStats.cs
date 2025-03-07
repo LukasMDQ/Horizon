@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Lidia Mariana Paiva
+
 public static class GameStats
 {
     public const string JewelsCollected = "jewelsCollected";

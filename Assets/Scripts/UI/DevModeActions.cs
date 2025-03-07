@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+// Lidia Mariana Paiva
+
 public class DevModeActions : MonoBehaviour
 {
     public TMP_Dropdown sceneDropdown;
