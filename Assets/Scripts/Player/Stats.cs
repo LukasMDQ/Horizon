@@ -6,15 +6,14 @@ using UnityEngine.UI;
 // ReSharper disable once CheckNamespace
 //TP2 - Hernandez Lucas - Luchetti, Nicolás - Paiva, Lidia - Ahumada, Leandro
 
-public class Stats : Entity,IinstaKill
+public class Stats : Entity,IinstaKill, IDamageable
 {
     [SerializeField] private GameObject _lostMenu;
     public Image hpBar;
     public Image hpBarLerp;
     public Image staminaBar;
     public CanvasGroup hpVignette;
-    public Jewels jewels;
-
+    
     public float stamina, maxStamina;
     public int damage;
     [FormerlySerializedAs("ChargeRate")] public float chargeRate;

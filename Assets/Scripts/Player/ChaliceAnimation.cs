@@ -14,21 +14,22 @@ public class ChaliceAnimation : MonoBehaviour
     private Animator _chalice;
     public Skills skills;
     public Stats stats;
-    public GameObject jewel1;
-    public GameObject jewel2;
-    public GameObject jewel3;
-    
+    public GameObject[] jewels;  
+
+
     //Declaracion de Nombres de Triggers para facil modificación/acceso
 
     private static readonly int Trigger = Animator.StringToHash("Trigger");
-    private static readonly int Cooldown = Animator.StringToHash("Cooldown");
-    private static readonly int Jewel1 = Animator.StringToHash("Jewel1");
-    private static readonly int Jewel2 = Animator.StringToHash("Jewel2");
-    private static readonly int Jewel3 = Animator.StringToHash("Jewel3");
+    private static readonly int Cooldown = Animator.StringToHash("Cooldown");    
+    private static int[] JewelsHash = new int[3];
 
     private void Start()
     {
         _chalice = GetComponent<Animator>();
+
+        JewelsHash[0] = Animator.StringToHash("Jewel1");
+        JewelsHash[2] = Animator.StringToHash("Jewel2");
+        JewelsHash[1] = Animator.StringToHash("Jewel3");
     }
 
     private void Update()
@@ -73,16 +74,16 @@ public class ChaliceAnimation : MonoBehaviour
         switch (PlayerStatsManager.jewels) //Setear la visibilidad dependiendo de cuantas gemas tenemos.
         {
             case 1:
-                jewel1.SetActive(true);
-                _chalice.SetTrigger(Jewel1);
+                jewels[0].SetActive(true);
+                _chalice.SetTrigger(JewelsHash[0]);
                 break;
             case 2:
-                jewel2.SetActive(true);
-                _chalice.SetTrigger(Jewel2);
+                jewels[1].SetActive(true);
+                _chalice.SetTrigger(JewelsHash[1]);
                 break;
             case 3:
-                jewel3.SetActive(true);
-                _chalice.SetTrigger(Jewel3);
+                jewels[2].SetActive(true);
+                _chalice.SetTrigger(JewelsHash[2]);
                 break;
         }
     }
