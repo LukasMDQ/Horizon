@@ -17838,6 +17838,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f21da90b3ece5c45989524abef5a01c, type: 3}
+--- !u!1 &715994256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6625308455456877351, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+  m_PrefabInstance: {fileID: 904534826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &715994257 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 219929158620738556, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+  m_PrefabInstance: {fileID: 904534826}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &716154928 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5954985460992069298, guid: 5f21da90b3ece5c45989524abef5a01c, type: 3}
@@ -18067,7 +18083,7 @@ PrefabInstance:
     - target: {fileID: 528229664989663828, guid: fef11dfd3057a544c8608cec553831da, type: 3}
       propertyPath: _lostMenu
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 715994256}
     - target: {fileID: 528229664989663828, guid: fef11dfd3057a544c8608cec553831da, type: 3}
       propertyPath: hpBarLerp
       value: 
@@ -18179,7 +18195,7 @@ PrefabInstance:
     - target: {fileID: 8559720209632651842, guid: fef11dfd3057a544c8608cec553831da, type: 3}
       propertyPath: textChaliceUses
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 715994257}
     - target: {fileID: 9197845906957863603, guid: fef11dfd3057a544c8608cec553831da, type: 3}
       propertyPath: jewel1
       value: 
@@ -19120,6 +19136,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+--- !u!95 &904534827 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2456374365405765089, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+  m_PrefabInstance: {fileID: 904534826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &904534828 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7547764591194519784, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
@@ -26982,7 +27003,7 @@ PrefabInstance:
     - target: {fileID: 3342594356851288016, guid: 7faaa98fee52d6f4781eff8f13500e34, type: 3}
       propertyPath: animTransition
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 904534827}
     - target: {fileID: 3739056160088310732, guid: 7faaa98fee52d6f4781eff8f13500e34, type: 3}
       propertyPath: m_Size.x
       value: 0.03776793

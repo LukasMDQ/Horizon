@@ -41141,7 +41141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Checkpoint
-  animTransition: {fileID: 0}
+  animTransition: {fileID: 1634528020}
 --- !u!65 &1180512528
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49325,7 +49325,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 931460109}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67c610c894b50d6408370fe2fbcedf27, type: 3}
   m_Name: 
@@ -56540,6 +56540,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca65590ee38a4f878c549a1c596e4137, type: 3}
+--- !u!95 &1634528020 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2456374365405765089, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+  m_PrefabInstance: {fileID: 130853670}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1638361680
 PrefabInstance:
   m_ObjectHideFlags: 0
