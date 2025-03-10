@@ -43743,9 +43743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skills: {fileID: 0}
   stats: {fileID: 0}
-  jewel1: {fileID: 0}
-  jewel2: {fileID: 0}
-  jewel3: {fileID: 0}
+  jewels: []
 --- !u!95 &1228172932
 Animator:
   serializedVersion: 5
@@ -59347,10 +59345,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4839065417795769342, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6357165825127934398, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 85.359375
@@ -59392,8 +59386,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 4839065417795769342, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
     - {fileID: 418016032446228734, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
+    - {fileID: 4839065417795769342, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
