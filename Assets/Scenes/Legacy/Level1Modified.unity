@@ -27758,6 +27758,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 496770, guid: 5d77920e991c410ab2bec909ec78a579, type: 3}
   m_PrefabInstance: {fileID: 1364733434}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &897895325 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2456374365405765089, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+  m_PrefabInstance: {fileID: 1790599977}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &898191414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40668,6 +40673,7 @@ PrefabInstance:
     - {fileID: 5531204122240579573, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
     - {fileID: 2601291688633998289, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
     - {fileID: 2832838587892294049, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+    - {fileID: 1191255182111059609, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3171976026667416454, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
       insertIndex: -1
@@ -49108,7 +49114,7 @@ PrefabInstance:
     - target: {fileID: 3342594356851288016, guid: 7faaa98fee52d6f4781eff8f13500e34, type: 3}
       propertyPath: animTransition
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 897895325}
     - target: {fileID: 3739056160088310732, guid: 7faaa98fee52d6f4781eff8f13500e34, type: 3}
       propertyPath: m_Size.x
       value: 0.07845828

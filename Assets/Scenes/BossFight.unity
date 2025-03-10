@@ -15880,6 +15880,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+--- !u!1 &1292201580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1630526851048705559, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
+  m_PrefabInstance: {fileID: 1292201579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1292201581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6625308455456877351, guid: b5012c7f2662941498535bfc6c78b7f8, type: 3}
@@ -24370,6 +24375,10 @@ PrefabInstance:
       propertyPath: AchievementAnimator
       value: 
       objectReference: {fileID: 356658028}
+    - target: {fileID: 4839065417795769342, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
+      propertyPath: devMenu
+      value: 
+      objectReference: {fileID: 1292201580}
     - target: {fileID: 6357165825127934398, guid: 2b0c043d77d002942995aab91cbc9da4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 84.66937
