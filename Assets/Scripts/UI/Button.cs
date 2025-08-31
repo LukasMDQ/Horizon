@@ -46,7 +46,6 @@ public class Button : MonoBehaviour
 
     public void LoadGame()
     {
-        PlayerStatsManager.easterEggAcc = 0;
         PlayerStatsManager.HP = PlayerStatsManager.MaxHP;
         if (SceneManager.GetActiveScene().name != "Lvl1Remastered")
         {
